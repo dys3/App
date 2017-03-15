@@ -1,17 +1,20 @@
-# LivingTravel
+# WhereYouAt?
 
 Description:
-We want to compare different properties to determine which place is the most ideal place for people to stay at when they
-travel to different countries.
+meeting up a friend nearby                                                                       
 
 ## User Stories
 
 Core:
-- [ ] List properties nearby the target destination
-- [ ] Create a map of the properties
-- [ ] Display the properties into a table for direct comparison
-- [ ] Select property for more details
+- [ ] Have a profile for each person
+- [ ] Create an account using Parse
+- [ ] Search other users and add them as friends
+- [ ] Allow users to chat with each other
+- [ ] Have a map showing the destination of the events and how far other members are from the event
+- [ ] Notification when getting a message
 
 Optional:
-- [ ] Add transportation as a factor
-- [ ] Add nearby markets as a factor
+- [ ] Search for nearby events
+- [ ] A poll function in chat channel
+- [ ] planning schedule
+- [ ] Setting / personalized app
