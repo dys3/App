@@ -1,7 +1,7 @@
 # WhereYouAt?
 
 Description:
-meeting up a friend nearby                                                                       
+This app helps people coordinate when trying to meet up for an event. It will allow users to create events and view the location of each person and the time it will take for each of them to reach the event location.
 
 ## User Stories
 
