@@ -20,38 +20,38 @@ Optional:
 - [ ] Setting / personalized app
 
 Parse Data Tables <br/>
-Event
-{
-    "_id": "_id",
-    "_p_author": "_User$_p_author",
-    "location” : “location",
-    "description": "description",
-    "attendees": "attendees",
-    "media": "media",
-    "_created_at": "_created_at",
-    "_updated_at": "_updated_at"
-}
-
-_User
-{
-    "_id": "_id",
-"username": "username",
-“password”: “password”,
-“screen_name”: “screen_name”,
- “email”: “email”,
-“friends_count”: “friends_count”,
-    "_created_at": "_created_at",
-    "_updated_at": "_updated_at"
-}
-
-ChatMessage
-{
-    "_id": "_id",
-    "text": "text",
-    "_p_User": "_User$_p_author",
-    "_created_at": "_created_at",
-    "_updated_at": “_updated_at”
-}
+Event<br/>
+{<br/>
+    "_id": "_id",<br/>
+    "_p_author": "_User$_p_author",<br/>
+    "location” : “location",<br/>
+    "description": "description",<br/>
+    "attendees": "attendees",<br/>
+    "media": "media",<br/>
+    "_created_at": "_created_at",<br/>
+    "_updated_at": "_updated_at"<br/>
+}<br/>
+<br/>
+_User<br/>
+{<br/>
+    "_id": "_id",<br/>
+"username": "username",<br/>
+“password”: “password”,<br/>
+“screen_name”: “screen_name”,<br/>
+ “email”: “email”,<br/>
+“friends_count”: “friends_count”,<br/>
+    "_created_at": "_created_at",<br/>
+    "_updated_at": "_updated_at"<br/>
+}<br/>
+<br/>
+ChatMessage<br/>
+{<br/>
+    "_id": "_id",<br/>
+    "text": "text",<br/>
+    "_p_User": "_User$_p_author",<br/>
+    "_created_at": "_created_at",<br/>
+    "_updated_at": “_updated_at”<br/>
+}<br/>
 
 
 
