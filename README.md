@@ -19,6 +19,43 @@ Optional:
 - [ ] planning schedule
 - [ ] Setting / personalized app
 
+Parse Data Tables <br/>
+Event
+{
+    "_id": "_id",
+    "_p_author": "_User$_p_author",
+    "location” : “location",
+    "description": "description",
+    "attendees": "attendees",
+    "media": "media",
+    "_created_at": "_created_at",
+    "_updated_at": "_updated_at"
+}
+
+_User
+{
+    "_id": "_id",
+"username": "username",
+“password”: “password”,
+“screen_name”: “screen_name”,
+ “email”: “email”,
+“friends_count”: “friends_count”,
+    "_created_at": "_created_at",
+    "_updated_at": "_updated_at"
+}
+
+ChatMessage
+{
+    "_id": "_id",
+    "text": "text",
+    "_p_User": "_User$_p_author",
+    "_created_at": "_created_at",
+    "_updated_at": “_updated_at”
+}
+
+
+
+
 What is your product pitch?<br/>
 Start with a problem statement and follow up with a solution.<br/>
 Focus on engaging your audience with a relatable need.<br/>
