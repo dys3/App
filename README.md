@@ -19,7 +19,7 @@ Optional:
 - [ ] planning schedule
 - [ ] Setting / personalized app
 
-What is your product pitch?
+What is your product pitch?<br/>
 Start with a problem statement and follow up with a solution.
 Focus on engaging your audience with a relatable need.
 The biggest struggles when meeting up with friends is finding our friends. It is not always easy to find your friends and we always end up losing precious hang out time. 
