@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Bolts/Tasks (1.8.4)
   - GoogleMaps (2.1.1):
     - GoogleMaps/Maps (= 2.1.1)
   - GoogleMaps/Base (2.1.1)
@@ -24,19 +25,29 @@ PODS:
     - GooglePlaces (= 2.1.1)
   - GooglePlaces (2.1.1):
     - GoogleMaps/Base (= 2.1.1)
+  - Parse (1.14.2):
+    - Bolts/Tasks (~> 1.8)
+  - ParseUI (1.2.0):
+    - Bolts/Tasks (~> 1.3)
+    - Parse (~> 1.9)
 
 DEPENDENCIES:
   - AFNetworking
   - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
+  - Parse
+  - ParseUI
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
   GooglePlacePicker: 665f39f931f2df32f9dd3fcc45f7e8abf71e535c
   GooglePlaces: 35636d86e5020cba3856eb988c09a5491de0a65a
+  Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
+  ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
 
-PODFILE CHECKSUM: f4ef3108a71a94d8069ad3e011d0c7b417e07c9c
+PODFILE CHECKSUM: 35a4a475f7610d02d4a737fdc2baf458adc877db
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0
