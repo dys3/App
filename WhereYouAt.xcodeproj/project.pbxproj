@@ -12,6 +12,7 @@
 		75F1F3EF1E9F0EC50040943A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75F1F3ED1E9F0EC50040943A /* Main.storyboard */; };
 		75F1F3F11E9F0EC50040943A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75F1F3F01E9F0EC50040943A /* Assets.xcassets */; };
 		75F1F3F41E9F0EC50040943A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75F1F3F21E9F0EC50040943A /* LaunchScreen.storyboard */; };
+		8DC98F311EA5C7330042A386 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DC98F301EA5C7330042A386 /* Events.storyboard */; };
 		F428D2839B2DE9525F2CA4A6 /* Pods_WhereYouAt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D2A57675A96DF5F666C076 /* Pods_WhereYouAt.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,7 @@
 		75F1F3F01E9F0EC50040943A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75F1F3F31E9F0EC50040943A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75F1F3F51E9F0EC50040943A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DC98F301EA5C7330042A386 /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
 		B1D2A57675A96DF5F666C076 /* Pods_WhereYouAt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhereYouAt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6C74B1D08FB4E28F4EC17D /* Pods-WhereYouAt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereYouAt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhereYouAt/Pods-WhereYouAt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +69,7 @@
 				75F1F3F01E9F0EC50040943A /* Assets.xcassets */,
 				75F1F3F21E9F0EC50040943A /* LaunchScreen.storyboard */,
 				75F1F3F51E9F0EC50040943A /* Info.plist */,
+				8DC98F301EA5C7330042A386 /* Events.storyboard */,
 			);
 			path = WhereYouAt;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75F1F3F41E9F0EC50040943A /* LaunchScreen.storyboard in Resources */,
+				8DC98F311EA5C7330042A386 /* Events.storyboard in Resources */,
 				75F1F3F11E9F0EC50040943A /* Assets.xcassets in Resources */,
 				75F1F3EF1E9F0EC50040943A /* Main.storyboard in Resources */,
 			);
@@ -376,6 +380,7 @@
 				75F1F3FA1E9F0EC50040943A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
