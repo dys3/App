@@ -58,4 +58,5 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
          }
          */
         
+    }
 }

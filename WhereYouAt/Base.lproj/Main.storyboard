@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -57,9 +57,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHC-W6-Mrq">
-                                <rect key="frame" x="186" y="334" width="38" height="30"/>
+                                <rect key="frame" x="186" y="334" width="38" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="kRq-OY-mfl" kind="show" id="mkd-Ha-LsQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ykm-iK-wpz">
                                 <rect key="frame" x="93" y="334" width="55" height="30"/>
@@ -150,6 +153,16 @@
             </objects>
             <point key="canvasLocation" x="1871" y="-211"/>
         </scene>
+        <!--FriendsProfileStoryboard-->
+        <scene sceneID="O9h-mR-LcR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FriendsProfileStoryboard" id="lbp-Sx-ubS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="rxs-Y4-aa2"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sOD-6I-wVA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2476" y="22"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0PM-mU-W80">
             <objects>
@@ -164,6 +177,7 @@
                         <segue destination="QNf-GC-sfl" kind="relationship" relationship="viewControllers" id="CWY-0k-1ag"/>
                         <segue destination="KQY-AQ-cdf" kind="relationship" relationship="viewControllers" id="4nf-cb-EL6"/>
                         <segue destination="5mj-jv-xmT" kind="relationship" relationship="viewControllers" id="Bxh-wU-zWW"/>
+                        <segue destination="lbp-Sx-ubS" kind="relationship" relationship="viewControllers" id="Hok-1N-AxG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oj5-LN-uyx" userLabel="First Responder" sceneMemberID="firstResponder"/>
