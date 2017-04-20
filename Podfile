@@ -10,6 +10,4 @@ target 'WhereYouAt' do
     pod 'GooglePlacePicker'
     pod 'GoogleMaps'
     pod 'AFNetworking'
-    pod 'Parse'
-    pod 'ParseUI'
 end
