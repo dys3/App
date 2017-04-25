@@ -32,30 +32,31 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         var latitude: Double = -33.8670522
         var longitude: Double = 151.1957362
         
-        latitude = self.coordinate!.latitude
-        longitude = self.coordinate!.longitude
+        coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         
-        let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString("\(address!)") {
-            placemarks, error in
-            let placemark = placemarks?.first
-            self.coordinate = placemark?.location?.coordinate
-        }
+        goToLocation(location: coordinate!)
+        //        let geocoder = CLGeocoder()
+        //        geocoder.geocodeAddressString("\(address!)") {
+        //            placemarks, error in
+        //            let placemark = placemarks?.first
+        //            self.coordinate = placemark?.location?.coordinate
+        //        }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-        
     
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+    func goToLocation(location: CLLocationCoordinate2D) {
+        let span = MKCoordinateSpanMake(0.1, 0.1)
+        let region = MKCoordinateRegionMake(location, span)
+        mapView.setRegion(region, animated: false)
     }
-    */
-
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == CLAuthorizationStatus.authorizedWhenInUse {
+            locationManager.startUpdatingLocation()
+        }
+    }
 }
