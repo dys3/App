@@ -16,6 +16,8 @@
 		759815531EA96E82006FEDB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759815511EA96E82006FEDB4 /* Main.storyboard */; };
 		759815551EA96E82006FEDB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 759815541EA96E82006FEDB4 /* Assets.xcassets */; };
 		759815581EA96E82006FEDB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759815561EA96E82006FEDB4 /* LaunchScreen.storyboard */; };
+		8D65A99F1EAEFAE80007C0E9 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65A99D1EAEFAE80007C0E9 /* EventsViewController.swift */; };
+		8D65A9A01EAEFAE80007C0E9 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65A99E1EAEFAE80007C0E9 /* EventTableViewCell.swift */; };
 		FD608D1CA6C1A0FEA32F60A5 /* Pods_WhereYouAt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BEA18248847E92E7873E672 /* Pods_WhereYouAt.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		759815571EA96E82006FEDB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		759815591EA96E82006FEDB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77902B74B5A39979C1C6E618 /* Pods-WhereYouAt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereYouAt.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhereYouAt/Pods-WhereYouAt.release.xcconfig"; sourceTree = "<group>"; };
+		8D65A99D1EAEFAE80007C0E9 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsViewController.swift; path = ../../EventsViewController.swift; sourceTree = "<group>"; };
+		8D65A99E1EAEFAE80007C0E9 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewCell.swift; path = ../../EventTableViewCell.swift; sourceTree = "<group>"; };
 		9BEA18248847E92E7873E672 /* Pods_WhereYouAt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhereYouAt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -76,6 +80,8 @@
 				75163C151EADCA04000B978A /* Map.storyboard */,
 				75163C171EADCA80000B978A /* Profile.storyboard */,
 				75163C131EADC9BE000B978A /* Events.storyboard */,
+				8D65A99D1EAEFAE80007C0E9 /* EventsViewController.swift */,
+				8D65A99E1EAEFAE80007C0E9 /* EventTableViewCell.swift */,
 				759815541EA96E82006FEDB4 /* Assets.xcassets */,
 				759815561EA96E82006FEDB4 /* LaunchScreen.storyboard */,
 				759815591EA96E82006FEDB4 /* Info.plist */,
@@ -227,7 +233,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				759815501EA96E81006FEDB4 /* ViewController.swift in Sources */,
+				8D65A99F1EAEFAE80007C0E9 /* EventsViewController.swift in Sources */,
 				75163C121EADC7D8000B978A /* MapViewController.swift in Sources */,
+				8D65A9A01EAEFAE80007C0E9 /* EventTableViewCell.swift in Sources */,
 				7598154E1EA96E81006FEDB4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
