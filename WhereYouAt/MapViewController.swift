@@ -14,6 +14,7 @@ import MapKit
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet var gestureRecognizer: UITapGestureRecognizer!
     
     var locationManager: CLLocationManager!
     var address: String? // in prev segue way thing
@@ -28,19 +29,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.distanceFilter = 200
         locationManager.requestWhenInUseAuthorization()
-        
-        var latitude: Double = -33.8670522
-        var longitude: Double = 151.1957362
-        
-        coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        
-        goToLocation(location: coordinate!)
-        //        let geocoder = CLGeocoder()
-        //        geocoder.geocodeAddressString("\(address!)") {
-        //            placemarks, error in
-        //            let placemark = placemarks?.first
-        //            self.coordinate = placemark?.location?.coordinate
-        //        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,5 +46,55 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         if status == CLAuthorizationStatus.authorizedWhenInUse {
             locationManager.startUpdatingLocation()
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            let span = MKCoordinateSpanMake(0.1, 0.1)
+            let region = MKCoordinateRegionMake(location.coordinate, span)
+            mapView.setRegion(region, animated: false)
+        }
+    }
+    
+    func locationsPickedLocation(/*controller: LocationsViewController,*/ latitude: NSNumber, longitude: NSNumber) {
+        addPin(latitude: latitude, longitude: longitude)
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let reuseID = "myAnnotationView"
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
+        if (annotationView == nil) {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+            
+        }
+        
+        let leftView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+//        leftView.image = pickedImage
+        annotationView?.leftCalloutAccessoryView = leftView
+        annotationView?.canShowCallout = true
+        
+        
+        // Add the image you stored from the image picker
+        
+        return annotationView
+    }
+    
+    func handleTap(gestureRecognizer: UITapGestureRecognizer) {
+        let location = gestureRecognizer.location(in: mapView)
+        let coordinate = self.view.convert(location, to: mapView)
+        
+        // Add anotation
+//        let annotation = MKPointAnnotation()
+//        annotation.coordinate = coordinate
+//        self.view.add(annotation)
+    }
+    
+    func addPin(latitude: NSNumber, longitude: NSNumber) {
+        let annotation = MKPointAnnotation()
+        let locationCoordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))
+        annotation.coordinate = locationCoordinate
+        annotation.title = "D.N.E."
+        mapView.addAnnotation(annotation)
     }
 }
