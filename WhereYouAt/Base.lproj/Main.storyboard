@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IPI-H4-Iwp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IPI-H4-Iwp">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -66,6 +66,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign Up"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bab-Rl-klC">
+                                <rect key="frame" x="144" y="387" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Enter"/>
+                                <connections>
+                                    <segue destination="3ta-cT-c2J" kind="show" id="Hyo-x3-jbu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -94,40 +102,40 @@
             </objects>
             <point key="canvasLocation" x="1206" y="243"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--Events-->
         <scene sceneID="MJL-of-fcW">
             <objects>
-                <viewControllerPlaceholder id="ecr-rO-gzd" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Events" id="ecr-rO-gzd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Bal-pA-Scf"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8IG-dO-BhG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2099" y="-43"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--Chat-->
         <scene sceneID="J1h-oT-LeF">
             <objects>
-                <viewControllerPlaceholder id="JVK-0Y-UuE" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Chat" id="JVK-0Y-UuE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="QzQ-cJ-1fg"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ovd-IC-QJw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2208" y="121"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--Map-->
         <scene sceneID="f6g-1f-ZFZ">
             <objects>
-                <viewControllerPlaceholder id="5fU-74-4On" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Map" id="5fU-74-4On" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="t6I-Yz-MwX"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IWZ-sv-B8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2088" y="286"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--Profile-->
         <scene sceneID="UOS-AS-i1T">
             <objects>
-                <viewControllerPlaceholder id="fND-V5-G72" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Profile" id="fND-V5-G72" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="PGw-VS-svU"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N49-cU-OGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
