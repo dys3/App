@@ -115,7 +115,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="NkU-GI-DJ4"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3dC-6T-TGF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -231,11 +230,13 @@
             </objects>
             <point key="canvasLocation" x="4275" y="117.25352112676056"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Profile-->
         <scene sceneID="RX9-f8-jyZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tVk-ii-Ndk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" id="8LD-0s-4Vd"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="k3d-gs-NJ2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
