@@ -11,10 +11,9 @@ import CoreLocation
 import AFNetworking
 import MapKit
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet var gestureRecognizer: UITapGestureRecognizer!
     
     var locationManager: CLLocationManager!
     var address: String? // in prev segue way thing
@@ -29,6 +28,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.distanceFilter = 200
         locationManager.requestWhenInUseAuthorization()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -80,15 +80,38 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         return annotationView
     }
     
-    func handleTap(gestureRecognizer: UITapGestureRecognizer) {
+    func onTap(gestureRecognizer: UITapGestureRecognizer) {
+        print("tap!")
+
         let location = gestureRecognizer.location(in: mapView)
         let coordinate = self.view.convert(location, to: mapView)
         
+        print("Tap area: \(coordinate)")
+        
         // Add anotation
+        /*
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate as! CLLocationCoordinate2D
+        mapView.addAnnotation(annotation)
+ */
 //        let annotation = MKPointAnnotation()
 //        annotation.coordinate = coordinate
 //        self.view.add(annotation)
     }
+    
+    @IBAction func tapToAddPin(_ sender: UILongPressGestureRecognizer) {
+        let location = sender.location(in: mapView)
+        let coordinate = self.mapView.convert(location, to: mapView)
+        let convertedCoordinate = CLLocationCoordinate2DMake(CLLocationDegrees(coordinate.x), CLLocationDegrees(coordinate.y))
+        
+        let annotation = MKPointAnnotation()
+        annotation.title = "Bob"
+        annotation.coordinate = convertedCoordinate
+        self.mapView.removeAnnotations(mapView.annotations)
+        self.mapView.addAnnotation(annotation)
+        print("Tap area: \(coordinate)")
+    }
+    
     
     func addPin(latitude: NSNumber, longitude: NSNumber) {
         let annotation = MKPointAnnotation()
