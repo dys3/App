@@ -1,0 +1,10 @@
+framework module SplashScreenUI {
+  umbrella header "SplashScreenUI.h"
+
+  export *
+  module * { export * }
+}
+
+module SplashScreenUI.Swift {
+    header "SplashScreenUI-Swift.h"
+}
