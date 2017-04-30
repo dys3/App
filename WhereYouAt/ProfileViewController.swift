@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ProfileViewController: UIViewController {
 
@@ -20,24 +21,15 @@ class ProfileViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    /*override func viewDidLayoutSubviews()
-    {
-        let scrollViewBounds = scrollView.bounds
-        let containerViewBounds = contentView.bounds
-        
-        var scrollViewInsets = UIEdgeInsetsZero
-        scrollViewInsets.top = scrollViewBounds.size.height/2.0;
-        scrollViewInsets.top -= contentView.bounds.size.height/2.0;
-        
-        scrollViewInsets.bottom = scrollViewBounds.size.height/2.0
-        scrollViewInsets.bottom -= contentView.bounds.size.height/2.0;
-        scrollViewInsets.bottom += 1
-        
-        scrollView.contentInset = scrollViewInsets
-    }*/
-    
 
+    @IBAction func onLogout(_ sender: AnyObject) {
+       
+        PFUser.logOutInBackground { (error:Error?) in
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue:"UserDidLogout"), object: nil)
+            
+            print("Logging out")
+        }
+    }
     /*
     // MARK: - Navigation
 
