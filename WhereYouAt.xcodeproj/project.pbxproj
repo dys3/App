@@ -100,8 +100,6 @@
 				0761A82D1EB1173C0037DAEF /* Map.storyboard */,
 				75163C171EADCA80000B978A /* Profile.storyboard */,
 				75163C131EADC9BE000B978A /* Events.storyboard */,
-<<<<<<< HEAD
-=======
 				751BCC071EB0A49600104576 /* Chat.storyboard */,
 				751BCC151EB18A8900104576 /* ProfileViewController.swift */,
 				751BCC0D1EB183FC00104576 /* ChatCell.swift */,
@@ -110,7 +108,6 @@
 				751BCC091EB1838700104576 /* ChatViewController.swift */,
 				8D221E8E1EAF0F2A00D80EA1 /* EventsViewController.swift */,
 				8D221E8F1EAF0F2A00D80EA1 /* EventTableViewCell.swift */,
->>>>>>> master
 				759815541EA96E82006FEDB4 /* Assets.xcassets */,
 				759815561EA96E82006FEDB4 /* LaunchScreen.storyboard */,
 				759815591EA96E82006FEDB4 /* Info.plist */,
