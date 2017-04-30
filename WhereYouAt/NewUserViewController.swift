@@ -69,7 +69,9 @@ class NewUserViewController: UIViewController {
                     // self.presentingViewController?.dismiss(animated: true, completion: nil)
                     self.presentingViewController?.dismiss(animated: true, completion: {
                         print("doneDismissing")
-                        //self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let vc = UIApplication.shared.keyWindow?.rootViewController
+                        vc?.performSegue(withIdentifier: "loginSegue", sender: nil)
                     })
                     
                 }
