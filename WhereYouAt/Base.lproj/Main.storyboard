@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IPI-H4-Iwp">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -81,6 +81,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="fK6-yI-H8M"/>
+                    <connections>
+                        <segue destination="3ta-cT-c2J" kind="presentation" identifier="loginSegue" id="DgC-ha-NbF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nGB-uD-eRv" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,7 +107,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kc-p1-hzM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3200.625" y="242.95774647887325"/>
+            <point key="canvasLocation" x="2346" y="243"/>
         </scene>
         <!--Events-->
         <scene sceneID="MJL-of-fcW">
@@ -114,7 +117,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8IG-dO-BhG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3094.6875" y="-43.309859154929576"/>
+            <point key="canvasLocation" x="2240" y="-43"/>
         </scene>
         <!--Chat-->
         <scene sceneID="J1h-oT-LeF">
@@ -368,6 +371,7 @@
                         <outlet property="passwordTextField" destination="Sjb-wK-T5q" id="bSR-0y-r1u"/>
                         <outlet property="profileNameTextField" destination="ggf-uy-up5" id="8xg-Do-U6z"/>
                         <outlet property="usernameTextField" destination="EsN-69-Ix9" id="nrj-h0-tRG"/>
+                        <segue destination="3ta-cT-c2J" kind="presentation" identifier="signinSegue" id="xbL-Au-rLx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q9q-E3-dY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -395,5 +399,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="laa-Sp-KAa"/>
+        <segue reference="DgC-ha-NbF"/>
     </inferredMetricsTieBreakers>
 </document>
