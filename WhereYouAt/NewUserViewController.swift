@@ -18,7 +18,7 @@ class NewUserViewController: UIViewController {
     @IBOutlet weak var confirmEmailTextField: UITextField!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
-    @IBOutlet weak var profileNameTextField: UITextField!
+    @IBOutlet weak var screenNameTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,25 +56,25 @@ class NewUserViewController: UIViewController {
         
         newUser.username = usernameTextField.text
         newUser.password = passwordTextField.text
-        
-        
-        
+        newUser.email = emailTextField.text
         
         newUser.signUpInBackground { (success: Bool, error:Error?) in
             if success {
                 print("A new user was created")
+                newUser["screen_name"] = self.screenNameTextField.text
+                newUser.saveInBackground(block: { (success:Bool, error: Error?) in
+                    self.present(signupAlertController, animated: true) {
+                        // optional code for what happens after the alert controller has finished presenting
+                        // self.presentingViewController?.dismiss(animated: true, completion: nil)
+                        self.presentingViewController?.dismiss(animated: true, completion: {
+                            
+                            let vc = UIApplication.shared.keyWindow?.rootViewController
+                            vc?.performSegue(withIdentifier: "loginSegue", sender: nil)
+                        })
+                        
+                    }
+                })
                 
-                self.present(signupAlertController, animated: true) {
-                    // optional code for what happens after the alert controller has finished presenting
-                    // self.presentingViewController?.dismiss(animated: true, completion: nil)
-                    self.presentingViewController?.dismiss(animated: true, completion: {
-                        print("doneDismissing")
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        let vc = UIApplication.shared.keyWindow?.rootViewController
-                        vc?.performSegue(withIdentifier: "loginSegue", sender: nil)
-                    })
-                    
-                }
                 
                 
             } else {

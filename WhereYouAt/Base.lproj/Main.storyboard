@@ -256,13 +256,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ggf-uy-up5">
-                                                <rect key="frame" x="151" y="479" width="138" height="30"/>
+                                                <rect key="frame" x="155" y="479" width="134" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yG6-GH-2wK">
-                                                <rect key="frame" x="31" y="484" width="99" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Screen Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yG6-GH-2wK">
+                                                <rect key="frame" x="31" y="484" width="103" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -369,7 +369,7 @@
                         <outlet property="firstNameTextField" destination="fjk-wY-940" id="RHF-qQ-v9X"/>
                         <outlet property="lastNameTextField" destination="x8W-PG-bVq" id="f6j-J3-Kpd"/>
                         <outlet property="passwordTextField" destination="Sjb-wK-T5q" id="bSR-0y-r1u"/>
-                        <outlet property="profileNameTextField" destination="ggf-uy-up5" id="8xg-Do-U6z"/>
+                        <outlet property="screenNameTextField" destination="ggf-uy-up5" id="nwk-Uh-CG3"/>
                         <outlet property="usernameTextField" destination="EsN-69-Ix9" id="nrj-h0-tRG"/>
                         <segue destination="3ta-cT-c2J" kind="presentation" identifier="signinSegue" id="xbL-Au-rLx"/>
                     </connections>
@@ -399,6 +399,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="laa-Sp-KAa"/>
-        <segue reference="DgC-ha-NbF"/>
+        <segue reference="xbL-Au-rLx"/>
     </inferredMetricsTieBreakers>
 </document>
