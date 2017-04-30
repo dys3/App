@@ -26,19 +26,22 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="oHT-Ia-EDt" appends="YES" id="BLX-PB-zSY"/>
+                                    <outletCollection property="gestureRecognizers" destination="pcj-H4-Nq0" appends="YES" id="iej-1p-GaY"/>
                                 </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="gestureRecognizer" destination="oHT-Ia-EDt" id="TIh-xb-xS4"/>
                         <outlet property="mapView" destination="hEl-l0-3Nr" id="fFU-PD-X2q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UIh-di-Rth" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="oHT-Ia-EDt"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="pcj-H4-Nq0">
+                    <connections>
+                        <action selector="tapToAddPin:" destination="y4S-Y8-gFz" id="hLh-sW-jML"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="133.125" y="170.07042253521126"/>
         </scene>

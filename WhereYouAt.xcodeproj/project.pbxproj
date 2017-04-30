@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0761A82E1EB1173C0037DAEF /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0761A82D1EB1173C0037DAEF /* Map.storyboard */; };
 		75163C121EADC7D8000B978A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75163C111EADC7D8000B978A /* MapViewController.swift */; };
 		75163C141EADC9BE000B978A /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75163C131EADC9BE000B978A /* Events.storyboard */; };
-		75163C161EADCA04000B978A /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75163C151EADCA04000B978A /* Map.storyboard */; };
 		75163C181EADCA80000B978A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75163C171EADCA80000B978A /* Profile.storyboard */; };
 		7598154E1EA96E81006FEDB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7598154D1EA96E81006FEDB4 /* AppDelegate.swift */; };
 		759815501EA96E81006FEDB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7598154F1EA96E81006FEDB4 /* ViewController.swift */; };
@@ -22,10 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0761A82D1EB1173C0037DAEF /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		10A09855D599242B550464D0 /* Pods-WhereYouAt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereYouAt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhereYouAt/Pods-WhereYouAt.debug.xcconfig"; sourceTree = "<group>"; };
 		75163C111EADC7D8000B978A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		75163C131EADC9BE000B978A /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
-		75163C151EADCA04000B978A /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		75163C171EADCA80000B978A /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		7598154A1EA96E81006FEDB4 /* WhereYouAt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereYouAt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7598154D1EA96E81006FEDB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,12 +76,12 @@
 				7598154D1EA96E81006FEDB4 /* AppDelegate.swift */,
 				7598154F1EA96E81006FEDB4 /* ViewController.swift */,
 				75163C111EADC7D8000B978A /* MapViewController.swift */,
-				759815511EA96E82006FEDB4 /* Main.storyboard */,
-				75163C151EADCA04000B978A /* Map.storyboard */,
-				75163C171EADCA80000B978A /* Profile.storyboard */,
-				75163C131EADC9BE000B978A /* Events.storyboard */,
 				8D221E8E1EAF0F2A00D80EA1 /* EventsViewController.swift */,
 				8D221E8F1EAF0F2A00D80EA1 /* EventTableViewCell.swift */,
+				759815511EA96E82006FEDB4 /* Main.storyboard */,
+				0761A82D1EB1173C0037DAEF /* Map.storyboard */,
+				75163C171EADCA80000B978A /* Profile.storyboard */,
+				75163C131EADC9BE000B978A /* Events.storyboard */,
 				759815541EA96E82006FEDB4 /* Assets.xcassets */,
 				759815561EA96E82006FEDB4 /* LaunchScreen.storyboard */,
 				759815591EA96E82006FEDB4 /* Info.plist */,
@@ -171,8 +171,8 @@
 				75163C181EADCA80000B978A /* Profile.storyboard in Resources */,
 				759815581EA96E82006FEDB4 /* LaunchScreen.storyboard in Resources */,
 				75163C141EADC9BE000B978A /* Events.storyboard in Resources */,
-				75163C161EADCA04000B978A /* Map.storyboard in Resources */,
 				759815551EA96E82006FEDB4 /* Assets.xcassets in Resources */,
+				0761A82E1EB1173C0037DAEF /* Map.storyboard in Resources */,
 				759815531EA96E82006FEDB4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
