@@ -84,7 +84,7 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
             var query = PFQuery(className: "ChatMessage")
             
             // getting messages that sent from current user
-            query.whereKey("sender_user_id", equalTo: _currentUser.id)
+            query.whereKey("sender_user_id", equalTo: PFUser.current()?["userId"] as! String)
             
             query.findObjectsInBackground(block: { (results:[PFObject]?, error:Error?) in
                 
@@ -139,7 +139,7 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
     
     func getLatestMessage(userId : String) -> PFObject {
         for message in messages! {
-            if ((message["senter_user_id"] as! String) == _currentUser.id && (message["receiver_user_id"] as! String) == userId) || ((message["senter_user_id"] as! String) == userId && (message["receiver_user_id"] as! String) == _currentUser.id) {
+            if ((message["senter_user_id"] as! String) == PFUser.current()?["userId"] as! String && (message["receiver_user_id"] as! String) == userId) || ((message["senter_user_id"] as! String) == userId && (message["receiver_user_id"] as! String) == PFUser.current()?["userId"] as! String) {
                 return message
             }
         }
