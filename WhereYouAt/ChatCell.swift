@@ -12,7 +12,7 @@ import ParseUI
 
 class ChatCell: UITableViewCell {
 
-    let user : User?
+    var user : PFObject!
     
     @IBOutlet weak var userProfileImage: PFFile!
     
