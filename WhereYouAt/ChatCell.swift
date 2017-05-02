@@ -7,9 +7,22 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class ChatCell: UITableViewCell {
 
+    let user : User?
+    
+    @IBOutlet weak var userProfileImage: PFFile!
+    
+    @IBOutlet weak var userNameLabel: UILabel!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var messageLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
