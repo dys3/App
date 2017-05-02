@@ -22,7 +22,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     var address: String? // in prev segue way thing
     var coordinate: CLLocationCoordinate2D?
     var addedAnnotation: [MKPointAnnotation]!
-    var events : [PFObject]?
+    var events: [PFObject]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
