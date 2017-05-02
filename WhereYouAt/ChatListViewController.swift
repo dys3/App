@@ -10,19 +10,17 @@ import UIKit
 import Parse
 import ParseUI
 
-class ChatListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     
-    // hardcoding the current user
-    let _currentUser : User
     
     @IBOutlet weak var tableView: UITableView!
     
 
     
-    var messages : [NSObject]
-    var usersID : [String]
+    var messages : [PFObject]!
+    var usersID : [String]!
     
     var isFetching = false
     
@@ -45,8 +43,8 @@ class ChatListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let userID = usersID {
-            return usersID.count
+        if let userId = usersID {
+            return userId.count
         }
         else {
             return 0
@@ -57,27 +55,27 @@ class ChatListViewController: UIViewController, UITableViewDelegate, UITableView
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! ChatCell
         
-        var user: User?
+        var user: PFObject
         
-        var query = PFQuery(className: "User")
-        query.whereKey("objectID", equalTo: usersID[indexPath.row])
+        let query = PFQuery(className: "User")
+        query.whereKey("objectID", equalTo: usersID?[indexPath.row])
         
         query.findObjectsInBackground { (results, error) in
             if let error = error {
                 print(error.localizedDescription)
             }
             else {
-                user = results[0]
+                user = (results?[0])!
             }
         }
         
         cell.user = user
-        cell.userNameLabel = user["screenName"]
+        cell.userNameLabel.text = user["screenName"] as? String
         
-        var latestMessage = getLatestMessage(userId: user["objectId"])
-        cell.textLabel?.text = latestMessage["text"]
+        let latestMessage = getLatestMessage(userId: user["objectId"] as! String)
+        cell.textLabel?.text = latestMessage["text"] as? String
         
-        cell.timeLabel.text = latestMessage["updateAt"]
+        cell.timeLabel.text = latestMessage["updateAt"] as? String
     }
     
     func fetching() {
@@ -94,38 +92,42 @@ class ChatListViewController: UIViewController, UITableViewDelegate, UITableView
                     print(error.localizedDescription)
                 }
                 else {
-                    messages.append(results)
+                    for result in results! {
+                        self.messages.append(result)
+                    }
                 }
             })
             
             // getting messages that sent to the current user
             query = PFQuery(className: "ChatMessage")
-            query.whereKey("receiver_user_id", equalTo: _currentUser.id)
+            query.whereKey("receiver_user_id", equalTo: PFUser.current()?["userId"] as! String)
             
-            query.findObjectsInBackground(block: { (results:[PFObject]?, error:Error?) in
+            query.findObjectsInBackground(block: { (results:[PFObject]!, error:Error?) in
                 
                 if let error = error {
                     print(error.localizedDescription)
                 }
                 else {
-                    messages.append(results)
+                    for result in results! {
+                        self.messages.append(result)
+                    }
                 }
             })
             
-            messages.sort { (message0, message1) -> Bool in
+            messages?.sort { (message0, message1) -> Bool in
                 message1["updateAt"].compare(message0["updateAt"])
             }
             
-            for message in messages {
-                if message.senderID == _currentUser.id  {
+            for message in messages! {
+                if ((message["sender_user_id"] as! String) == (PFUser.current()?["userId"] as! String))  {
                     
-                    !(usersID.contains(message["receiver_user_id"])) {
-                    usersID.append(sentMessage["receiver_user_id"])
+                    if !(usersID.contains(message["receiver_user_id"] as! String)) {
+                        usersID.append(message["receiver_user_id"] as! String)
                     }
                 }
                 else {
-                    !(usersID.contains(message["senter_user_id"])) {
-                    usersID.append(message["senter_user_id"])
+                    if !(usersID.contains(message["senter_user_id"] as! String)) {
+                        usersID.append(message["senter_user_id"] as! String)
                     }
                 }
             }
@@ -135,9 +137,9 @@ class ChatListViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    func getLatestMessage(userId : String) -> NSObject {
-        for message in messages {
-            if (message["senter_user_id"] == _currentUser.id && message["receiver_user_id"] == userId) || (message["senter_user_id"] == userId && message["receiver_user_id"] == _currentUser.id) {
+    func getLatestMessage(userId : String) -> PFObject {
+        for message in messages! {
+            if ((message["senter_user_id"] as! String) == _currentUser.id && (message["receiver_user_id"] as! String) == userId) || ((message["senter_user_id"] as! String) == userId && (message["receiver_user_id"] as! String) == _currentUser.id) {
                 return message
             }
         }
@@ -149,9 +151,9 @@ class ChatListViewController: UIViewController, UITableViewDelegate, UITableView
         
         let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPath(for: cell)
-        let userID = movies![indexPath!.row]
+        let userId = usersID[indexPath!.row]
         let ChatVC = segue.destination as! ChatViewController
-        ChatVC.userID = userID
+        ChatVC.userID = userId
     }
     
 

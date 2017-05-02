@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 import ParseUI
-class User: NSObject {
+class User: PFObject {
 
     var id : String?
     var profileImage : PFFile?
