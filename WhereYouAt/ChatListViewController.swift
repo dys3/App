@@ -102,7 +102,7 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
             query = PFQuery(className: "ChatMessage")
             query.whereKey("receiver_user_id", equalTo: PFUser.current()?["userId"] as! String)
             
-            query.findObjectsInBackground(block: { (results:[PFObject]!, error:Error?) in
+            query.findObjectsInBackground(block: { (results:[PFObject]?, error:Error?) in
                 
                 if let error = error {
                     print(error.localizedDescription)
