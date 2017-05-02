@@ -10,6 +10,8 @@ import UIKit
 import CoreLocation
 import AFNetworking
 import MapKit
+import Parse
+import ParseUI
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate, MKMapViewDelegate {
     
@@ -19,7 +21,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     var locationManager: CLLocationManager!
     var address: String? // in prev segue way thing
     var coordinate: CLLocationCoordinate2D?
-    var addedAnnotation = [MKPointAnnotation]()
+    var addedAnnotation: [MKPointAnnotation]!
+    var events : [PFObject]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +35,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.distanceFilter = 200
         locationManager.requestWhenInUseAuthorization()
+        
+        addedAnnotation = [MKPointAnnotation]()
         
     }
     
@@ -70,16 +75,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         
         // Add the image you stored from the image picker
         
+        
         return annotationView
     }
     
     @IBAction func tapToAddPin(_ sender: UILongPressGestureRecognizer) {
         longPressGestureRecognizer.delegate = self
         
+        /* Convert the tapped location in map to coordinate */
         let location = sender.location(in: mapView)
         let coordinate = self.mapView.convert(location, to: mapView)
         let convertedCoordinate = CLLocationCoordinate2DMake(CLLocationDegrees(coordinate.x), CLLocationDegrees(coordinate.y))
         
+        /* Add annotation pin to map */
         let annotation = MKPointAnnotation()
         annotation.title = "Bob"
         annotation.coordinate = convertedCoordinate
