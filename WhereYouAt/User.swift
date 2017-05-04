@@ -13,6 +13,10 @@ class User: PFObject {
 
     var id : String?
     var profileImage : PFFile?
+    var userName: String?
+    var screenName: String?
+    var eventTitle: String?
+    var eventDescription: String?
     
 
 }
