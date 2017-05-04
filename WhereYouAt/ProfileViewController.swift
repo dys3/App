@@ -11,12 +11,31 @@ import Parse
 
 class ProfileViewController: UIViewController {
     
-    var user: User!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
-
+    @IBOutlet weak var eventTitleLabel: UILabel!
+    @IBOutlet weak var eventDescriptionLabel: UILabel!
+    
+    var user: User! {
+        didSet {
+            
+            
+        }
+    }
+    
+    if let profilePic = object.valueForKey("Image")! as! PFFile {
+        userPicture.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
+            let image = UIImage(data: imageData!)
+            if image != nil {
+                self.imageArray.append(image!)
+            }
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

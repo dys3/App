@@ -155,8 +155,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="NkU-GI-DJ4"/>
                     <connections>
+                        <outlet property="eventDescriptionLabel" destination="ZsI-cF-v0C" id="93u-eY-9T8"/>
+                        <outlet property="eventTitleLabel" destination="fNg-bg-436" id="v4a-B5-d09"/>
                         <outlet property="profileImageView" destination="d2G-Id-7TC" id="gmY-5l-lke"/>
                         <outlet property="screenNameLabel" destination="S4q-vh-bov" id="cEI-ML-4uY"/>
+                        <outlet property="scrollView" destination="xK9-Pi-u6s" id="dUG-Va-I7i"/>
+                        <outlet property="tableView" destination="PiB-W6-3Br" id="SIC-mQ-2gG"/>
                         <outlet property="userNameLabel" destination="pcs-te-buI" id="7j9-ns-tFZ"/>
                     </connections>
                 </viewController>
