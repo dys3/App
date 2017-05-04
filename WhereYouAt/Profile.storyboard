@@ -27,15 +27,15 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Xc-0C-pyY" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="-1" width="320" height="568"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJd-2g-MJr">
-                                                <rect key="frame" x="52" y="412" width="48" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJd-2g-MJr">
+                                                <rect key="frame" x="52" y="518" width="48" height="30"/>
                                                 <state key="normal" title="Logout"/>
                                                 <connections>
                                                     <action selector="onLogout:" destination="ass-Pb-JLV" eventType="touchUpInside" id="j9U-dA-vh2"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xl7-xL-fih">
-                                                <rect key="frame" x="223" y="412" width="57" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xl7-xL-fih">
+                                                <rect key="frame" x="223" y="518" width="57" height="30"/>
                                                 <state key="normal" title="Settings"/>
                                                 <connections>
                                                     <segue destination="hw2-Uf-WDe" kind="show" id="kMq-xx-RGV"/>
@@ -60,15 +60,15 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0u-OI-1W5">
-                                                <rect key="frame" x="135" y="412" width="51" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0u-OI-1W5">
+                                                <rect key="frame" x="135" y="518" width="51" height="30"/>
                                                 <state key="normal" title="Friends"/>
                                                 <connections>
                                                     <segue destination="PQ7-qj-VBA" kind="show" id="5tI-8k-lxs"/>
                                                 </connections>
                                             </button>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PiB-W6-3Br">
-                                                <rect key="frame" x="8" y="105" width="304" height="299"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PiB-W6-3Br">
+                                                <rect key="frame" x="8" y="105" width="304" height="405"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="304" id="GVj-il-Emd"/>
@@ -91,15 +91,13 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNg-bg-436">
-                                                                    <rect key="frame" x="136" y="0.0" width="34" height="21"/>
+                                                                    <rect key="frame" x="135.5" y="0.0" width="33.5" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="fNg-bg-436" secondAttribute="trailing" constant="134.5" id="EGq-Rh-P7N"/>
-                                                                <constraint firstItem="fNg-bg-436" firstAttribute="leading" secondItem="H4L-43-3KY" secondAttribute="leading" constant="136" id="Ker-tw-A5m"/>
                                                                 <constraint firstItem="ZsI-cF-v0C" firstAttribute="leading" secondItem="H4L-43-3KY" secondAttribute="leading" id="auY-aV-sIV"/>
                                                                 <constraint firstAttribute="trailing" secondItem="ZsI-cF-v0C" secondAttribute="trailing" id="gz6-Dn-F8D"/>
                                                                 <constraint firstItem="fNg-bg-436" firstAttribute="top" secondItem="H4L-43-3KY" secondAttribute="top" id="n8V-S6-RlH"/>
