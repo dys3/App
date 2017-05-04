@@ -82,7 +82,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZsI-cF-v0C">
-                                                                    <rect key="frame" x="0.0" y="20" width="304" height="20.5"/>
+                                                                    <rect key="frame" x="0.0" y="20" width="304" height="21"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="304" id="rP9-Bd-lQ9"/>
                                                                     </constraints>
@@ -91,7 +91,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNg-bg-436">
-                                                                    <rect key="frame" x="136" y="0.0" width="33.5" height="21"/>
+                                                                    <rect key="frame" x="136" y="0.0" width="34" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -154,15 +154,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NkU-GI-DJ4"/>
-                    <connections>
-                        <outlet property="eventDescriptionLabel" destination="ZsI-cF-v0C" id="93u-eY-9T8"/>
-                        <outlet property="eventTitleLabel" destination="fNg-bg-436" id="v4a-B5-d09"/>
-                        <outlet property="profileImageView" destination="d2G-Id-7TC" id="gmY-5l-lke"/>
-                        <outlet property="screenNameLabel" destination="S4q-vh-bov" id="cEI-ML-4uY"/>
-                        <outlet property="scrollView" destination="xK9-Pi-u6s" id="dUG-Va-I7i"/>
-                        <outlet property="tableView" destination="PiB-W6-3Br" id="SIC-mQ-2gG"/>
-                        <outlet property="userNameLabel" destination="pcs-te-buI" id="7j9-ns-tFZ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3dC-6T-TGF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
