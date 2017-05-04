@@ -68,7 +68,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
         cell.textLabel?.text = messages?[indexPath.row]["Text"] as? String
         
-        var user: PFObject
+        var user: PFObject!
         
         let query = PFQuery(className: "User")
         query.whereKey("objectID", equalTo: userID)
@@ -83,6 +83,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         cell.userLabel.text = user["username"] as! String
+        return cell
     }
 
     
@@ -122,9 +123,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             })
             
-            messages?.sort { (message0, message1) -> Bool in
-                message1["updateAt"].compare(message0["updateAt"])
-            }
+//            messages?.sort { (message0, message1) -> Bool in
+//                message1["updateAt"].compare(message0["updateAt"])
+//            }
         }
     }
     /*
