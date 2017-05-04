@@ -18,7 +18,7 @@ Optional:
 - [ ] A poll function in chat channel
 - [ ] planning schedule
 - [ ] Setting / personalized app
-
+- [ ] Notification of invitation to events
 Parse Data Tables <br/>
 Event<br/>
 {<br/>
