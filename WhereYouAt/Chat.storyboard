@@ -57,7 +57,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="messageText" destination="ATN-xw-MIR" id="fXD-hh-gD8"/>
-                                            <outlet property="textMessageLabel" destination="ATN-xw-MIR" id="9bJ-cJ-yyp"/>
                                             <outlet property="userLabel" destination="fiG-NZ-ttv" id="jCi-I9-yCx"/>
                                         </connections>
                                     </tableViewCell>
@@ -110,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="-270" y="173"/>
         </scene>
-        <!--Item-->
+        <!--Chat List View Controller-->
         <scene sceneID="6JD-nC-fIH">
             <objects>
-                <viewController id="cqR-rZ-iJ9" customClass="ChatListViewController" customModule="WhereYouAt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cqR-rZ-iJ9" userLabel="Chat List View Controller" customClass="ChatListViewControlvar" customModule="WhereYouAt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="khT-vC-aeZ"/>
                         <viewControllerLayoutGuide type="bottom" id="FRU-jf-d71"/>
@@ -209,7 +208,7 @@
                     <navigationItem key="navigationItem" id="boC-X4-nJ8"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="tableView" destination="CQV-iy-cCE" id="I3e-m6-J0y"/>
+                        <outlet property="tableView" destination="CQV-iy-cCE" id="SUa-5S-x6N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gm7-Wm-7og" userLabel="First Responder" sceneMemberID="firstResponder"/>
