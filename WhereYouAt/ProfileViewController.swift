@@ -10,6 +10,12 @@ import UIKit
 import Parse
 
 class ProfileViewController: UIViewController {
+    
+    var user: User!
+    
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var screenNameLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
