@@ -24,7 +24,9 @@ class EventTableViewCell: UITableViewCell {
             self.eventNameLabel.text = event["name"] as? String
             self.timePostedLabel.text = event["createdAt"] as? String
             self.locationLabel.text = event["location"] as? String
-            self.numberAttendeeLabel.text = event["attendees"] as? String
+            var attendees : [String]?
+            attendees = event["attendees"] as? [String]
+            self.numberAttendeeLabel.text = attendees?.count.description
         }
     }
     
