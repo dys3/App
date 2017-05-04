@@ -13,8 +13,6 @@ import ParseUI
 class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    
-    
     @IBOutlet weak var tableView: UITableView!
     
 
@@ -55,7 +53,7 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! ChatCell
         
-        var user: PFObject
+        var user: PFObject!
         
         let query = PFQuery(className: "User")
         query.whereKey("objectID", equalTo: usersID?[indexPath.row])
@@ -76,6 +74,8 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
         cell.textLabel?.text = latestMessage["text"] as? String
         
         cell.timeLabel.text = latestMessage["updateAt"] as? String
+        
+        return cell
     }
     
     func fetching() {
@@ -114,9 +114,9 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
                 }
             })
             
-            messages?.sort { (message0, message1) -> Bool in
-                message1["updateAt"].compare(message0["updateAt"])
-            }
+//          messages?.sort { (message0, message1) -> Bool in
+//              message1["updateAt"].compare(message0["updateAt"])
+//          }
             
             for message in messages! {
                 if ((message["sender_user_id"] as! String) == (PFUser.current()?["userId"] as! String))  {
@@ -143,6 +143,9 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
                 return message
             }
         }
+        let emptyMessage: PFObject?
+        emptyMessage = nil
+        return emptyMessage!
     }
     
 
