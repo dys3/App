@@ -10,7 +10,23 @@ import UIKit
 import Parse
 
 class ProfileViewController: UIViewController {
-
+    
+    var user: User! {
+        didSet {
+            
+            
+        }
+    }
+    
+//    if let profilePic = object.valueForKey("Image")! as! PFFile {
+//        userPicture.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
+//            let image = UIImage(data: imageData!)
+//            if image != nil {
+//                self.imageArray.append(image!)
+//            }
+//        })
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

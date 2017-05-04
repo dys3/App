@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0761A82E1EB1173C0037DAEF /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0761A82D1EB1173C0037DAEF /* Map.storyboard */; };
-		07B593DB1EB69AB400080BBF /* SplashScreenUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B593DA1EB69AB400080BBF /* SplashScreenUI.framework */; };
 		75163C121EADC7D8000B978A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75163C111EADC7D8000B978A /* MapViewController.swift */; };
 		75163C141EADC9BE000B978A /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75163C131EADC9BE000B978A /* Events.storyboard */; };
 		75163C181EADCA80000B978A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75163C171EADCA80000B978A /* Profile.storyboard */; };
@@ -33,7 +32,6 @@
 
 /* Begin PBXFileReference section */
 		0761A82D1EB1173C0037DAEF /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
-		07B593DA1EB69AB400080BBF /* SplashScreenUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SplashScreenUI.framework; sourceTree = "<group>"; };
 		10A09855D599242B550464D0 /* Pods-WhereYouAt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereYouAt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhereYouAt/Pods-WhereYouAt.debug.xcconfig"; sourceTree = "<group>"; };
 		75163C111EADC7D8000B978A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		75163C131EADC9BE000B978A /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
@@ -65,7 +63,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07B593DB1EB69AB400080BBF /* SplashScreenUI.framework in Frameworks */,
 				FD608D1CA6C1A0FEA32F60A5 /* Pods_WhereYouAt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,7 +151,6 @@
 		C6AC73905DA4FF3C0C8CCA32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				07B593DA1EB69AB400080BBF /* SplashScreenUI.framework */,
 				9BEA18248847E92E7873E672 /* Pods_WhereYouAt.framework */,
 			);
 			name = Frameworks;
