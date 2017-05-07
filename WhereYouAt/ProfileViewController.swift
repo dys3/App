@@ -11,21 +11,27 @@ import Parse
 
 class ProfileViewController: UIViewController {
     
-    var user: User! {
-        didSet {
-            
-            
-        }
-    }
+    var user: User!
+    var profilePic: UIImage!
     
-//    if let profilePic = object.valueForKey("Image")! as! PFFile {
-//        userPicture.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
-//            let image = UIImage(data: imageData!)
-//            if image != nil {
-//                self.imageArray.append(image!)
-//            }
-//        })
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        let user = PFObject(className: "User")
+        if let profileImageFile = user["profileImage"] as? PFFile {
+            if profileImageFile == nil {
+                profilePic = UIImage(named: "dummy_user")
+            } else {
+                profileImageFile.getDataInBackground {
+                    (imageData: Data?, error: Error?) -> Void in
+                    if error != nil {
+                        self.profilePic = UIImage(data:imageData!)
+                    }
+                }
+            }
+        }
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +52,8 @@ class ProfileViewController: UIViewController {
             print("Logging out")
         }
     }
+    
+    
     /*
     // MARK: - Navigation
 
