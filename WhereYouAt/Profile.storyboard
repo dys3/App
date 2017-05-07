@@ -42,20 +42,20 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d2G-Id-7TC">
-                                                <rect key="frame" x="8" y="8" width="106" height="89"/>
+                                                <rect key="frame" x="8" y="8" width="100" height="120"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="89" id="7DP-al-xO4"/>
-                                                    <constraint firstAttribute="width" constant="106" id="oRL-TD-usn"/>
+                                                    <constraint firstAttribute="height" constant="120" id="7DP-al-xO4"/>
+                                                    <constraint firstAttribute="width" constant="100" id="oRL-TD-usn"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcs-te-buI">
-                                                <rect key="frame" x="122" y="37" width="77" height="21"/>
+                                                <rect key="frame" x="116" y="37" width="77" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4q-vh-bov">
-                                                <rect key="frame" x="122" y="8" width="105" height="21"/>
+                                                <rect key="frame" x="116" y="8" width="105" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -68,7 +68,7 @@
                                                 </connections>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PiB-W6-3Br">
-                                                <rect key="frame" x="8" y="105" width="304" height="405"/>
+                                                <rect key="frame" x="8" y="136" width="304" height="374"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="304" id="GVj-il-Emd"/>
@@ -152,6 +152,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NkU-GI-DJ4"/>
+                    <connections>
+                        <outlet property="profilePic" destination="d2G-Id-7TC" id="Q1s-yM-Xw2"/>
+                        <outlet property="screenName" destination="S4q-vh-bov" id="ch5-U7-fcF"/>
+                        <outlet property="userName" destination="pcs-te-buI" id="tPe-Hk-2Ha"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3dC-6T-TGF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
