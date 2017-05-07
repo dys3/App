@@ -38,7 +38,60 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         
         addedAnnotation = [MKPointAnnotation]()
         
+        var uilgr = UILongPressGestureRecognizer(target: self, action: #selector(self.addAnnotation(_:)))
+        uilgr.minimumPressDuration = 2.0
+        
+        mapView.addGestureRecognizer(uilgr)
+        
+        //IOS 9
+        mapView.addGestureRecognizer(uilgr)
+        
     }
+    
+    func addAnnotation(_ sender:UIGestureRecognizer){
+        if sender.state == UIGestureRecognizerState.began {
+            var touchPoint = sender.location(in: mapView)
+            var newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = newCoordinates
+            
+            CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: newCoordinates.latitude, longitude: newCoordinates.longitude), completionHandler: {(placemarks, error) -> Void in
+                if error != nil {
+                    print("Reverse geocoder failed with error" + error!.localizedDescription)
+                    return
+                }
+                
+                if placemarks!.count > 0 {
+                    // not all places have thoroughfare & subThoroughfare so validate those values
+                    if let pm = placemarks?[0] {
+                        annotation.title = pm.thoroughfare! + ", " + pm.subThoroughfare!
+                        annotation.subtitle = pm.subLocality
+                        self.mapView.addAnnotation(annotation)
+                        print(pm)
+                    }
+                    else {
+                        annotation.title = "Unknown Place"
+                        self.mapView.addAnnotation(annotation)
+                        print("Problem with the data received from geocoder")
+                    }
+                }
+                else {
+                    annotation.title = "Unknown Place"
+                    self.mapView.addAnnotation(annotation)
+                    print("Problem with the data received from geocoder")
+                }
+                //places.append(["name":annotation.title,"latitude":"\(newCoordinates.latitude)","longitude":"\(newCoordinates.longitude)"])
+            })
+        }
+    }
+    
+   /* func addAnnotation(gestureRecognizer:UIGestureRecognizer){
+        let touchPoint = gestureRecognizer.location(in: mapView)
+        let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = newCoordinates
+        mapView.addAnnotation(annotation)
+    }*/
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
