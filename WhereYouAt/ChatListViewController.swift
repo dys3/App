@@ -99,7 +99,7 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
             })
             
             // getting messages that sent to the current user
-            query = PFQuery(className: "ChatMessage")
+            query 	= PFQuery(className: "ChatMessage")
             query.whereKey("receiver_user_id", equalTo: PFUser.current()?["userId"] as! String)
             
             query.findObjectsInBackground(block: { (results:[PFObject]?, error:Error?) in
