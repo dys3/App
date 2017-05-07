@@ -28,7 +28,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        //mapView.delegate = self
+        mapView.delegate = self
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -38,7 +38,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         
         addedAnnotation = [MKPointAnnotation]()
         
-        var uilgr = UILongPressGestureRecognizer(target: self, action: #selector(self.addAnnotation(_:)))
+        let uilgr = UILongPressGestureRecognizer(target: self, action: #selector(self.addAnnotation(_:)))
         uilgr.minimumPressDuration = 2.0
         
         mapView.addGestureRecognizer(uilgr)
@@ -50,8 +50,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     
     func addAnnotation(_ sender:UIGestureRecognizer){
         if sender.state == UIGestureRecognizerState.began {
-            var touchPoint = sender.location(in: mapView)
-            var newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+            let touchPoint = sender.location(in: mapView)
+            let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
             let annotation = MKPointAnnotation()
             annotation.coordinate = newCoordinates
             
@@ -61,43 +61,28 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                     return
                 }
                 
-                if placemarks!.count > 0 {
+                if let placemarks = placemarks, let placemark = placemarks.first {
                     // not all places have thoroughfare & subThoroughfare so validate those values
-                    if let pm = placemarks?[0] {
-                        annotation.title = pm.thoroughfare! + ", " + pm.subThoroughfare!
-                        annotation.subtitle = pm.subLocality
+                        annotation.title = placemark.thoroughfare! + ", " + placemark.subThoroughfare!
+                        annotation.subtitle = placemark.subLocality
                         self.mapView.addAnnotation(annotation)
-                        print(pm)
-                    }
-                    else {
-                        annotation.title = "Unknown Place"
-                        self.mapView.addAnnotation(annotation)
-                        print("Problem with the data received from geocoder")
-                    }
+                        print(placemark)
                 }
                 else {
                     annotation.title = "Unknown Place"
                     self.mapView.addAnnotation(annotation)
                     print("Problem with the data received from geocoder")
                 }
-                //places.append(["name":annotation.title,"latitude":"\(newCoordinates.latitude)","longitude":"\(newCoordinates.longitude)"])
             })
         }
     }
-    
-   /* func addAnnotation(gestureRecognizer:UIGestureRecognizer){
-        let touchPoint = gestureRecognizer.location(in: mapView)
-        let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = newCoordinates
-        mapView.addAnnotation(annotation)
-    }*/
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-        
+    
+    // LocationManager functions for finding current user location
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == CLAuthorizationStatus.authorizedWhenInUse {
             locationManager.startUpdatingLocation()
@@ -111,11 +96,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             mapView.setRegion(region, animated: false)
         }
     }
-    
+    /*
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let reuseID = "myAnnotationView"
-        
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
+        print("AGBCDEFG")
+        /*var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
         if (annotationView == nil) {
             annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
             
@@ -125,12 +110,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         annotationView?.leftCalloutAccessoryView = leftView
         annotationView?.canShowCallout = true
         
-        
+        */
         // Add the image you stored from the image picker
         
         
         return annotationView
-    }
+    }*/
     
     @IBAction func tapToAddPin(_ sender: UILongPressGestureRecognizer) {
         longPressGestureRecognizer.delegate = self
