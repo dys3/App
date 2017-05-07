@@ -13,15 +13,14 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var screenName: UILabel!
-    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var firstName: UILabel!
+    @IBOutlet weak var lastName: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
         //let user = PFObject(className: "User")
         let user = PFUser.current()
-        
-        userName.text = user?.username
         
         if let profileImageFile = user?["profileImage"] as? PFFile {
             profileImageFile.getDataInBackground {
@@ -37,6 +36,14 @@ class ProfileViewController: UIViewController {
         
         if let screenName = user?["screen_name"] as? String {
             self.screenName.text = screenName
+        }
+        
+        if let firstName = user?["first_name"] as? String {
+            self.firstName.text = firstName
+        }
+        
+        if let lastName = user?["last_name"] as? String {
+            self.lastName.text = lastName
         }
     }
     
