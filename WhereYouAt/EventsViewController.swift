@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import ParseUI
+import AFNetworking
 
 class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -59,16 +60,19 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    @IBAction func onClickNew(_ sender: Any) {
+        self.performSegue(withIdentifier: "createNewEvent", sender: nil)
+    }
 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier != "createNewEvent" {
         let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPath(for: cell)
         let event = self.events?[(indexPath?.row)!]
-        let eventDetailVC = segue.destination as! EventDetailViewController
+        let eventDetailVC = segue.destination as! EventDetailsViewController
         eventDetailVC.event = event;
-
+        }
     }
     
 
