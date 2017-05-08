@@ -10,35 +10,37 @@ import UIKit
 import Parse
 import ParseUI
 import MapKit
+import AFNetworking
 
 class EventDetailViewController: UIViewController {
 
     
-    @IBOutlet weak var overViewLabel: UILabel!
-    
-    @IBOutlet weak var addressLabel: UILabel!
 
+    @IBOutlet weak var overViewLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var eventMap: MKMapView!
     @IBOutlet weak var eventTimeLabel: UILabel!
     
-    
+
     // event is passed from segue
     var event : PFObject! {
         didSet {
-            
-            
+            print(event.description)
             // set up name label
-            if let name = event["name"] as? String {
-                eventNameLabel.text = name;
+            if event["name"] != nil {
+                if eventNameLabel == nil {
+                    print("nil")
+                }
+                self.eventNameLabel.text = event["name"] as? String
             }
-            
+
             // set up date label
-            if let date = event["event_date"] as? Date {
+            if let date = event["event_time"] as? Date {
             
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
-                eventTimeLabel.text = dateFormatter.string(from: date)
+                self.eventTimeLabel.text = dateFormatter.string(from: date)
             }
             
             // set up address label
