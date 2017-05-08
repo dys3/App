@@ -70,7 +70,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPath(for: cell)
         let event = self.events?[(indexPath?.row)!]
-        let eventDetailVC = segue.destination as! EventDetailViewController
+        let eventDetailVC = segue.destination as! EventDetailsViewController
         eventDetailVC.event = event;
         }
     }

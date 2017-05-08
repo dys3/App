@@ -26,11 +26,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="114" id="z0B-5u-AEd" customClass="EventTableViewCell" customModule="WhereYouAt" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="114" id="z0B-5u-AEd" customClass="EventTableViewCell" customModule="WhereYouAt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="114"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z0B-5u-AEd" id="IEY-FL-u2T">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="113.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="113.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="79T-LD-LIP">
@@ -49,7 +49,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TimePosted" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8C1-pV-bwO">
-                                                    <rect key="frame" x="235" y="11" width="77" height="17"/>
+                                                    <rect key="frame" x="202" y="11" width="77" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -94,7 +94,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CcE-t7-rm2">
-                                                    <rect key="frame" x="266" y="48" width="46" height="30"/>
+                                                    <rect key="frame" x="233" y="48" width="46" height="30"/>
                                                     <state key="normal" title="Button"/>
                                                 </button>
                                             </subviews>
@@ -127,7 +127,7 @@
                                             <outlet property="locationLabel" destination="Blw-lQ-K7C" id="dUq-DX-j7u"/>
                                             <outlet property="numberAttendeeLabel" destination="xWj-mI-Epq" id="H5v-JZ-E6R"/>
                                             <outlet property="timePostedLabel" destination="8C1-pV-bwO" id="NuW-z3-u81"/>
-                                            <segue destination="bg0-z1-g6V" kind="show" id="fFu-zA-oXJ"/>
+                                            <segue destination="bg0-z1-g6V" kind="show" id="Vmz-vt-Vci"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -239,7 +239,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="R1A-jM-Fcl">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="bFL-xm-vvr"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="bFL-xm-vvr">
+                            <connections>
+                                <action selector="onClickBack:" destination="I7M-Qv-RC9" id="z6S-3B-QWE"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Post" id="46o-Xl-lJm">
                             <connections>
                                 <action selector="onClickedPost:" destination="I7M-Qv-RC9" id="Swm-6K-yVN"/>
@@ -252,16 +256,18 @@
                         <outlet property="descriptionTextField" destination="Qve-Tt-oMJ" id="zb6-g7-UXY"/>
                         <outlet property="nameTextField" destination="bDn-Ju-9ri" id="zfB-ZD-xar"/>
                         <segue destination="0cZ-xG-qrh" kind="push" identifier="addLocation" id="iJv-OW-4Vr"/>
+                        <segue destination="LSz-Gw-fR5" kind="show" identifier="postPost" id="zzI-gE-g1J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2x-VO-rzm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="111" y="-763"/>
         </scene>
-        <!--Event Detail View Controller-->
+        <!--Event Details View Controller-->
         <scene sceneID="tFS-Ac-uNH">
             <objects>
-                <viewController id="bg0-z1-g6V" customClass="EventDetailViewController" customModule="WhereYouAt" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z5x-Tb-CpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="bg0-z1-g6V" customClass="EventDetailsViewController" customModule="WhereYouAt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dFn-0k-5fp"/>
                         <viewControllerLayoutGuide type="bottom" id="JXu-ue-syJ"/>
@@ -307,7 +313,7 @@
                                     <constraint firstItem="vDD-mi-KIj" firstAttribute="leading" secondItem="zes-25-4l5" secondAttribute="leading" constant="8" id="xth-Xk-l56"/>
                                 </constraints>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="2tz-Lk-LeR" appends="YES" id="2Fa-QC-nnF"/>
+                                    <outletCollection property="gestureRecognizers" destination="IPg-8F-GyU" appends="YES" id="0Ij-8a-R5c"/>
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Hj-OA-hrn">
@@ -345,19 +351,19 @@
                             <constraint firstItem="2Sx-p5-V61" firstAttribute="leading" secondItem="aj8-pp-1s6" secondAttribute="leading" constant="8" id="zjn-J1-NAm"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="zzn-bV-4LJ"/>
                     <connections>
-                        <outlet property="addressLabel" destination="3Hj-OA-hrn" id="CgK-9E-Dzl"/>
-                        <outlet property="eventMap" destination="QNu-W0-y1o" id="Kcr-D3-deo"/>
-                        <outlet property="eventNameLabel" destination="3Fa-me-fQK" id="vny-ar-826"/>
-                        <outlet property="eventTimeLabel" destination="N5X-4E-CqL" id="HTS-PC-xHR"/>
-                        <outlet property="overViewLabel" destination="2Sx-p5-V61" id="I4b-xb-5Xf"/>
-                        <segue destination="NbK-6p-qR2" kind="presentation" identifier="toAttendeesList" id="SXp-yA-QhY"/>
+                        <outlet property="addressLabel" destination="3Hj-OA-hrn" id="9bA-mK-qmi"/>
+                        <outlet property="eventMap" destination="QNu-W0-y1o" id="2qY-dG-ZQm"/>
+                        <outlet property="eventNameLabel" destination="3Fa-me-fQK" id="Unm-GH-5vJ"/>
+                        <outlet property="eventTimeLable" destination="N5X-4E-CqL" id="sX0-MF-ztp"/>
+                        <outlet property="overViewLabel" destination="2Sx-p5-V61" id="ZuI-gh-vaL"/>
+                        <segue destination="NbK-6p-qR2" kind="show" identifier="showAttendees" id="bI8-QN-fjk"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z5x-Tb-CpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="2tz-Lk-LeR">
+                <tapGestureRecognizer id="IPg-8F-GyU">
                     <connections>
-                        <action selector="onTapAttendees:" destination="bg0-z1-g6V" id="fSd-uD-8yZ"/>
+                        <action selector="onTapAttendees:" destination="bg0-z1-g6V" id="3eP-89-lDC"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -376,7 +382,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uH8-EN-Zhc">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AttendeesCell" rowHeight="73" id="4M2-eN-nb0" customClass="AttendeesCell" customModule="WhereYouAt" customModuleProvider="target">

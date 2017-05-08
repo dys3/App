@@ -34,14 +34,20 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate 
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addLocation" {
         let locationsViewController = segue.destination as! LocationsViewController
         locationsViewController.delegate = self
+        }
     }
     
     func locationsPickedLocation(controller: LocationsViewController, address: String) {
         addressTextField.text = address
     }
 
+  
+    @IBAction func onClickBack(_ sender: Any) {
+        self.performSegue(withIdentifier: "postPost", sender: nil)
+    }
     
     @IBAction func onClickedPost(_ sender: Any) {
         let event = PFObject(className: "Event")
@@ -70,6 +76,7 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate 
         event.saveInBackground { (success, error) in
             if success {
                 print("saved")
+                self.performSegue(withIdentifier: "postPost", sender: nil)
             }
             else {
                 print(error?.localizedDescription)

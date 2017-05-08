@@ -27,12 +27,12 @@
 		8D221E911EAF0F2A00D80EA1 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D221E8F1EAF0F2A00D80EA1 /* EventTableViewCell.swift */; };
 		8D221EB51EB6E16300D80EA1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D221EB41EB6E16300D80EA1 /* User.swift */; };
 		8D221EB71EB6E18300D80EA1 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D221EB61EB6E18300D80EA1 /* Message.swift */; };
-		8D221EB91EBF978000D80EA1 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D221EB81EBF978000D80EA1 /* EventDetailViewController.swift */; };
 		8D221EBB1EBFA89400D80EA1 /* AttendeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D221EBA1EBFA89400D80EA1 /* AttendeesViewController.swift */; };
 		8D221EBD1EBFAD0900D80EA1 /* AttendeesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D221EBC1EBFAD0900D80EA1 /* AttendeesCell.swift */; };
 		8D221EBF1EBFB4AB00D80EA1 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D221EBE1EBFB4AB00D80EA1 /* NewEventViewController.swift */; };
 		8D221EC31EBFBA8900D80EA1 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D221EC21EBFBA8900D80EA1 /* LocationCell.swift */; };
 		8D221EC51EBFBB4500D80EA1 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D221EC41EBFBB4500D80EA1 /* LocationsViewController.swift */; };
+		8D221EC71EC0066500D80EA1 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D221EC61EC0066500D80EA1 /* EventDetailsViewController.swift */; };
 		FD608D1CA6C1A0FEA32F60A5 /* Pods_WhereYouAt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BEA18248847E92E7873E672 /* Pods_WhereYouAt.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,12 +61,12 @@
 		8D221E8F1EAF0F2A00D80EA1 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		8D221EB41EB6E16300D80EA1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8D221EB61EB6E18300D80EA1 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		8D221EB81EBF978000D80EA1 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		8D221EBA1EBFA89400D80EA1 /* AttendeesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendeesViewController.swift; sourceTree = "<group>"; };
 		8D221EBC1EBFAD0900D80EA1 /* AttendeesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendeesCell.swift; sourceTree = "<group>"; };
 		8D221EBE1EBFB4AB00D80EA1 /* NewEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		8D221EC21EBFBA8900D80EA1 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		8D221EC41EBFBB4500D80EA1 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		8D221EC61EC0066500D80EA1 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		9BEA18248847E92E7873E672 /* Pods_WhereYouAt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhereYouAt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -120,12 +120,12 @@
 				75163C131EADC9BE000B978A /* Events.storyboard */,
 				8D221E8E1EAF0F2A00D80EA1 /* EventsViewController.swift */,
 				8D221E8F1EAF0F2A00D80EA1 /* EventTableViewCell.swift */,
-				8D221EB81EBF978000D80EA1 /* EventDetailViewController.swift */,
 				8D221EBA1EBFA89400D80EA1 /* AttendeesViewController.swift */,
 				8D221EBC1EBFAD0900D80EA1 /* AttendeesCell.swift */,
 				8D221EBE1EBFB4AB00D80EA1 /* NewEventViewController.swift */,
 				8D221EC21EBFBA8900D80EA1 /* LocationCell.swift */,
 				8D221EC41EBFBB4500D80EA1 /* LocationsViewController.swift */,
+				8D221EC61EC0066500D80EA1 /* EventDetailsViewController.swift */,
 			);
 			name = Event;
 			sourceTree = "<group>";
@@ -326,8 +326,8 @@
 				751BCC141EB187A700104576 /* NewUserViewController.swift in Sources */,
 				8D221EBD1EBFAD0900D80EA1 /* AttendeesCell.swift in Sources */,
 				8D221EB71EB6E18300D80EA1 /* Message.swift in Sources */,
+				8D221EC71EC0066500D80EA1 /* EventDetailsViewController.swift in Sources */,
 				751BCC121EB1879200104576 /* LoginViewController.swift in Sources */,
-				8D221EB91EBF978000D80EA1 /* EventDetailViewController.swift in Sources */,
 				751BCC101EB1840A00104576 /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -55,11 +55,9 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
         // This is the selected venue
         let venue = results[(indexPath as NSIndexPath).row] as! NSDictionary
         
-    
-        
         var address : String!
         let location = venue.value(forKey: "location") as! NSDictionary
-        address =  location["address"] as! String
+        address =  "\(location["address"] as! String), \(location["state"] as! String)"
         
         print(address)
         delegate.locationsPickedLocation(controller: self, address: address!)
