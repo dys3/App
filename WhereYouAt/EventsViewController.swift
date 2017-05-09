@@ -34,6 +34,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.tableView.reloadData()
             }
             else {
+                
                 print(error?.localizedDescription)
             }
         }
