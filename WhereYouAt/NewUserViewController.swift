@@ -32,6 +32,9 @@ class NewUserViewController: UIViewController {
     }
     
 
+    @IBAction func onCancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBAction func onSignup(_ sender: AnyObject) {
         
         let signupAlertController = UIAlertController(title: "Success", message: "", preferredStyle: .alert)
@@ -59,6 +62,8 @@ class NewUserViewController: UIViewController {
             if success {
                 print("A new user was created")
                 newUser["screen_name"] = self.screenNameTextField.text
+                newUser["first_name"] = self.firstNameTextField.text
+                newUser["last_name"] = self.lastNameTextField.text
                 newUser.saveInBackground(block: { (success:Bool, error: Error?) in
                     self.present(signupAlertController, animated: true) {
                         // optional code for what happens after the alert controller has finished presenting
