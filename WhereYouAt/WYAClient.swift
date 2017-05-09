@@ -10,15 +10,23 @@ import Foundation
 import Parse
 
 class WYAClient {
-    let UserQuery = PFQuery("User")
-    let ChatMessageQuery = PFQuery("ChatMessage")
-    let EventQuery = PFQuery("Event")
+    let UserQuery = PFQuery(className: "User")
+    let ChatMessageQuery = PFQuery(className: "ChatMessage")
+    let EventQuery = PFQuery(className: "Event")
     
     func retrieveAttendees() {
         
     }
     
     func retrieveEvents() {
+        
+    }
+    
+    func createUser() {
+        
+    }
+    
+    func newUser() {
         
     }
     

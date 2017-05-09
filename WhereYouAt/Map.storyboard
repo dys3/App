@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="y4S-Y8-gFz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T0h-Rd-Rtd">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,21 +21,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hEl-l0-3Nr">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hEl-l0-3Nr">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hEl-l0-3Nr" firstAttribute="leading" secondItem="BmL-5h-9MF" secondAttribute="leading" id="65P-ai-lU4"/>
+                            <constraint firstItem="hEl-l0-3Nr" firstAttribute="top" secondItem="BmL-5h-9MF" secondAttribute="top" id="gce-rh-Hcv"/>
+                            <constraint firstAttribute="bottom" secondItem="hEl-l0-3Nr" secondAttribute="bottom" id="td3-RK-Xf9"/>
+                            <constraint firstAttribute="trailing" secondItem="hEl-l0-3Nr" secondAttribute="trailing" id="yCf-Oa-fY7"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="map-icon" id="cFU-oX-FwR"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map-icon" id="EYl-56-5fq"/>
+                    <navigationItem key="navigationItem" id="FS8-nX-iVp">
+                        <barButtonItem key="rightBarButtonItem" title="Toggle Attendees" id="ooP-WZ-vNQ"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="hEl-l0-3Nr" id="fFU-PD-X2q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UIh-di-Rth" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1130.625" y="170.07042253521126"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="sgX-bo-gwL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T0h-Rd-Rtd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" image="map-icon" id="NdJ-qS-i5E"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5yZ-38-ZPj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="y4S-Y8-gFz" kind="relationship" relationship="rootViewController" id="r2d-Pa-vjC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uHy-xW-N8p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="133.125" y="170.07042253521126"/>
         </scene>

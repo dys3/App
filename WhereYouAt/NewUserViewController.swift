@@ -83,7 +83,7 @@ class NewUserViewController: UIViewController {
             }
         }
         else {
-            let loadingAlertController = UIAlertController(title: "Procesing", message: "", preferredStyle: .alert)
+            let loadingAlertController = UIAlertController(title: "Processing", message: "", preferredStyle: .alert)
             // create an OK action
             
             // add the OK action to the alert controller
@@ -93,6 +93,7 @@ class NewUserViewController: UIViewController {
             }
             newUser.signUpInBackground { (success: Bool, error:Error?) in
                 if success {
+                    self.dismiss(animated: true, completion: nil)
                     print("A new user was created")
                     newUser["screen_name"] = self.screenNameTextField.text
                     newUser["first_name"] = self.firstNameTextField.text
