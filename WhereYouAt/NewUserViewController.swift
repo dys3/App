@@ -58,35 +58,55 @@ class NewUserViewController: UIViewController {
         newUser.password = passwordTextField.text
         newUser.email = emailTextField.text
         
-        newUser.signUpInBackground { (success: Bool, error:Error?) in
-            if success {
-                print("A new user was created")
-                newUser["screen_name"] = self.screenNameTextField.text
-                newUser["first_name"] = self.firstNameTextField.text
-                newUser["last_name"] = self.lastNameTextField.text
-                newUser.saveInBackground(block: { (success:Bool, error: Error?) in
-                    self.present(signupAlertController, animated: true) {
-                        // optional code for what happens after the alert controller has finished presenting
-                        // self.presentingViewController?.dismiss(animated: true, completion: nil)
-                        
-                        
-                    }
-                })
-                
-                
-                
-            } else {
-                
-                
-                let errorAlertController = UIAlertController(title: "Error", message: error!.localizedDescription, preferredStyle: .alert)
-                    // create an OK action
-                    let errorOKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+        if passwordTextField.text != confirmPasswordTextField.text {
+            let errorAlertController = UIAlertController(title: "Error", message: "Passwords do not match.", preferredStyle: .alert)
+            // create an OK action
+            let errorOKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                // handle response here.
+            }
+            // add the OK action to the alert controller
+            errorAlertController.addAction(errorOKAction)
+            self.present(errorAlertController, animated: true) {
+                // optional code for what happens after the alert controller has finished presenting
+            }
+        }
+        else if emailTextField.text != confirmEmailTextField.text {
+            let errorAlertController = UIAlertController(title: "Error", message: "Emails do not match.", preferredStyle: .alert)
+            // create an OK action
+            let errorOKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                // handle response here.
+            }
+            // add the OK action to the alert controller
+            errorAlertController.addAction(errorOKAction)
+            self.present(errorAlertController, animated: true) {
+                // optional code for what happens after the alert controller has finished presenting
+            }
+        }
+        else {
+            newUser.signUpInBackground { (success: Bool, error:Error?) in
+                if success {
+                    print("A new user was created")
+                    newUser["screen_name"] = self.screenNameTextField.text
+                    newUser["first_name"] = self.firstNameTextField.text
+                    newUser["last_name"] = self.lastNameTextField.text
+                    newUser.saveInBackground(block: { (success:Bool, error: Error?) in
+                        self.present(signupAlertController, animated: true) {
+                            // optional code for what happens after the alert controller has finished presenting
+                            // self.presentingViewController?.dismiss(animated: true, completion: nil)
+
+                        }
+                    })
+                } else {
+                    let errorAlertController = UIAlertController(title: "Error", message: error!.localizedDescription, preferredStyle: .alert)
+                        // create an OK action
+                        let errorOKAction = UIAlertAction(title: "OK", style: .default) { (action) in
                         // handle response here.
-                }
-                // add the OK action to the alert controller
-                errorAlertController.addAction(errorOKAction)
-                self.present(errorAlertController, animated: true) {
-                    // optional code for what happens after the alert controller has finished presenting
+                    }
+                    // add the OK action to the alert controller
+                    errorAlertController.addAction(errorOKAction)
+                    self.present(errorAlertController, animated: true) {
+                        // optional code for what happens after the alert controller has finished presenting
+                    }
                 }
             }
         }
