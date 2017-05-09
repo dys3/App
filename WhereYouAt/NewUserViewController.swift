@@ -83,6 +83,14 @@ class NewUserViewController: UIViewController {
             }
         }
         else {
+            let loadingAlertController = UIAlertController(title: "Procesing", message: "", preferredStyle: .alert)
+            // create an OK action
+            
+            // add the OK action to the alert controller
+            //loadingAlertController.addAction(errorOKAction)
+            self.present(loadingAlertController, animated: true) {
+                // optional code for what happens after the alert controller has finished presenting
+            }
             newUser.signUpInBackground { (success: Bool, error:Error?) in
                 if success {
                     print("A new user was created")

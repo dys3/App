@@ -45,7 +45,7 @@
                                 <rect key="frame" x="76" y="263" width="165" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kpa-jE-sUX">
                                 <rect key="frame" x="121" y="234" width="74" height="21"/>
@@ -126,7 +126,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kc-p1-hzM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2304" y="357"/>
+            <point key="canvasLocation" x="1954" y="120"/>
         </scene>
         <!--Events-->
         <scene sceneID="MJL-of-fcW">
@@ -136,7 +136,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8IG-dO-BhG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3194" y="7"/>
+            <point key="canvasLocation" x="2838" y="-85"/>
         </scene>
         <!--Chat-->
         <scene sceneID="J1h-oT-LeF">
@@ -146,7 +146,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ovd-IC-QJw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3205.3125" y="120.4225352112676"/>
+            <point key="canvasLocation" x="2827" y="27"/>
         </scene>
         <!--Map-->
         <scene sceneID="f6g-1f-ZFZ">
@@ -156,7 +156,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IWZ-sv-B8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3128" y="292"/>
+            <point key="canvasLocation" x="2824" y="198"/>
         </scene>
         <!--Profile-->
         <scene sceneID="UOS-AS-i1T">
@@ -166,7 +166,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N49-cU-OGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3127.5" y="419.36619718309862"/>
+            <point key="canvasLocation" x="2837" y="318"/>
         </scene>
         <!--New User View Controller-->
         <scene sceneID="c6w-WN-xoE">
@@ -226,13 +226,13 @@
                                                 <rect key="frame" x="31" y="144" width="259" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yOd-hC-jrF">
                                                 <rect key="frame" x="31" y="210" width="259" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDy-v4-VbU">
                                                 <rect key="frame" x="31" y="315" width="107" height="21"/>
@@ -392,37 +392,14 @@
                         <outlet property="passwordTextField" destination="Sjb-wK-T5q" id="bSR-0y-r1u"/>
                         <outlet property="screenNameTextField" destination="ggf-uy-up5" id="nwk-Uh-CG3"/>
                         <outlet property="usernameTextField" destination="EsN-69-Ix9" id="nrj-h0-tRG"/>
-                        <segue destination="3ta-cT-c2J" kind="presentation" identifier="signinSegue" id="xbL-Au-rLx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q9q-E3-dY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1631.25" y="835.56338028169012"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="JnF-zD-kvl">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="P8W-A3-fAH" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="blt-DI-Tlk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="vOg-vd-yRu" kind="relationship" relationship="rootViewController" id="f5Y-eO-lxK"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OCn-sU-nB6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="633.75" y="835.56338028169012"/>
+            <point key="canvasLocation" x="1114" y="875"/>
         </scene>
     </scenes>
     <resources>
         <image name="home-map-photo" width="3992" height="2992"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="DgC-ha-NbF"/>
-        <segue reference="laa-Sp-KAa"/>
-    </inferredMetricsTieBreakers>
 </document>
