@@ -10,6 +10,8 @@
 		0761A82E1EB1173C0037DAEF /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0761A82D1EB1173C0037DAEF /* Map.storyboard */; };
 		07E623651EBFC29500C74B7B /* FriendsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E623641EBFC29500C74B7B /* FriendsSearchViewController.swift */; };
 		07E623671EBFC4BD00C74B7B /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E623661EBFC4BD00C74B7B /* FriendsCell.swift */; };
+		07FA01791EC1707E004C8923 /* UserEventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FA01781EC1707E004C8923 /* UserEventsCell.swift */; };
+		07FA017B1EC177E5004C8923 /* WYAClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FA017A1EC177E5004C8923 /* WYAClient.swift */; };
 		75163C121EADC7D8000B978A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75163C111EADC7D8000B978A /* MapViewController.swift */; };
 		75163C141EADC9BE000B978A /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75163C131EADC9BE000B978A /* Events.storyboard */; };
 		75163C181EADCA80000B978A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75163C171EADCA80000B978A /* Profile.storyboard */; };
@@ -42,6 +44,8 @@
 		0761A82D1EB1173C0037DAEF /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		07E623641EBFC29500C74B7B /* FriendsSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsSearchViewController.swift; sourceTree = "<group>"; };
 		07E623661EBFC4BD00C74B7B /* FriendsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
+		07FA01781EC1707E004C8923 /* UserEventsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventsCell.swift; sourceTree = "<group>"; };
+		07FA017A1EC177E5004C8923 /* WYAClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WYAClient.swift; sourceTree = "<group>"; };
 		10A09855D599242B550464D0 /* Pods-WhereYouAt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereYouAt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhereYouAt/Pods-WhereYouAt.debug.xcconfig"; sourceTree = "<group>"; };
 		75163C111EADC7D8000B978A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		75163C131EADC9BE000B978A /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
@@ -113,9 +117,10 @@
 			isa = PBXGroup;
 			children = (
 				75163C171EADCA80000B978A /* Profile.storyboard */,
+				751BCC151EB18A8900104576 /* ProfileViewController.swift */,
+				07FA01781EC1707E004C8923 /* UserEventsCell.swift */,
 				07E623661EBFC4BD00C74B7B /* FriendsCell.swift */,
 				07E623641EBFC29500C74B7B /* FriendsSearchViewController.swift */,
-				751BCC151EB18A8900104576 /* ProfileViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 		7598154C1EA96E81006FEDB4 /* WhereYouAt */ = {
 			isa = PBXGroup;
 			children = (
+				07FA017A1EC177E5004C8923 /* WYAClient.swift */,
 				7598154D1EA96E81006FEDB4 /* AppDelegate.swift */,
 				751BCC111EB1879200104576 /* LoginViewController.swift */,
 				751BCC131EB187A700104576 /* NewUserViewController.swift */,
@@ -317,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07E623651EBFC29500C74B7B /* FriendsSearchViewController.swift in Sources */,
+				07FA01791EC1707E004C8923 /* UserEventsCell.swift in Sources */,
 				07E623671EBFC4BD00C74B7B /* FriendsCell.swift in Sources */,
 				751BCC0E1EB183FC00104576 /* ChatCell.swift in Sources */,
 				75163C121EADC7D8000B978A /* MapViewController.swift in Sources */,
@@ -332,6 +339,7 @@
 				8D221EBB1EBFA89400D80EA1 /* AttendeesViewController.swift in Sources */,
 				8D221EC51EBFBB4500D80EA1 /* LocationsViewController.swift in Sources */,
 				751BCC141EB187A700104576 /* NewUserViewController.swift in Sources */,
+				07FA017B1EC177E5004C8923 /* WYAClient.swift in Sources */,
 				8D221EBD1EBFAD0900D80EA1 /* AttendeesCell.swift in Sources */,
 				8D221EB71EB6E18300D80EA1 /* Message.swift in Sources */,
 				8D221EC71EC0066500D80EA1 /* EventDetailsViewController.swift in Sources */,

@@ -45,6 +45,7 @@ class ProfileViewController: UIViewController {
         if let lastName = user?["last_name"] as? String {
             self.lastName.text = lastName
         }
+        
     }
     
     override func viewDidLoad() {
@@ -79,3 +80,13 @@ class ProfileViewController: UIViewController {
      */
     
 }
+
+extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+    }
+}
+
