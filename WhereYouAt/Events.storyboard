@@ -124,6 +124,7 @@
                                         <connections>
                                             <outlet property="eventImage" destination="79T-LD-LIP" id="uE7-u8-y3B"/>
                                             <outlet property="eventNameLabel" destination="9Zr-fe-46w" id="Q3j-RH-olc"/>
+                                            <outlet property="eventTimeLabel" destination="d1h-bK-Y2K" id="KPW-ht-gRK"/>
                                             <outlet property="locationLabel" destination="Blw-lQ-K7C" id="dUq-DX-j7u"/>
                                             <outlet property="numberAttendeeLabel" destination="xWj-mI-Epq" id="H5v-JZ-E6R"/>
                                             <outlet property="timePostedLabel" destination="8C1-pV-bwO" id="NuW-z3-u81"/>
@@ -256,7 +257,6 @@
                         <outlet property="descriptionTextField" destination="Qve-Tt-oMJ" id="zb6-g7-UXY"/>
                         <outlet property="nameTextField" destination="bDn-Ju-9ri" id="zfB-ZD-xar"/>
                         <segue destination="0cZ-xG-qrh" kind="push" identifier="addLocation" id="iJv-OW-4Vr"/>
-                        <segue destination="LSz-Gw-fR5" kind="show" identifier="postPost" id="zzI-gE-g1J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2x-VO-rzm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -266,7 +266,6 @@
         <!--Event Details View Controller-->
         <scene sceneID="tFS-Ac-uNH">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z5x-Tb-CpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="bg0-z1-g6V" customClass="EventDetailsViewController" customModule="WhereYouAt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dFn-0k-5fp"/>
@@ -361,6 +360,7 @@
                         <segue destination="NbK-6p-qR2" kind="show" identifier="showAttendees" id="bI8-QN-fjk"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z5x-Tb-CpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="IPg-8F-GyU">
                     <connections>
                         <action selector="onTapAttendees:" destination="bg0-z1-g6V" id="3eP-89-lDC"/>
@@ -451,8 +451,9 @@
         <scene sceneID="9rw-Ed-Gvk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LSz-Gw-fR5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Event" id="7lc-4N-tXG"/>
+                    <tabBarItem key="tabBarItem" title="Event" image="menu-icon" id="HkX-mD-zTu"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="M6S-qv-fnC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -482,7 +483,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UE9-vD-HV7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-639" y="-776"/>
+            <point key="canvasLocation" x="-639" y="-764"/>
         </scene>
         <!--Add Location-->
         <scene sceneID="yBW-eu-SZd">
@@ -572,4 +573,7 @@
             <point key="canvasLocation" x="876" y="-776"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu-icon" width="25" height="25"/>
+    </resources>
 </document>
