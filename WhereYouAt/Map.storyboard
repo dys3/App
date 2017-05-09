@@ -29,7 +29,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="cFU-oX-FwR"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map-icon" id="cFU-oX-FwR"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="hEl-l0-3Nr" id="fFU-PD-X2q"/>
@@ -40,4 +40,7 @@
             <point key="canvasLocation" x="133.125" y="170.07042253521126"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="map-icon" width="25" height="25"/>
+    </resources>
 </document>
