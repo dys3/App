@@ -18,16 +18,49 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var timePostedLabel: UILabel!
     @IBOutlet weak var eventImage: PFImageView!
     @IBOutlet weak var eventNameLabel: UILabel!
+    @IBOutlet weak var eventTimeLabel: UILabel!
     
     var event : PFObject! {
        didSet {
-           // self.eventImage.file = event["imageFile"] as? PFFile
-            self.eventNameLabel.text = event["name"] as? String
-            //self.timePostedLabel.text = event["createdAt"] as? String
-            self.locationLabel.text = event["location"] as? String
-            //var attendees : [String]?
-           // attendees = event["attendees"] as? [String]
-            //self.numberAttendeeLabel.text = attendees?.count.description
+        if let image = event["imageFile"] as? PFFile {
+            self.eventImage.file = image
+        }
+        if let name = event["name"] as? String {
+            self.eventNameLabel.text = name
+        }
+        
+        if let location = event["location"] as? String {
+            self.locationLabel.text = location
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE MMM d HH:mm:ss"
+
+        if let postedTime = event.createdAt  {
+            
+            let timeDiff = (Int)(Date().timeIntervalSince(postedTime))
+            
+            if(timeDiff < 60 ) {
+                timePostedLabel.text = "\(timeDiff)s"
+            }
+            else if(timeDiff < 3600) {
+                timePostedLabel.text = "\(timeDiff/60)m"
+            }
+            else if(timeDiff < 86400) {
+                timePostedLabel.text = "\(timeDiff/3600)h"
+            }
+            else {
+                timePostedLabel.text = "\(timeDiff/86400)d"
+            }
+        }
+        
+        if let eventTime = event["event_time"] as? Date {
+            self.eventTimeLabel.text = dateFormatter.string(from: eventTime)
+        }
+
+        if let attendees = event["attendees"] as? [String] {
+            self.numberAttendeeLabel.text = attendees.count.description
+        }
         }
     }
     

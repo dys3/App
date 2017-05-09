@@ -46,7 +46,7 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate 
 
   
     @IBAction func onClickBack(_ sender: Any) {
-        self.performSegue(withIdentifier: "postPost", sender: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onClickedPost(_ sender: Any) {
@@ -60,8 +60,8 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate 
         
         event["location"] = self.addressTextField.text
         
-        if let id = PFUser.current()?["objectId"] {
-            event["attendees"] = id
+        if let id = PFUser.current()?.objectId {
+            event.add(id, forKey: "attendees")
         }
         else {
             print("no user id")
@@ -76,7 +76,7 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate 
         event.saveInBackground { (success, error) in
             if success {
                 print("saved")
-                self.performSegue(withIdentifier: "postPost", sender: nil)
+                self.dismiss(animated: true, completion: nil)
             }
             else {
                 print(error?.localizedDescription)
