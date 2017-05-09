@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import ParseUI
+import AFNetworking
 
 class AttendeesCell: UITableViewCell {
     @IBOutlet weak var profileImage: PFImageView!

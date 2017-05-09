@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import ParseUI
+import AFNetworking
 
 class EventTableViewCell: UITableViewCell {
 
@@ -20,13 +21,13 @@ class EventTableViewCell: UITableViewCell {
     
     var event : PFObject! {
        didSet {
-            self.eventImage.file = event["imageFile"] as? PFFile
+           // self.eventImage.file = event["imageFile"] as? PFFile
             self.eventNameLabel.text = event["name"] as? String
-            self.timePostedLabel.text = event["createdAt"] as? String
+            //self.timePostedLabel.text = event["createdAt"] as? String
             self.locationLabel.text = event["location"] as? String
-            var attendees : [String]?
-            attendees = event["attendees"] as? [String]
-            self.numberAttendeeLabel.text = attendees?.count.description
+            //var attendees : [String]?
+           // attendees = event["attendees"] as? [String]
+            //self.numberAttendeeLabel.text = attendees?.count.description
         }
     }
     
