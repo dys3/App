@@ -28,7 +28,7 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
         tableView.delegate = self
         tableView.dataSource = self
         
-        fetching()
+        //fetching()
         
         
         
@@ -78,7 +78,7 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
-    func fetching() {
+    /*func fetching() {
         if !isFetching {
             self.isFetching = true
             var query = PFQuery(className: "ChatMessage")
@@ -136,7 +136,7 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
 
         }
     }
-    
+    */
     func getLatestMessage(userId : String) -> PFObject {
         for message in messages! {
             if ((message["senter_user_id"] as! String) == PFUser.current()?["userId"] as! String && (message["receiver_user_id"] as! String) == userId) || ((message["senter_user_id"] as! String) == userId && (message["receiver_user_id"] as! String) == PFUser.current()?["userId"] as! String) {
