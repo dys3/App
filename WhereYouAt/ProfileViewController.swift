@@ -83,6 +83,7 @@ class ProfileViewController: UIViewController {
      */
     
 }
+/*
 <<<<<<< HEAD
 /*
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
@@ -104,4 +105,4 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
 //    }
 //}
 >>>>>>> master
-
+*/

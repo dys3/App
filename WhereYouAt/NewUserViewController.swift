@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import MBProgressHUD
 
 class NewUserViewController: UIViewController {
 
@@ -42,7 +43,6 @@ class NewUserViewController: UIViewController {
         
         let signupOKAction = UIAlertAction(title: "OK", style: .default) { (action) in
             // handle response here
-            //self.presentingViewController?.dismiss(animated: true, completion: nil)
             self.presentingViewController?.dismiss(animated: true, completion: {
                 
                 let vc = UIApplication.shared.keyWindow?.rootViewController
@@ -83,16 +83,14 @@ class NewUserViewController: UIViewController {
             }
         }
         else {
-            //let loadingAlertController = UIAlertController(title: "Processing", message: "", preferredStyle: .alert)
+            let progressHUD = MBProgressHUD.showAdded(to: self.view, animated: true)
+            progressHUD.backgroundView.color = UIColor.darkGray
+            progressHUD.backgroundView.alpha = 0.5
             
-            // add the OK action to the alert controller
-            //loadingAlertController.addAction(errorOKAction)
-            /*self.present(loadingAlertController, animated: true) {
-                // optional code for what happens after the alert controller has finished presenting
-            }*/
             newUser.signUpInBackground { (success: Bool, error:Error?) in
                 if success {
-                    //self.dismiss(animated: true, completion: nil)
+                    progressHUD.hide(animated: true)
+                    //MBProgressHUD.hide(for: self.view, animated: true)
                     print("A new user was created")
                     newUser["screen_name"] = self.screenNameTextField.text
                     newUser["first_name"] = self.firstNameTextField.text
