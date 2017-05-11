@@ -39,6 +39,12 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let tableView = tableView {
+            tableView.reloadData()
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -74,6 +80,10 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let eventDetailVC = segue.destination as! EventDetailsViewController
         eventDetailVC.event = event;
         }
+    }
+    
+    public func reload() {
+        tableView.reloadData()
     }
     
 
