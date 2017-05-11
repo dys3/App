@@ -160,7 +160,14 @@
                             <constraint firstAttribute="trailing" secondItem="xK9-Pi-u6s" secondAttribute="trailing" id="xMz-XH-hwX"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="NkU-GI-DJ4"/>
+                    <navigationItem key="navigationItem" id="NkU-GI-DJ4">
+                        <barButtonItem key="rightBarButtonItem" title="search" id="nQz-lD-b6y">
+                            <connections>
+                                <action selector="onClickSearch:" destination="ass-Pb-JLV" id="ZzQ-da-WPE"/>
+                                <segue destination="1XM-n5-aUk" kind="show" identifier="searchUser" id="sXK-ej-dQh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="firstName" destination="pcs-te-buI" id="2Wy-nb-K7r"/>
                         <outlet property="lastName" destination="GnB-ym-qqf" id="jkm-zk-dev"/>
@@ -189,10 +196,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="49" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nNU-Uk-1vh">
-                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="411"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="49" id="eUg-yA-e2i" customClass="searchUserCell" customModule="WhereYouAt" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="49" id="eUg-yA-e2i" customClass="searchUserCell" customModule="WhereYouAt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eUg-yA-e2i" id="n9G-D3-iVg">
@@ -247,7 +254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaO-Ws-8cr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2013.75" y="846.12676056338034"/>
+            <point key="canvasLocation" x="2018" y="918"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="b9E-wT-s3a">
@@ -312,7 +319,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K72-7f-Z6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1177.5" y="836.61971830985919"/>
+            <point key="canvasLocation" x="1179" y="919"/>
         </scene>
     </scenes>
     <resources>

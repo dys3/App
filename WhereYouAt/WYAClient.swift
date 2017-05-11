@@ -14,12 +14,35 @@ class WYAClient {
     let ChatMessageQuery = PFQuery(className: "ChatMessage")
     let EventQuery = PFQuery(className: "Event")
     
-    func retrieveAttendees(event: Event) -> [String] {
+    func retrieveAttendees(event: Event) -> [PFObject] {
+        var attendees: [PFObject]!
         
+        EventQuery.whereKey("name", equalTo: event)
+        EventQuery.findObjectsInBackground { (participants, error) in
+            if let participants = participants {
+                for participant in participants {
+                    attendees.append(participant)
+                }
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
+        return attendees
     }
     
-    func retrieveEvents() {
+    func retrieveEvents() -> [PFObject] {
+        var returnEvents: [PFObject]!
         
+        EventQuery.findObjectsInBackground { (events, error) in
+            if let events = events {
+                for event in events {
+                    returnEvents.append(event)
+                }
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
+        return returnEvents
     }
     
     func createUser() {
