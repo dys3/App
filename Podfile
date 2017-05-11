@@ -12,5 +12,6 @@ target 'WhereYouAt' do
     pod 'AFNetworking'
     pod 'Parse'
     pod 'ParseUI'
+    pod 'MBProgressHUD'
 
 end
