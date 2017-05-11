@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07281F2B1EC3F81A007D36B6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07281F2A1EC3F81A007D36B6 /* Event.swift */; };
 		0761A82E1EB1173C0037DAEF /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0761A82D1EB1173C0037DAEF /* Map.storyboard */; };
 		07E623651EBFC29500C74B7B /* FriendsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E623641EBFC29500C74B7B /* FriendsSearchViewController.swift */; };
 		07E623671EBFC4BD00C74B7B /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E623661EBFC4BD00C74B7B /* FriendsCell.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07281F2A1EC3F81A007D36B6 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0761A82D1EB1173C0037DAEF /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		07E623641EBFC29500C74B7B /* FriendsSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsSearchViewController.swift; sourceTree = "<group>"; };
 		07E623661EBFC4BD00C74B7B /* FriendsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			children = (
 				75163C131EADC9BE000B978A /* Events.storyboard */,
 				8D221E8E1EAF0F2A00D80EA1 /* EventsViewController.swift */,
+				07281F2A1EC3F81A007D36B6 /* Event.swift */,
 				8D221E8F1EAF0F2A00D80EA1 /* EventTableViewCell.swift */,
 				8D221EBA1EBFA89400D80EA1 /* AttendeesViewController.swift */,
 				8D221EBC1EBFAD0900D80EA1 /* AttendeesCell.swift */,
@@ -338,6 +341,7 @@
 				8D221E901EAF0F2A00D80EA1 /* EventsViewController.swift in Sources */,
 				8D221EBB1EBFA89400D80EA1 /* AttendeesViewController.swift in Sources */,
 				8D221EC51EBFBB4500D80EA1 /* LocationsViewController.swift in Sources */,
+				07281F2B1EC3F81A007D36B6 /* Event.swift in Sources */,
 				751BCC141EB187A700104576 /* NewUserViewController.swift in Sources */,
 				07FA017B1EC177E5004C8923 /* WYAClient.swift in Sources */,
 				8D221EBD1EBFAD0900D80EA1 /* AttendeesCell.swift in Sources */,
