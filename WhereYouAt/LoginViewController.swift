@@ -26,14 +26,6 @@ class LoginViewController: UIViewController {
     
     @IBAction func onLogin(_ sender: AnyObject) {
         
-        let alertController = UIAlertController(title: "Access Denied", message: "Invalid username or password.", preferredStyle: .alert)
-        
-        // create an OK action
-        let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
-            // handle response here.
-        }
-        // add the OK action to the alert controller
-        alertController.addAction(OKAction)
         
         
         PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!) { (user: PFUser?, error:Error?) in
@@ -42,6 +34,14 @@ class LoginViewController: UIViewController {
                 
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             } else {
+                let alertController = UIAlertController(title: "Access Denied", message: error!.localizedDescription, preferredStyle: .alert)
+                
+                // create an OK action
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    // handle response here.
+                }
+                // add the OK action to the alert controller
+                alertController.addAction(OKAction)
                 self.present(alertController, animated: true) {
                     // optional code for what happens after the alert controller has finished presenting
                 }

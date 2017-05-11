@@ -30,6 +30,24 @@ class WYAClient {
         
     }
     
+    /*
+    static func login(username:String!, password:String!, completion: @escaping ()->(user: PFUser?, error: Error?)) {
+        PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!) { (user: PFUser?, error:Error?) in
+            completion(user, error)
+            
+            if user != nil {
+                print("You're logged in")
+                
+                completion(user, error)
+                //self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            } else {
+                self.present(alertController, animated: true) {
+                    // optional code for what happens after the alert controller has finished presenting
+                }
+            }
+        }
+    }*/
+    
 //    UserQuery.findObjectsInBackground { (events, error) in
 //    if let events = events {
 //    self.events = events
