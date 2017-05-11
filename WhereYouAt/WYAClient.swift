@@ -14,7 +14,7 @@ class WYAClient {
     let ChatMessageQuery = PFQuery(className: "ChatMessage")
     let EventQuery = PFQuery(className: "Event")
     
-    func retrieveAttendees() {
+    func retrieveAttendees(event: Event) -> [String] {
         
     }
     
