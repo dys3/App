@@ -15,7 +15,6 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     
     var results: [PFObject]!
-    var filteredResults : [PFObject]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +22,9 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
+        
+        fetchingUsers(content: "")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,28 +33,67 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return results.count
+        if let results = results {
+            return results.count
+        }
+        else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell") as! searchUserCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as! searchUserCell
         
         cell.user = results[(indexPath as NSIndexPath).row]
         
         return cell
     }
     
-    func fetchingUsers(content: String) {
-        let query = PFQuery(className: "User")
+//    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+//        
+//        if searchBar.text == "" {
+//            fetchingUsers(content: "")
+//        }
+//        else {
+//        let newText = NSString(string: searchBar.text!).replacingCharacters(in: range, with: text)
+//        searchBar.showsCancelButton = true
+//        fetchingUsers(content: newText)
+//        }
+//        return true
+//    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchBar.showsCancelButton = true
+        fetchingUsers(content: searchText)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        searchBar.showsCancelButton = false
+        print("canceled")
+        fetchingUsers(content: "")
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        fetchingUsers(content: searchBar.text!)
+    }
+    
+    func fetchingUsers(content: String) {
+        let query = PFQuery(className: "_User").whereKey("username", matchesRegex: content, modifiers: "i")
+        query.whereKey("username", notEqualTo: PFUser.current()?["username"])
+        
+        query.order(byAscending: "username")
         query.findObjectsInBackground { (results, error) in
-            if let error = error {
+            if let error = error{
                 print(error.localizedDescription)
             }
             else {
                 self.results = results
+                self.tableView.reloadData()
             }
-            
         }
         
     }

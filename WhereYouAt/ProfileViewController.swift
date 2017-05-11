@@ -69,6 +69,9 @@ class ProfileViewController: UIViewController {
     }
     
     
+    @IBAction func onClickSearch(_ sender: Any) {
+        self.performSegue(withIdentifier: "search", sender: nil)
+    }
     /*
      // MARK: - Navigation
      
