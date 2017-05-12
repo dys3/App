@@ -86,11 +86,13 @@ class NewUserViewController: UIViewController {
             let progressHUD = MBProgressHUD.showAdded(to: self.view, animated: true)
             progressHUD.backgroundView.color = UIColor.darkGray
             progressHUD.backgroundView.alpha = 0.5
+            progressHUD.backgroundView.isUserInteractionEnabled = false
             
             newUser.signUpInBackground { (success: Bool, error:Error?) in
+                progressHUD.hide(animated: true)
+                progressHUD.backgroundView.isUserInteractionEnabled = true
                 if success {
-                    progressHUD.hide(animated: true)
-                    //MBProgressHUD.hide(for: self.view, animated: true)
+                    
                     print("A new user was created")
                     newUser["screen_name"] = self.screenNameTextField.text
                     newUser["first_name"] = self.firstNameTextField.text
@@ -98,8 +100,6 @@ class NewUserViewController: UIViewController {
                     newUser.saveInBackground(block: { (success:Bool, error: Error?) in
                         self.present(signupAlertController, animated: true) {
                             // optional code for what happens after the alert controller has finished presenting
-                            // self.presentingViewController?.dismiss(animated: true, completion: nil)
-
                         }
                     })
                 } else {
