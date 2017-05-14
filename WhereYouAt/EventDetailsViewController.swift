@@ -47,7 +47,27 @@ class EventDetailsViewController: UIViewController {
         
         if let address = address {
             addressLabel.text = address
+        }
+        
+        if let lat = event["latitude"], let lng = event["longitude"] {
+            let mapCenter = CLLocationCoordinate2D(latitude: lat as! CLLocationDegrees, longitude: lng as! CLLocationDegrees)
+            let mapSpan = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
+            let region = MKCoordinateRegion(center: mapCenter, span: mapSpan)
+            self.eventMap.setRegion(region, animated: false)
             
+            // add annotation to the map
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = mapCenter
+            if let name = self.event["name"] as? String {
+                annotation.title = name
+            }
+            else {
+                annotation.title = address
+            }
+            self.eventMap.addAnnotation(annotation)
+        }
+            
+        else if let address = address {
             // also center the map at the address
             let geocoder = CLGeocoder()
             geocoder.geocodeAddressString(address, completionHandler: { (placemarks, error) in
