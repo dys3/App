@@ -13,11 +13,11 @@ import ParseUI
 class WYAClient: Parse {
     static let UserQuery = PFQuery(className: "User")
     static let ChatMessageQuery = PFQuery(className: "ChatMessage")
-    static var EventQuery = PFQuery(className: "Event")
+    static var EventQuery: PFQuery<PFObject>!
     
     static func retrieveAttendees(event: Event) -> [PFObject] {
         var attendees: [PFObject]!
-                
+        
         EventQuery.whereKey("name", equalTo: event)
         EventQuery.findObjectsInBackground { (participants, error) in
             if let participants = participants {
@@ -32,6 +32,7 @@ class WYAClient: Parse {
     }
     
     static func retrieveEvents() -> [PFObject] {
+        EventQuery = PFQuery(className: "Event")
         var returnEvents: [PFObject]!
         
         EventQuery.order(byDescending: "createdAt")
