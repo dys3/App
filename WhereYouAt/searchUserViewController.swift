@@ -97,6 +97,21 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
         }
         
     }
+    
+    @IBAction func tapAddFriends(_ sender: Any) {
+        print("friend added!")
+        let query = PFQuery(className: "User")
+        let addFriendAlertController = UIAlertController(title: "Add friend?", message: "", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+        let addFriendAction = UIAlertAction(title: "Add", style: .default) { (action) in
+            
+        }
+        addFriendAlertController.addAction(cancelAction)
+        addFriendAlertController.addAction(addFriendAction)
+        self.present(addFriendAlertController, animated: true) {
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
