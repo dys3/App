@@ -45,7 +45,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         
         //IOS 9
         mapView.addGestureRecognizer(uilgr)
-        
+        //l
     }
     
     func addAnnotation(_ sender:UIGestureRecognizer){
