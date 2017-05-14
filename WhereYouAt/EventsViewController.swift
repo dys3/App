@@ -23,7 +23,6 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         
-<<<<<<< HEAD
         let query = PFQuery(className: "Event")
         
         query.order(byDescending: "createdAt")
@@ -40,13 +39,9 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 print(error?.localizedDescription)
             }
         }
-=======
-//        if events == nil {
-//            events = WYAClient.retrieveEvents()
-//        }
+
         fetchData()
-       
->>>>>>> master
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
