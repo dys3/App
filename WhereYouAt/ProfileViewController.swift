@@ -15,12 +15,20 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var screenName: UILabel!
     @IBOutlet weak var firstName: UILabel!
     @IBOutlet weak var lastName: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var events = [PFObject]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
         //let user = PFObject(className: "User")
         let user = PFUser.current()
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
         
         if let profileImageFile = user?["profileImage"] as? PFFile {
             profileImageFile.getDataInBackground {
@@ -46,6 +54,7 @@ class ProfileViewController: UIViewController {
             self.lastName.text = lastName
         }
         
+        fetchData()
     }
     
     override func viewDidLoad() {
@@ -72,6 +81,7 @@ class ProfileViewController: UIViewController {
     @IBAction func onClickSearch(_ sender: Any) {
         self.performSegue(withIdentifier: "search", sender: nil)
     }
+    
     /*
      // MARK: - Navigation
      
@@ -83,26 +93,41 @@ class ProfileViewController: UIViewController {
      */
     
 }
-/*
-<<<<<<< HEAD
-/*
+
+
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        return self.events.count ?? 0
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserEventsCell") as! UserEventsCell
+        cell.eventTitleLabel.text = events[indexPath.row]["name"] as! String?
+        cell.eventDescriptionLabel.text = events[indexPath.row]["description"] as! String?
+        
+        return cell
         
     }
-}*/
-=======
-//
-//extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        
-//    }
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        
-//    }
-//}
->>>>>>> master
-*/
+    
+    func fetchData() {
+        let query = PFQuery(className: "Event")
+        
+        query.order(byDescending: "createdAt")
+        query.limit = 20
+        
+        // fetch data asynchronously
+        query.findObjectsInBackground { (events, error) in
+            if let events = events {
+                self.events = events
+                self.tableView.reloadData()
+            }
+            else {
+                print(error?.localizedDescription)
+            }
+        }
+    }
+    
+}
+
+
