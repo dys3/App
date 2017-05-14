@@ -36,7 +36,8 @@ class WYAClient: Parse {
         var returnEvents: [PFObject]!
         
         EventQuery.order(byDescending: "createdAt")
-        EventQuery.findObjectsInBackground { (events, error) in
+        EventQuery.findObjectsInBackground { (events, error) in //Not running into block statement
+            print("check")
             if let events = events {
                 for event in events {
                     returnEvents.append(event)
@@ -46,6 +47,7 @@ class WYAClient: Parse {
             }
         }
         return returnEvents
+ 
     }
     
     
