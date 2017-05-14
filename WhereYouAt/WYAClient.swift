@@ -8,15 +8,16 @@
 
 import Foundation
 import Parse
+import ParseUI
 
-class WYAClient {
-    let UserQuery = PFQuery(className: "User")
-    let ChatMessageQuery = PFQuery(className: "ChatMessage")
-    let EventQuery = PFQuery(className: "Event")
+class WYAClient: Parse {
+    static let UserQuery = PFQuery(className: "User")
+    static let ChatMessageQuery = PFQuery(className: "ChatMessage")
+    static var EventQuery = PFQuery(className: "Event")
     
-    func retrieveAttendees(event: Event) -> [PFObject] {
+    static func retrieveAttendees(event: Event) -> [PFObject] {
         var attendees: [PFObject]!
-        
+                
         EventQuery.whereKey("name", equalTo: event)
         EventQuery.findObjectsInBackground { (participants, error) in
             if let participants = participants {
@@ -30,9 +31,10 @@ class WYAClient {
         return attendees
     }
     
-    func retrieveEvents() -> [PFObject] {
+    static func retrieveEvents() -> [PFObject] {
         var returnEvents: [PFObject]!
         
+        EventQuery.order(byDescending: "createdAt")
         EventQuery.findObjectsInBackground { (events, error) in
             if let events = events {
                 for event in events {
@@ -44,6 +46,7 @@ class WYAClient {
         }
         return returnEvents
     }
+    
     
     func createUser() {
         
