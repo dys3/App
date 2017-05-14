@@ -39,9 +39,7 @@ class WYAClient: Parse {
         EventQuery.findObjectsInBackground { (events, error) in //Not running into block statement
             print("check")
             if let events = events {
-                for event in events {
-                    returnEvents.append(event)
-                }
+                returnEvents = events
             } else {
                 print(error?.localizedDescription)
             }
