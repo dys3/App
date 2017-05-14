@@ -15,7 +15,11 @@ class searchUserCell: UITableViewCell {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     
-    var user : PFObject!
+    var user : PFObject! {
+        didSet {
+            usernameLabel.text = user["username"] as? String
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
