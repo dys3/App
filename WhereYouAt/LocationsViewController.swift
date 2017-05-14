@@ -7,7 +7,7 @@
 //
 
 protocol LocationsViewControllerDelegate : class {
-    func locationsPickedLocation(controller: LocationsViewController, address: String)
+    func locationsPickedLocation(controller: LocationsViewController, address: String, lat: NSNumber, lng: NSNumber)
 }
 
 
@@ -59,8 +59,10 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
         let location = venue.value(forKey: "location") as! NSDictionary
         address =  "\(location["address"] as! String), \(location["state"]  as! String)"
         
-        print(address)
-        delegate.locationsPickedLocation(controller: self, address: address!)
+        let lat = venue.value(forKeyPath: "location.lat") as! NSNumber
+        let lng = venue.value(forKeyPath: "location.lng") as! NSNumber
+        
+        delegate.locationsPickedLocation(controller: self, address: address!, lat: lat, lng: lng)
         navigationController?.popViewController(animated: true)
         
     }
