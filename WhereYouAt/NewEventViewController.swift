@@ -10,8 +10,13 @@ import UIKit
 import Parse
 import AFNetworking
 
+protocol NewEventViewControllerDelegate: class {
+    func afterPost(controller: NewEventViewController)
+}
+
 class NewEventViewController: UIViewController, LocationsViewControllerDelegate {
     
+    weak var delegate : NewEventViewControllerDelegate!
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
@@ -23,6 +28,9 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate 
 
         // Do any additional setup after loading the view.
     }
+    
+    var langitude: NSNumber!
+    var longitude: NSNumber!
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -40,9 +48,12 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate 
         }
     }
     
-    func locationsPickedLocation(controller: LocationsViewController, address: String) {
+    func locationsPickedLocation(controller: LocationsViewController, address: String, lat: NSNumber, lng: NSNumber) {
         addressTextField.text = address
+        langitude = lat
+        longitude = lng
     }
+    
 
   
     @IBAction func onClickBack(_ sender: Any) {
@@ -73,9 +84,13 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate 
         
         event["name"] = self.nameTextField.text
         
+        event["latitude"] = self.langitude
+        event["longitude"] = self.longitude
+        
         event.saveInBackground { (success, error) in
             if success {
                 print("saved")
+                self.delegate.afterPost(controller: self)
                 self.dismiss(animated: true, completion: nil)
             }
             else {
