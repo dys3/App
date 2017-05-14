@@ -22,6 +22,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     var address: String? // in prev segue way thing
     var coordinate: CLLocationCoordinate2D?
     var addedAnnotation: [MKPointAnnotation]!
+    var annotation: MKPointAnnotation!
     var events: [PFObject]?
     
     override func viewDidLoad() {
@@ -44,7 +45,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         mapView.addGestureRecognizer(uilgr)
         
         //IOS 9
-        mapView.addGestureRecognizer(uilgr)
+        //mapView.addGestureRecognizer(uilgr)
         
     }
     
@@ -52,7 +53,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         if sender.state == UIGestureRecognizerState.began {
             let touchPoint = sender.location(in: mapView)
             let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
-            let annotation = MKPointAnnotation()
+            annotation = MKPointAnnotation()
             annotation.coordinate = newCoordinates
             
             CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: newCoordinates.latitude, longitude: newCoordinates.longitude), completionHandler: {(placemarks, error) -> Void in
@@ -63,14 +64,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                 
                 if let placemarks = placemarks, let placemark = placemarks.first {
                     // not all places have thoroughfare & subThoroughfare so validate those values
-                        annotation.title = placemark.thoroughfare! + ", " + placemark.subThoroughfare!
-                        annotation.subtitle = placemark.subLocality
-                        self.mapView.addAnnotation(annotation)
+                        self.annotation.title = placemark.thoroughfare! + ", " + placemark.subThoroughfare!
+                        self.annotation.subtitle = placemark.subLocality
+                        self.mapView.addAnnotation(self.annotation)
                         print(placemark)
                 }
                 else {
-                    annotation.title = "Unknown Place"
-                    self.mapView.addAnnotation(annotation)
+                    self.annotation.title = "Unknown Place"
+                    self.mapView.addAnnotation(self.annotation)
                     print("Problem with the data received from geocoder")
                 }
             })

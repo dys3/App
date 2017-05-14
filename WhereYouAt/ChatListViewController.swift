@@ -15,10 +15,9 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
-
-    
     var messages : [PFObject]!
     var usersID : [String]!
+    var user: PFObject!
     
     var isFetching = false
     
@@ -27,6 +26,22 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+        let query = PFQuery(className: "_User")
+        //query.whereKey("objectID", equalTo: usersID?[indexPath.row])
+        
+        query.findObjectsInBackground { (results, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            else {
+                //user = (results?[0])!
+                print(results)
+                //let user1 = results[0]
+                //print(user1[)
+            }
+        }
+
         
         //fetching()
         
@@ -45,7 +60,7 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
             return userId.count
         }
         else {
-            return 0
+            return 1
         }
     }
     
@@ -53,28 +68,16 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! ChatCell
         
-        var user: PFObject!
         
-        let query = PFQuery(className: "User")
-        query.whereKey("objectID", equalTo: usersID?[indexPath.row])
-        
-        query.findObjectsInBackground { (results, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            else {
-                user = (results?[0])!
-            }
-        }
-        
-        cell.user = user
+        /*
+        cell.user = user	
         cell.userNameLabel.text = user["screenName"] as? String
         
         let latestMessage = getLatestMessage(userId: user["objectId"] as! String)
         cell.textLabel?.text = latestMessage["text"] as? String
         
         cell.timeLabel.text = latestMessage["updateAt"] as? String
-        
+        */
         return cell
     }
     
