@@ -164,7 +164,7 @@
                         <barButtonItem key="rightBarButtonItem" title="search" id="nQz-lD-b6y">
                             <connections>
                                 <action selector="onClickSearch:" destination="ass-Pb-JLV" id="ZzQ-da-WPE"/>
-                                <segue destination="1XM-n5-aUk" kind="show" identifier="searchUser" id="sXK-ej-dQh"/>
+                                <segue destination="tYo-Hy-D2i" kind="show" id="V1e-bf-Ffp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -220,12 +220,22 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWm-co-Z9w">
+                                                    <rect key="frame" x="287" y="12" width="25" height="25"/>
+                                                    <state key="normal" title="Button" image="Plus 2 Math Filled-50"/>
+                                                    <connections>
+                                                        <action selector="tapAddFriends:" destination="tYo-Hy-D2i" eventType="touchUpInside" id="Trp-4W-lOc"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="kWm-co-Z9w" firstAttribute="leading" secondItem="pNA-21-WO3" secondAttribute="trailing" constant="186" id="2cO-7d-5BJ"/>
                                                 <constraint firstItem="eaU-0E-slr" firstAttribute="leading" secondItem="n9G-D3-iVg" secondAttribute="leading" constant="8" id="5Gk-5Z-ehZ"/>
                                                 <constraint firstItem="pNA-21-WO3" firstAttribute="leading" secondItem="eaU-0E-slr" secondAttribute="trailing" constant="8" id="FvI-9j-sCc"/>
                                                 <constraint firstItem="pNA-21-WO3" firstAttribute="top" secondItem="n9G-D3-iVg" secondAttribute="top" constant="14" id="JFi-Tl-EYv"/>
+                                                <constraint firstAttribute="trailing" secondItem="kWm-co-Z9w" secondAttribute="trailing" constant="8" id="NcA-v6-DE6"/>
                                                 <constraint firstItem="eaU-0E-slr" firstAttribute="top" secondItem="n9G-D3-iVg" secondAttribute="top" constant="4" id="lhz-vE-h61"/>
+                                                <constraint firstItem="kWm-co-Z9w" firstAttribute="top" secondItem="n9G-D3-iVg" secondAttribute="top" constant="12" id="mZE-3c-eef"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -255,7 +265,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaO-Ws-8cr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2018" y="918"/>
+            <point key="canvasLocation" x="2017.5" y="917.95774647887322"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="b9E-wT-s3a">
@@ -304,26 +314,9 @@
             </objects>
             <point key="canvasLocation" x="181.875" y="121.47887323943662"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="cUM-sK-rdz">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1XM-n5-aUk" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="I4C-QP-CqN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="tYo-Hy-D2i" kind="relationship" relationship="rootViewController" id="Bmy-IP-yZF"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K72-7f-Z6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1179" y="919"/>
-        </scene>
     </scenes>
     <resources>
+        <image name="Plus 2 Math Filled-50" width="25" height="25"/>
         <image name="profile-icon" width="25" height="25"/>
     </resources>
 </document>
