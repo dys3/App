@@ -15,11 +15,6 @@ import AFNetworking
 class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewEventViewControllerDelegate {
     
     var events : [PFObject]!
-//        {
-//        willSet {
-//            events = WYAClient.retrieveEvents()
-//        }
-//    }
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -27,12 +22,9 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         tableView.delegate = self
         tableView.dataSource = self
-        
-//        if events == nil {
-//            events = WYAClient.retrieveEvents()
-//        }
+
         fetchData()
-       
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
