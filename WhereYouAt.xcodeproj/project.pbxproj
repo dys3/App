@@ -30,6 +30,7 @@
 		759815581EA96E82006FEDB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759815561EA96E82006FEDB4 /* LaunchScreen.storyboard */; };
 		8D09C6A61EC27265003F32B1 /* searchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09C6A51EC27265003F32B1 /* searchUserViewController.swift */; };
 		8D09C6A81EC27403003F32B1 /* searchUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09C6A71EC27403003F32B1 /* searchUserCell.swift */; };
+		8D09C6AA1EC8ED01003F32B1 /* AddAttendeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09C6A91EC8ED01003F32B1 /* AddAttendeesViewController.swift */; };
 		8D221E901EAF0F2A00D80EA1 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D221E8E1EAF0F2A00D80EA1 /* EventsViewController.swift */; };
 		8D221E911EAF0F2A00D80EA1 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D221E8F1EAF0F2A00D80EA1 /* EventTableViewCell.swift */; };
 		8D221EB51EB6E16300D80EA1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D221EB41EB6E16300D80EA1 /* User.swift */; };
@@ -71,6 +72,7 @@
 		77902B74B5A39979C1C6E618 /* Pods-WhereYouAt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereYouAt.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhereYouAt/Pods-WhereYouAt.release.xcconfig"; sourceTree = "<group>"; };
 		8D09C6A51EC27265003F32B1 /* searchUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchUserViewController.swift; sourceTree = "<group>"; };
 		8D09C6A71EC27403003F32B1 /* searchUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchUserCell.swift; sourceTree = "<group>"; };
+		8D09C6A91EC8ED01003F32B1 /* AddAttendeesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAttendeesViewController.swift; sourceTree = "<group>"; };
 		8D221E8E1EAF0F2A00D80EA1 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		8D221E8F1EAF0F2A00D80EA1 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		8D221EB41EB6E16300D80EA1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				8D221EC21EBFBA8900D80EA1 /* LocationCell.swift */,
 				8D221EC41EBFBB4500D80EA1 /* LocationsViewController.swift */,
 				8D221EC61EC0066500D80EA1 /* EventDetailsViewController.swift */,
+				8D09C6A91EC8ED01003F32B1 /* AddAttendeesViewController.swift */,
 			);
 			name = Event;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				8D09C6A61EC27265003F32B1 /* searchUserViewController.swift in Sources */,
 				751BCC121EB1879200104576 /* LoginViewController.swift in Sources */,
 				751BCC101EB1840A00104576 /* MessageCell.swift in Sources */,
+				8D09C6AA1EC8ED01003F32B1 /* AddAttendeesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

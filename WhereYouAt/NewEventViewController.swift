@@ -14,14 +14,18 @@ protocol NewEventViewControllerDelegate: class {
     func afterPost(controller: NewEventViewController)
 }
 
-class NewEventViewController: UIViewController, LocationsViewControllerDelegate {
+class NewEventViewController: UIViewController, LocationsViewControllerDelegate, addAttendeesViewControllerDelegate {
     
     weak var delegate : NewEventViewControllerDelegate!
 
+    @IBOutlet weak var attendeesTextFiled: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    
+    var addedAttendees : [PFObject]? = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +50,16 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate 
         let locationsViewController = segue.destination as! LocationsViewController
         locationsViewController.delegate = self
         }
+        
+        if segue.identifier == "addAttendees" {
+            let addVC = segue.destination as! addAttendeesViewController
+            addVC.delegate = self
+        }
+    }
+    
+    @IBAction func onClickChooseUser(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "addAttendees", sender: nil)
     }
     
     func locationsPickedLocation(controller: LocationsViewController, address: String, lat: NSNumber, lng: NSNumber) {
@@ -54,6 +68,18 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate 
         longitude = lng
     }
     
+    func pickedUser(controller: addAttendeesViewController, user: PFObject) {
+        
+        print(user.description)
+        var username : [String]? = []
+        addedAttendees!.append(user)
+        for addedAttendee in addedAttendees! {
+                username?.append(addedAttendee["username"] as! String)
+        }
+        
+        
+        attendeesTextFiled.text = username?.description
+    }
 
   
     @IBAction func onClickBack(_ sender: Any) {
@@ -86,6 +112,14 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate 
         
         event["latitude"] = self.langitude
         event["longitude"] = self.longitude
+        
+        print(self.addedAttendees?.description)
+        
+        if let attendees = self.addedAttendees {
+            for attendee in attendees {
+                event.add(attendee.objectId!, forKey: "attendees")
+            }
+        }
         
         event.saveInBackground { (success, error) in
             if success {
