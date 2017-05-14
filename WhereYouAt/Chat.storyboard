@@ -205,9 +205,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Rg7-Zx-Byj"/>
-                    <navigationItem key="navigationItem" id="boC-X4-nJ8">
-                        <barButtonItem key="rightBarButtonItem" title="New Chat" id="E1Q-ib-o0h"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="boC-X4-nJ8"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="CQV-iy-cCE" id="SUa-5S-x6N"/>

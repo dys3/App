@@ -19,7 +19,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     
     var messages : [PFObject]!
-    var users: [PFObject]!
     
     var isFetching = false
     
