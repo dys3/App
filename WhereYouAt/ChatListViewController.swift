@@ -37,8 +37,8 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
             else {
                 //user = (results?[0])!
                 print(results)
-                let user1 = results[0]
-                print(user1[)
+                //let user1 = results[0]
+                //print(user1[)
             }
         }
 
