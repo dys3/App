@@ -15,11 +15,6 @@ import AFNetworking
 class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewEventViewControllerDelegate {
     
     var events : [PFObject]!
-//        {
-//        willSet {
-//            events = WYAClient.retrieveEvents()
-//        }
-//    }
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -28,6 +23,23 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         
+
+        let query = PFQuery(className: "Event")
+        
+        query.order(byDescending: "createdAt")
+        query.limit = 20
+        
+        // fetch data asynchronously
+        query.findObjectsInBackground { (events, error) in
+            if let events = events {
+                self.events = events
+                self.tableView.reloadData()
+            }
+            else {
+                
+                print(error?.localizedDescription)
+            }
+        }
 //        if events == nil {
 //            events = WYAClient.retrieveEvents()
 //        }
