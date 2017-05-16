@@ -16,15 +16,20 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var numberAttendeeLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var timePostedLabel: UILabel!
-    @IBOutlet weak var eventImage: PFImageView!
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var eventTimeLabel: UILabel!
+    @IBOutlet weak var eventImage: UIImageView!
+    
     
     var event : PFObject! {
        didSet {
         if let image = event["imageFile"] as? PFFile {
-            print(image.description)
-            self.eventImage.file = image
+            print((event["imageFile"] as AnyObject).description)
+            image.getDataInBackground(block: { (imageData, error) in
+                self.eventImage.image = UIImage(data: imageData!)
+            })
+            
+            
         }
         if let name = event["name"] as? String {
             self.eventNameLabel.text = name

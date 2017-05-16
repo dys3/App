@@ -91,7 +91,8 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
-        self.pickedImage = editedImage
+        self.pickedImage = resize(image: editedImage)
+        
         eventImage.image = self.pickedImage
         dismiss(animated: true, completion: nil)
     }
@@ -190,6 +191,18 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
             }
         }
         return nil
+    }
+    
+    func resize(image: UIImage) -> UIImage {
+        let resizeImageView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 80, height: 80))
+        resizeImageView.contentMode = UIViewContentMode.scaleAspectFill
+        resizeImageView.image = image
+        
+        UIGraphicsBeginImageContext(resizeImageView.frame.size)
+        resizeImageView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
     }
     
 
