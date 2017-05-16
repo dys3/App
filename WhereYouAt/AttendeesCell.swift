@@ -24,12 +24,17 @@ class AttendeesCell: UITableViewCell {
             query.findObjectsInBackground { (results, error) in
                 if let results = results {
                     user = results[0]
+                    
+                    print(user?.description)
+                    
                     self.profileImage.file = user?["profilePic"] as? PFFile
                     self.userNameLabel.text = user?["username"] as? String
                 }
             }
         }
     }
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
