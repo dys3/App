@@ -307,6 +307,7 @@
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="vgq-Oq-zhA" firstAttribute="top" secondItem="N15-hB-73a" secondAttribute="bottom" constant="13" id="1UN-p6-vPw"/>
                                             <constraint firstItem="fjk-wY-940" firstAttribute="top" secondItem="N15-hB-73a" secondAttribute="bottom" constant="8" id="5Oe-ge-sSP"/>
@@ -364,6 +365,9 @@
                                             <constraint firstAttribute="trailing" secondItem="Khl-yo-tVr" secondAttribute="trailing" constant="248" id="z6r-dm-vuG"/>
                                             <constraint firstItem="R1D-Qg-dYH" firstAttribute="leading" secondItem="EQn-Da-ED3" secondAttribute="leading" constant="31" id="zEs-Y2-dK5"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="rTD-9W-4Cs" appends="YES" id="pgB-rE-Ion"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -394,10 +398,16 @@
                         <outlet property="lastNameTextField" destination="x8W-PG-bVq" id="f6j-J3-Kpd"/>
                         <outlet property="passwordTextField" destination="Sjb-wK-T5q" id="bSR-0y-r1u"/>
                         <outlet property="screenNameTextField" destination="ggf-uy-up5" id="nwk-Uh-CG3"/>
+                        <outlet property="scrollView" destination="yKv-yK-yef" id="udh-vc-GWQ"/>
                         <outlet property="usernameTextField" destination="EsN-69-Ix9" id="nrj-h0-tRG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q9q-E3-dY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="rTD-9W-4Cs">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="vOg-vd-yRu" id="2KG-tW-Mfk"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1114" y="875"/>
         </scene>

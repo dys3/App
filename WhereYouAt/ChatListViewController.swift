@@ -5,7 +5,6 @@
 //  Created by Richard Du on 4/26/17.
 //  Copyright © 2017 dys3. All rights reserved.
 //
-
 import UIKit
 import Parse
 import ParseUI
@@ -15,18 +14,33 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
-
-    
     var messages : [PFObject]!
     var usersID : [String]!
+    var user: PFObject!
     
     var isFetching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.delegate = self
         tableView.dataSource = self
+        
+        let query = PFQuery(className: "_User")
+        //query.whereKey("objectID", equalTo: usersID?[indexPath.row])
+        
+        query.findObjectsInBackground { (results, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            else {
+                //user = (results?[0])!
+                print(results)
+                //let user1 = results[0]
+                //print(user1[)
+            }
+        }
+        
         
         //fetching()
         
@@ -34,7 +48,7 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
         
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -45,7 +59,7 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
             return userId.count
         }
         else {
-            return 0
+            return 1
         }
     }
     
@@ -53,90 +67,77 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! ChatCell
         
-        var user: PFObject!
         
-        let query = PFQuery(className: "User")
-        query.whereKey("objectID", equalTo: usersID?[indexPath.row])
-        
-        query.findObjectsInBackground { (results, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            else {
-                user = (results?[0])!
-            }
-        }
-        
-        cell.user = user
-        cell.userNameLabel.text = user["screenName"] as? String
-        
-        let latestMessage = getLatestMessage(userId: user["objectId"] as! String)
-        cell.textLabel?.text = latestMessage["text"] as? String
-        
-        cell.timeLabel.text = latestMessage["updateAt"] as? String
-        
+        /*
+         cell.user = user
+         cell.userNameLabel.text = user["screenName"] as? String
+         
+         let latestMessage = getLatestMessage(userId: user["objectId"] as! String)
+         cell.textLabel?.text = latestMessage["text"] as? String
+         
+         cell.timeLabel.text = latestMessage["updateAt"] as? String
+         */
         return cell
     }
     
     /*func fetching() {
-        if !isFetching {
-            self.isFetching = true
-            var query = PFQuery(className: "ChatMessage")
-            
-            // getting messages that sent from current user
-            query.whereKey("sender_user_id", equalTo: PFUser.current()?["userId"] as! String)
-            
-            query.findObjectsInBackground(block: { (results:[PFObject]?, error:Error?) in
-                
-                if let error = error {
-                    print(error.localizedDescription)
-                }
-                else {
-                    for result in results! {
-                        self.messages.append(result)
-                    }
-                }
-            })
-            
-            // getting messages that sent to the current user
-            query 	= PFQuery(className: "ChatMessage")
-            query.whereKey("receiver_user_id", equalTo: PFUser.current()?["userId"] as! String)
-            
-            query.findObjectsInBackground(block: { (results:[PFObject]?, error:Error?) in
-                
-                if let error = error {
-                    print(error.localizedDescription)
-                }
-                else {
-                    for result in results! {
-                        self.messages.append(result)
-                    }
-                }
-            })
-            
-//          messages?.sort { (message0, message1) -> Bool in
-//              message1["updateAt"].compare(message0["updateAt"])
-//          }
-            
-            for message in messages! {
-                if ((message["sender_user_id"] as! String) == (PFUser.current()?["userId"] as! String))  {
-                    
-                    if !(usersID.contains(message["receiver_user_id"] as! String)) {
-                        usersID.append(message["receiver_user_id"] as! String)
-                    }
-                }
-                else {
-                    if !(usersID.contains(message["senter_user_id"] as! String)) {
-                        usersID.append(message["senter_user_id"] as! String)
-                    }
-                }
-            }
-            
-            
-
-        }
-    }
-    */
+     if !isFetching {
+     self.isFetching = true
+     var query = PFQuery(className: "ChatMessage")
+     
+     // getting messages that sent from current user
+     query.whereKey("sender_user_id", equalTo: PFUser.current()?["userId"] as! String)
+     
+     query.findObjectsInBackground(block: { (results:[PFObject]?, error:Error?) in
+     
+     if let error = error {
+     print(error.localizedDescription)
+     }
+     else {
+     for result in results! {
+     self.messages.append(result)
+     }
+     }
+     })
+     
+     // getting messages that sent to the current user
+     query 	= PFQuery(className: "ChatMessage")
+     query.whereKey("receiver_user_id", equalTo: PFUser.current()?["userId"] as! String)
+     
+     query.findObjectsInBackground(block: { (results:[PFObject]?, error:Error?) in
+     
+     if let error = error {
+     print(error.localizedDescription)
+     }
+     else {
+     for result in results! {
+     self.messages.append(result)
+     }
+     }
+     })
+     
+     //          messages?.sort { (message0, message1) -> Bool in
+     //              message1["updateAt"].compare(message0["updateAt"])
+     //          }
+     
+     for message in messages! {
+     if ((message["sender_user_id"] as! String) == (PFUser.current()?["userId"] as! String))  {
+     
+     if !(usersID.contains(message["receiver_user_id"] as! String)) {
+     usersID.append(message["receiver_user_id"] as! String)
+     }
+     }
+     else {
+     if !(usersID.contains(message["senter_user_id"] as! String)) {
+     usersID.append(message["senter_user_id"] as! String)
+     }
+     }
+     }
+     
+     
+     }
+     }
+     */
     func getLatestMessage(userId : String) -> PFObject {
         for message in messages! {
             if ((message["senter_user_id"] as! String) == PFUser.current()?["userId"] as! String && (message["receiver_user_id"] as! String) == userId) || ((message["senter_user_id"] as! String) == userId && (message["receiver_user_id"] as! String) == PFUser.current()?["userId"] as! String) {
@@ -148,8 +149,8 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
         return emptyMessage!
     }
     
-
-
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let cell = sender as! UITableViewCell
@@ -159,7 +160,6 @@ class ChatListViewControlvar: UIViewController, UITableViewDelegate, UITableView
         ChatVC.userID = userId
     }
     
-
+    
 }
-
 

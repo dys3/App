@@ -5,20 +5,20 @@
 //  Created by Richard Du on 4/26/17.
 //  Copyright © 2017 dys3. All rights reserved.
 //
-
 import UIKit
 import Parse
 import ParseUI
 
 
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     var userID : String = ""
     
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
     var messages : [PFObject]!
+    var users: [PFObject]!
     
     var isFetching = false
     
@@ -31,7 +31,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         fetching()
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -85,7 +85,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.userLabel.text = user["username"] as! String
         return cell
     }
-
+    
     
     func fetching () {
         if !isFetching {
@@ -123,19 +123,18 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             })
             
-//            messages?.sort { (message0, message1) -> Bool in
-//                message1["updateAt"].compare(message0["updateAt"])
-//            }
+            //            messages?.sort { (message0, message1) -> Bool in
+            //                message1["updateAt"].compare(message0["updateAt"])
+            //            }
         }
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
