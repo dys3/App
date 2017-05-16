@@ -33,7 +33,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="113.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="79T-LD-LIP" customClass="PFImageView">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="79T-LD-LIP">
                                                     <rect key="frame" x="8" y="8" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="BQo-4E-Lc2"/>
@@ -116,7 +116,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="eventImage" destination="79T-LD-LIP" id="uE7-u8-y3B"/>
+                                            <outlet property="eventImage" destination="79T-LD-LIP" id="7IL-Ra-FIb"/>
                                             <outlet property="eventNameLabel" destination="9Zr-fe-46w" id="Q3j-RH-olc"/>
                                             <outlet property="eventTimeLabel" destination="d1h-bK-Y2K" id="KPW-ht-gRK"/>
                                             <outlet property="locationLabel" destination="Blw-lQ-K7C" id="dUq-DX-j7u"/>
