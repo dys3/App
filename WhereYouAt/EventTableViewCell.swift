@@ -23,6 +23,7 @@ class EventTableViewCell: UITableViewCell {
     var event : PFObject! {
        didSet {
         if let image = event["imageFile"] as? PFFile {
+            print(image.description)
             self.eventImage.file = image
         }
         if let name = event["name"] as? String {
