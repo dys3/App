@@ -14,7 +14,8 @@ protocol NewEventViewControllerDelegate: class {
     func afterPost(controller: NewEventViewController)
 }
 
-class NewEventViewController: UIViewController, LocationsViewControllerDelegate, addAttendeesViewControllerDelegate {
+class NewEventViewController: UIViewController, LocationsViewControllerDelegate, addAttendeesViewControllerDelegate,
+    UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     weak var delegate : NewEventViewControllerDelegate!
 
@@ -23,8 +24,10 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var eventImage: UIImageView!
     
     var addedAttendees : [PFObject]? = []
+    var pickedImage : UIImage!
     
     
     override func viewDidLoad() {
@@ -81,6 +84,35 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
         attendeesTextFiled.text = username?.description
     }
 
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        print("back")
+        
+        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        
+        self.pickedImage = editedImage
+        eventImage.image = self.pickedImage
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func onTapChooseImage(_ sender: UITapGestureRecognizer) {
+        
+        print("touched")
+        let vc = UIImagePickerController()
+            
+        vc.delegate = self
+        vc.allowsEditing = true
+            
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            vc.sourceType = .camera
+        } else {
+            vc.sourceType = .photoLibrary
+        }
+            
+        self.present(vc, animated: true, completion: nil)
+    }
+    
   
     @IBAction func onClickBack(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -104,16 +136,31 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
             print("no user id")
         }
         
-        event["description"] = self.descriptionTextField.text
+        if let description = self.descriptionTextField.text {
+            event["description"] = description
+        }
+        else {
+            event["description"] = " "
+        }
+        
         
         event["event_time"] = self.datePicker.date
         
-        event["name"] = self.nameTextField.text
+        if let name = self.nameTextField.text {
+            event["name"] = name
+        }
         
-        event["latitude"] = self.langitude
-        event["longitude"] = self.longitude
+        if let lat = self.langitude {
+            event["latitude"] = lat
+        }
         
-        print(self.addedAttendees?.description)
+        if let lng = self.longitude {
+            event["longitude"] = lng
+        }
+
+        if let image = self.pickedImage {
+            event["imageFile"] = getPFFileFromImage(image: image)
+        }
         
         if let attendees = self.addedAttendees {
             for attendee in attendees {
@@ -132,6 +179,18 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
             }
         }
     }
-
+    
+    func getPFFileFromImage(image: UIImage?) -> PFFile? {
+        // check if image is not nil
+        if let image = image {
+            // get image data and check if that is not nil
+            if let imageData = UIImagePNGRepresentation(image) {
+                print("return image")
+                return PFFile(name: "image.png", data: imageData)
+            }
+        }
+        return nil
+    }
+    
 
 }

@@ -22,6 +22,10 @@ class EventDetailsViewController: UIViewController {
     
     // event is passed from segue
     var event : PFObject!
+    var address: String?
+    var coordinate: CLLocationCoordinate2D?
+    
+    
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,11 +50,13 @@ class EventDetailsViewController: UIViewController {
         let address = event["location"] as? String
         
         if let address = address {
+            self.address = address
             addressLabel.text = address
         }
         
         if let lat = event["latitude"], let lng = event["longitude"] {
             let mapCenter = CLLocationCoordinate2D(latitude: lat as! CLLocationDegrees, longitude: lng as! CLLocationDegrees)
+            self.coordinate = mapCenter
             let mapSpan = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
             let region = MKCoordinateRegion(center: mapCenter, span: mapSpan)
             self.eventMap.setRegion(region, animated: false)
@@ -119,12 +125,21 @@ class EventDetailsViewController: UIViewController {
         self.performSegue(withIdentifier: "showAttendees", sender: nil)
     }
     
+    @IBAction func onTapMap(_ sender: UITapGestureRecognizer) {
+        self.performSegue(withIdentifier: "toMap", sender: nil)
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "showAttendees" {
         if let attendeesVC = segue.destination as? AttendeesViewController {
             
-            if let attendees = self.event["attendees"] as? [String]{
-                attendeesVC.attendees = attendees
+            if let attendees = self.event["attendees"]{
+                attendeesVC.attendees = attendees as! [String]
             }
+        }
+        }
+        
+        if segue.identifier == "toMap" {
+            print(segue.destination.description)
         }
         
     }
