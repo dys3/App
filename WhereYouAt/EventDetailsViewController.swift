@@ -6,9 +6,15 @@
 //  Copyright © 2017 dys3. All rights reserved.
 //
 
+protocol EventDetailViewControllerDelegate: class {
+    func locationTapedMap(controller: EventDetailsViewController, lat: NSNumber, lng: NSNumber, event: PFObject)
+}
+
 import UIKit
 import Parse
 import MapKit
+
+
 
 class EventDetailsViewController: UIViewController {
 
@@ -24,8 +30,10 @@ class EventDetailsViewController: UIViewController {
     var event : PFObject!
     var address: String?
     var coordinate: CLLocationCoordinate2D?
+    var lat: NSNumber?
+    var lng: NSNumber?
     
-    
+    weak var delegate : EventDetailViewControllerDelegate!
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +63,8 @@ class EventDetailsViewController: UIViewController {
         }
         
         if let lat = event["latitude"], let lng = event["longitude"] {
+            self.lat = lat as! NSNumber
+            self.lng = lng as! NSNumber
             let mapCenter = CLLocationCoordinate2D(latitude: lat as! CLLocationDegrees, longitude: lng as! CLLocationDegrees)
             self.coordinate = mapCenter
             let mapSpan = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
@@ -126,7 +136,13 @@ class EventDetailsViewController: UIViewController {
     }
     
     @IBAction func onTapMap(_ sender: UITapGestureRecognizer) {
-        self.performSegue(withIdentifier: "toMap", sender: nil)
+        if let lat = self.lat, let lng = self.lng {
+            let NC = tabBarController?.viewControllers?[2] as! UINavigationController
+            
+            delegate = NC.topViewController as! EventDetailViewControllerDelegate
+            delegate.locationTapedMap(controller: self, lat: lat, lng: lng, event: self.event)
+            tabBarController?.selectedIndex = 2
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "showAttendees" {

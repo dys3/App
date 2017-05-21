@@ -13,7 +13,7 @@ import MapKit
 import Parse
 import ParseUI
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate, MKMapViewDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate, MKMapViewDelegate, EventDetailViewControllerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet var longPressGestureRecognizer: UILongPressGestureRecognizer!
@@ -24,12 +24,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     var addedAnnotation: [MKPointAnnotation]!
     var events: [PFObject]?
     
+    var isPassedInFromEventDetailedViewController = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         mapView.delegate = self
-        
+        print("load")
+        if isPassedInFromEventDetailedViewController {
+            let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            let region = MKCoordinateRegion(center: self.coordinate!, span: mapSpan)
+            self.mapView.setRegion(region, animated: false)
+        }
+        else {
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -46,6 +54,40 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         //IOS 9
         mapView.addGestureRecognizer(uilgr)
         //l
+        }
+        isPassedInFromEventDetailedViewController = false
+       
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        mapView.delegate = self
+        print("appear")
+        if isPassedInFromEventDetailedViewController {
+            let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            let region = MKCoordinateRegion(center: self.coordinate!, span: mapSpan)
+            self.mapView.setRegion(region, animated: false)
+        }
+        else {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.distanceFilter = 200
+            locationManager.requestWhenInUseAuthorization()
+            
+            addedAnnotation = [MKPointAnnotation]()
+            
+            let uilgr = UILongPressGestureRecognizer(target: self, action: #selector(self.addAnnotation(_:)))
+            uilgr.minimumPressDuration = 2.0
+            
+            mapView.addGestureRecognizer(uilgr)
+            
+            //IOS 9
+            mapView.addGestureRecognizer(uilgr)
+            //l
+        }
+        isPassedInFromEventDetailedViewController = false
+
     }
     
     func addAnnotation(_ sender:UIGestureRecognizer){
@@ -132,6 +174,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         self.mapView.addAnnotation(annotation)
         addedAnnotation.append(annotation)
         print("Tap area: \(coordinate)")
+    }
+    
+    func locationTapedMap(controller: EventDetailsViewController, lat: NSNumber, lng: NSNumber, event: PFObject) {
+        self.events?.append(event)
+        self.coordinate = CLLocationCoordinate2D(latitude: lat as! CLLocationDegrees, longitude: lng as! CLLocationDegrees)
+        
+        self.isPassedInFromEventDetailedViewController = true
     }
     
 }
