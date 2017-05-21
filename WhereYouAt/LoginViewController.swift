@@ -8,15 +8,41 @@
 
 import UIKit
 import Parse
+import MBProgressHUD
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        scrollView.bounces = false
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillHide, object: nil, queue: OperationQueue.main) { (Notification) in
+            print("hide keyboard")
+            
+            let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+            self.scrollView.contentInset = contentInset
+        }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: OperationQueue.main) { (Notification) in
+            print("show keyboard")
+            var userInfo = Notification.userInfo!
+            var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+            keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+            var contentInset:UIEdgeInsets = self.scrollView.contentInset
+            contentInset.bottom = keyboardFrame.size.height
+            self.scrollView.contentInset = contentInset
+            
+        }
+    }
+    
+    
+    @IBAction func dismissKeyboard(_ sender: Any) {
+    
+        view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,9 +52,17 @@ class LoginViewController: UIViewController {
     
     @IBAction func onLogin(_ sender: AnyObject) {
         
-        
-        
+        let progressHUD = MBProgressHUD.showAdded(to: self.view, animated: true)
+        progressHUD.backgroundView.color = UIColor.darkGray
+        progressHUD.bezelView.color = UIColor.white
+        progressHUD.backgroundView.alpha = 0.5
+        progressHUD.backgroundView.isUserInteractionEnabled = false
+        progressHUD.label.text = "Authenticating"
+        self.view.endEditing(true)
         PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!) { (user: PFUser?, error:Error?) in
+            progressHUD.hide(animated: true)
+            progressHUD.backgroundView.isUserInteractionEnabled = true
+
             if user != nil {
                 print("You're logged in")
                 
