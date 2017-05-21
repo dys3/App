@@ -116,7 +116,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="eventImage" destination="79T-LD-LIP" id="uE7-u8-y3B"/>
+                                            <outlet property="eventImage" destination="79T-LD-LIP" id="7IL-Ra-FIb"/>
                                             <outlet property="eventNameLabel" destination="9Zr-fe-46w" id="Q3j-RH-olc"/>
                                             <outlet property="eventTimeLabel" destination="d1h-bK-Y2K" id="KPW-ht-gRK"/>
                                             <outlet property="locationLabel" destination="Blw-lQ-K7C" id="dUq-DX-j7u"/>
@@ -165,20 +165,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zX9-Kh-wKa">
-                                <rect key="frame" x="16" y="89" width="93" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bDn-Ju-9ri">
-                                <rect key="frame" x="14" y="118" width="290" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eP5-CT-PsM">
                                 <rect key="frame" x="16" y="156" width="63" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -194,19 +180,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHa-AL-VV1">
-                                <rect key="frame" x="16" y="223" width="88" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qve-Tt-oMJ">
-                                <rect key="frame" x="14" y="252" width="290" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qve-Tt-oMJ">
+                                <rect key="frame" x="14" y="290" width="290" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="yes"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4AP-vr-9wi">
                                 <rect key="frame" x="-1" y="439" width="320" height="109"/>
@@ -231,27 +210,42 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Attendees" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ow3-x6-ynF">
-                                <rect key="frame" x="16" y="290" width="79" height="21"/>
+                                <rect key="frame" x="14" y="223" width="79" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RbY-GK-ton">
-                                <rect key="frame" x="14" y="319" width="225" height="30"/>
+                                <rect key="frame" x="14" y="252" width="225" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ic-ic-sEi">
-                                <rect key="frame" x="248" y="327" width="53" height="14"/>
+                                <rect key="frame" x="247" y="260" width="53" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Choose"/>
                                 <connections>
                                     <action selector="onClickChooseUser:" destination="I7M-Qv-RC9" eventType="touchUpInside" id="bLK-dJ-ank"/>
                                 </connections>
                             </button>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="rNz-yb-1K7">
+                                <rect key="frame" x="16" y="82" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="KFI-ui-tex" appends="YES" id="ekV-ys-yIm"/>
+                                </connections>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bDn-Ju-9ri">
+                                <rect key="frame" x="84" y="97" width="220" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -272,12 +266,18 @@
                         <outlet property="attendeesTextFiled" destination="RbY-GK-ton" id="poT-IT-ciY"/>
                         <outlet property="datePicker" destination="4AP-vr-9wi" id="pgx-3c-O5z"/>
                         <outlet property="descriptionTextField" destination="Qve-Tt-oMJ" id="zb6-g7-UXY"/>
+                        <outlet property="eventImage" destination="rNz-yb-1K7" id="yMn-dE-Z5H"/>
                         <outlet property="nameTextField" destination="bDn-Ju-9ri" id="zfB-ZD-xar"/>
                         <segue destination="0cZ-xG-qrh" kind="push" identifier="addLocation" id="iJv-OW-4Vr"/>
                         <segue destination="tnv-z5-E9s" kind="push" identifier="addAttendees" id="SV0-ax-lKe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2x-VO-rzm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="KFI-ui-tex">
+                    <connections>
+                        <action selector="onTapChooseImage:" destination="I7M-Qv-RC9" id="Za7-nf-oNO"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="110.625" y="-763.73239436619724"/>
         </scene>
@@ -301,9 +301,13 @@
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QNu-W0-y1o">
                                 <rect key="frame" x="0.0" y="134" width="320" height="128"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="td0-Hx-bKI"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="mdx-ZX-YSY" appends="YES" id="4sm-IC-L1g"/>
+                                </connections>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5X-4E-CqL">
                                 <rect key="frame" x="8" y="104" width="41" height="22"/>
@@ -382,6 +386,11 @@
                 <tapGestureRecognizer id="IPg-8F-GyU">
                     <connections>
                         <action selector="onTapAttendees:" destination="bg0-z1-g6V" id="3eP-89-lDC"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="mdx-ZX-YSY">
+                    <connections>
+                        <action selector="onTapMap:" destination="bg0-z1-g6V" id="Zac-Gc-pkr"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -669,6 +678,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" width="64" height="64"/>
         <image name="menu-icon" width="25" height="25"/>
     </resources>
 </document>

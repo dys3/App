@@ -79,7 +79,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZsI-cF-v0C">
-                                                                    <rect key="frame" x="0.0" y="20" width="304" height="20.5"/>
+                                                                    <rect key="frame" x="0.0" y="20" width="304" height="21"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="304" id="rP9-Bd-lQ9"/>
                                                                     </constraints>
@@ -220,24 +220,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWm-co-Z9w">
-                                                    <rect key="frame" x="287" y="12" width="25" height="25"/>
-                                                    <state key="normal" title="Button" image="Plus 2 Math Filled-50"/>
-                                                    <connections>
-                                                        <action selector="tapAddFriends:" destination="tYo-Hy-D2i" eventType="touchUpInside" id="Trp-4W-lOc"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="kWm-co-Z9w" firstAttribute="leading" secondItem="pNA-21-WO3" secondAttribute="trailing" constant="186" id="2cO-7d-5BJ"/>
                                                 <constraint firstItem="eaU-0E-slr" firstAttribute="leading" secondItem="n9G-D3-iVg" secondAttribute="leading" constant="8" id="5Gk-5Z-ehZ"/>
                                                 <constraint firstItem="pNA-21-WO3" firstAttribute="leading" secondItem="eaU-0E-slr" secondAttribute="trailing" constant="8" id="FvI-9j-sCc"/>
                                                 <constraint firstItem="pNA-21-WO3" firstAttribute="top" secondItem="n9G-D3-iVg" secondAttribute="top" constant="14" id="JFi-Tl-EYv"/>
-                                                <constraint firstAttribute="trailing" secondItem="kWm-co-Z9w" secondAttribute="trailing" constant="8" id="NcA-v6-DE6"/>
                                                 <constraint firstItem="eaU-0E-slr" firstAttribute="top" secondItem="n9G-D3-iVg" secondAttribute="top" constant="4" id="lhz-vE-h61"/>
-                                                <constraint firstItem="kWm-co-Z9w" firstAttribute="top" secondItem="n9G-D3-iVg" secondAttribute="top" constant="12" id="mZE-3c-eef"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="profileImage" destination="eaU-0E-slr" id="9pm-2Q-XwS"/>
                                             <outlet property="usernameLabel" destination="pNA-21-WO3" id="fn4-3Y-ZqN"/>
@@ -316,7 +307,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Plus 2 Math Filled-50" width="25" height="25"/>
         <image name="profile-icon" width="25" height="25"/>
     </resources>
 </document>
