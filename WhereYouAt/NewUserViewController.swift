@@ -25,23 +25,23 @@ class NewUserViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+        scrollView.bounces = false
         NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillHide, object: nil, queue: OperationQueue.main) { (Notification) in
-            print("hide keyboard")
-            //self.view.frame.origin.y = 0 // Move view to original position
+            //print("hide keyboard")
+            
             let contentInset:UIEdgeInsets = UIEdgeInsets.zero
             self.scrollView.contentInset = contentInset
         }
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: OperationQueue.main) { (Notification) in
-            print("show keyboard")
+            //print("show keyboard")
             var userInfo = Notification.userInfo!
             var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
             keyboardFrame = self.view.convert(keyboardFrame, from: nil)
             var contentInset:UIEdgeInsets = self.scrollView.contentInset
             contentInset.bottom = keyboardFrame.size.height
             self.scrollView.contentInset = contentInset
-            //self.view.frame.origin.y = -150 // Move view 150 points upward
+            
         }
     }
 
@@ -50,14 +50,9 @@ class NewUserViewController: UIViewController {
     @IBAction func dismissKeyboard(_ sender: Any) {
     
         view.endEditing(true)
-    }
-    func keyboardWillShow(sender: NSNotification) {
-        
+        print("dismissing keyboard")
     }
     
-    func keyboardWillHide(sender: NSNotification) {
-        
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -117,9 +112,11 @@ class NewUserViewController: UIViewController {
         else {
             let progressHUD = MBProgressHUD.showAdded(to: self.view, animated: true)
             progressHUD.backgroundView.color = UIColor.darkGray
+            progressHUD.bezelView.color = UIColor.white
             progressHUD.backgroundView.alpha = 0.5
             progressHUD.backgroundView.isUserInteractionEnabled = false
-            
+            progressHUD.label.text = "Creating New User"
+            self.view.endEditing(true)
             newUser.signUpInBackground { (success: Bool, error:Error?) in
                 progressHUD.hide(animated: true)
                 progressHUD.backgroundView.isUserInteractionEnabled = true
