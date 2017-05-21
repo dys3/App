@@ -9,14 +9,27 @@
 import UIKit
 import Parse
 import MBProgressHUD
+import CoreLocation
+import MapKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    var currentLongitude: CLLocationDegrees!
+    var currentLatitude: CLLocationDegrees!
+    var locationManager: CLLocationManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.distanceFilter = 200
+        locationManager.requestWhenInUseAuthorization()
         
         // Do any additional setup after loading the view.
         scrollView.bounces = false
@@ -35,6 +48,8 @@ class LoginViewController: UIViewController {
             var contentInset:UIEdgeInsets = self.scrollView.contentInset
             contentInset.bottom = keyboardFrame.size.height
             self.scrollView.contentInset = contentInset
+            
+            //self.scrollView.setContentOffset(CGPoint(x: 0,y: keyboardFrame.size.height/2) , animated: true)
             
         }
     }
@@ -66,6 +81,15 @@ class LoginViewController: UIViewController {
             if user != nil {
                 print("You're logged in")
                 
+                let currentUser = PFUser.current()
+                
+                currentUser!["longitude"] = self.currentLongitude
+                currentUser!["latitude"] = self.currentLatitude
+                
+                currentUser!.saveInBackground(block: { (success:Bool, error: Error?) in
+                    print("SavedCurrentLocation")
+                })
+
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             } else {
                 let alertController = UIAlertController(title: "Access Denied", message: error!.localizedDescription, preferredStyle: .alert)
@@ -83,6 +107,19 @@ class LoginViewController: UIViewController {
         }
     }
 
+    // LocationManager functions for finding current user location
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == CLAuthorizationStatus.authorizedWhenInUse {
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            currentLatitude = location.coordinate.latitude
+            currentLongitude = location.coordinate.longitude
+        }
+    }
 
     /*
     // MARK: - Navigation
