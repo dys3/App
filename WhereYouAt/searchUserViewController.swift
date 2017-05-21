@@ -55,8 +55,8 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
         let user = PFUser.current()
         
         let addFriendAlertController = UIAlertController(title: "Add friend?", message: "", preferredStyle: .alert)
-        let cancelAlertAction = UIAlertAction(title: "Cancel", style: .default)
-        let addAlertAction = UIAlertAction(title: "Add", style: .default) { (action) in
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+        let addAction = UIAlertAction(title: "Add", style: .default) { (action) in
             self.results[indexPath.row].fetchInBackground { (result, error) in
                 if let result = result {
                     print(result["username"])
@@ -68,9 +68,9 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
             }
         }
         
-        addFriendAlertController.addAction(cancelAlertAction)
-        addFriendAlertController.addAction(addAlertAction)
-        
+        addFriendAlertController.addAction(cancelAction)
+        addFriendAlertController.addAction(addAction)
+        self.present(addFriendAlertController, animated: true)
     }
     
 //    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
