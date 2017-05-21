@@ -8,11 +8,13 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 class searchUserViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    
     
     var results: [PFObject]!
     
@@ -47,6 +49,28 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
         cell.user = results[(indexPath as NSIndexPath).row]
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let user = PFUser.current()
+        
+        let addFriendAlertController = UIAlertController(title: "Add friend?", message: "", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+        let addAction = UIAlertAction(title: "Add", style: .default) { (action) in
+            self.results[indexPath.row].fetchInBackground { (result, error) in
+                if let result = result {
+                    print(result["username"])
+                    user?.add(result["username"], forKey: "friends")
+                    user?.saveInBackground()
+                } else {
+                    print(error?.localizedDescription)
+                }
+            }
+        }
+        
+        addFriendAlertController.addAction(cancelAction)
+        addFriendAlertController.addAction(addAction)
+        self.present(addFriendAlertController, animated: true)
     }
     
 //    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -98,20 +122,43 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
         
     }
     
-    @IBAction func tapAddFriends(_ sender: Any) {
-        print("friend added!")
-        let query = PFQuery(className: "User")
-        let addFriendAlertController = UIAlertController(title: "Add friend?", message: "", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
-        let addFriendAction = UIAlertAction(title: "Add", style: .default) { (action) in
-            
-        }
-        addFriendAlertController.addAction(cancelAction)
-        addFriendAlertController.addAction(addFriendAction)
-        self.present(addFriendAlertController, animated: true) {
-        }
-    }
     
+    
+//    func tapAddFriends() {
+//        print("Add friend?")
+//        let user = PFUser.current()
+//        let addFriendAlertController = UIAlertController(title: "Add friend?", message: "", preferredStyle: .alert)
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+//        let addFriendAction = UIAlertAction(title: "Add", style: .default) { (action) in
+//            
+//            user?.add("CodePath Student", forKey: "friends")
+//            
+//            user?.saveInBackground()
+//        }
+//        addFriendAlertController.addAction(cancelAction)
+//        addFriendAlertController.addAction(addFriendAction)
+//        self.present(addFriendAlertController, animated: true) {
+//        }
+//        
+//        for result in results {
+//            print(result)
+//        }
+//    }
+    
+    /*
+ event.saveInBackground { (success, error) in
+ if success {
+ print("saved")
+ self.delegate.afterPost(controller: self)
+ self.dismiss(animated: true, completion: nil)
+ }
+ else {
+ print(error?.localizedDescription)
+ }
+ }
+ */
+
+ 
     /*
     // MARK: - Navigation
 
