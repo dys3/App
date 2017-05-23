@@ -26,6 +26,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     
     var isPassedInFromEventDetailedViewController = false
     
+    var annotation:MKPointAnnotation!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,7 +47,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         locationManager.requestWhenInUseAuthorization()
         
         addedAnnotation = [MKPointAnnotation]()
-        
+        annotation = MKPointAnnotation()
         let uilgr = UILongPressGestureRecognizer(target: self, action: #selector(self.addAnnotation(_:)))
         uilgr.minimumPressDuration = 2.0
         
@@ -94,7 +96,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         if sender.state == UIGestureRecognizerState.began {
             let touchPoint = sender.location(in: mapView)
             let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
-            let annotation = MKPointAnnotation()
+            //let annotation = MKPointAnnotation()
+            
+            //annotation = MKPointAnnotation()
             annotation.coordinate = newCoordinates
             
             CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: newCoordinates.latitude, longitude: newCoordinates.longitude), completionHandler: {(placemarks, error) -> Void in
@@ -103,16 +107,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                     return
                 }
                 
-                if let placemarks = placemarks, let placemark = placemarks.first {
+                if let placemarks = placemarks, let placemark = placemarks.first,
                     // not all places have thoroughfare & subThoroughfare so validate those values
-                        annotation.title = placemark.thoroughfare! + ", " + placemark.subThoroughfare!
-                        annotation.subtitle = placemark.subLocality
-                        self.mapView.addAnnotation(annotation)
+                    let thoroughfare = placemark.thoroughfare, let subThoroughfare = placemark.subThoroughfare {
+                        self.annotation.title = thoroughfare + ", " + subThoroughfare
+                        self.annotation.subtitle = placemark.subLocality
+                        self.mapView.addAnnotation(self.annotation)
                         print(placemark)
+                    
                 }
                 else {
-                    annotation.title = "Unknown Place"
-                    self.mapView.addAnnotation(annotation)
+                    self.annotation.title = "Unknown Place"
+                    self.mapView.addAnnotation(self.annotation)
                     print("Problem with the data received from geocoder")
                 }
             })
@@ -168,7 +174,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         
         return annotationView
     }*/
-    
+    /*
     @IBAction func tapToAddPin(_ sender: UILongPressGestureRecognizer) {
         longPressGestureRecognizer.delegate = self
         
@@ -184,7 +190,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         self.mapView.addAnnotation(annotation)
         addedAnnotation.append(annotation)
         print("Tap area: \(coordinate)")
-    }
+    }*/
     
     func locationTapedMap(controller: EventDetailsViewController, lat: NSNumber, lng: NSNumber, event: PFObject) {
         self.events?.append(event)
