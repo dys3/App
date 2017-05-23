@@ -19,19 +19,36 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
     
     weak var delegate : NewEventViewControllerDelegate!
 
-    @IBOutlet weak var attendeesTextFiled: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var addressTextField: UITextField!
-    @IBOutlet weak var descriptionTextField: UITextField!
-    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var eventImage: UIImageView!
+    
+    @IBOutlet weak var descriptionTextField: UITextView!
+    
+    @IBOutlet weak var datePickTextField: UITextField!
+    
+    @IBOutlet weak var addressLabel: UILabel!
+
+    
+    @IBOutlet weak var pinImage: UIImageView!
+    
+    @IBOutlet weak var timeImage: UIImageView!
+    
+    var timeChosen = false
     
     var addedAttendees : [PFObject]? = []
     var pickedImage : UIImage!
-    
+    var date: Date!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let datePicker = UIDatePicker()
+        
+        datePicker.datePickerMode = UIDatePickerMode.dateAndTime
+        
+        datePicker.addTarget(self , action: #selector(NewEventViewController.datePickerValueChanged(sender:)), for: UIControlEvents.valueChanged)
+        
+        datePickTextField.inputView = datePicker
 
         // Do any additional setup after loading the view.
     }
@@ -43,10 +60,10 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func onClickChoose(_ sender: Any) {
+    @IBAction func onTapChooseLocation(_ sender: UITapGestureRecognizer) {
         self.performSegue(withIdentifier: "addLocation" , sender: nil)
     }
+    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addLocation" {
@@ -66,7 +83,8 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
     }
     
     func locationsPickedLocation(controller: LocationsViewController, address: String, lat: NSNumber, lng: NSNumber) {
-        addressTextField.text = address
+        addressLabel.text = address
+        pinImage.image = #imageLiteral(resourceName: "iconmonstr-location-1-240-blue")
         langitude = lat
         longitude = lng
     }
@@ -79,9 +97,6 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
         for addedAttendee in addedAttendees! {
                 username?.append(addedAttendee["username"] as! String)
         }
-        
-        
-        attendeesTextFiled.text = username?.description
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -128,7 +143,7 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
             print("no username")
         }
         
-        event["location"] = self.addressTextField.text
+        event["location"] = self.addressLabel.text
         
         if let id = PFUser.current()?.objectId {
             event.add(id, forKey: "attendees")
@@ -144,8 +159,9 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
             event["description"] = " "
         }
         
-        
-        event["event_time"] = self.datePicker.date
+        if let date = date {
+            event["event_time"] = date
+        }
         
         if let name = self.nameTextField.text {
             event["name"] = name
@@ -205,5 +221,18 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
         return newImage!
     }
     
+    func datePickerValueChanged(sender: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE MMM d HH:mm:ss"
+        self.datePickTextField.text = dateFormatter.string(from: sender.date)
+        self.date = sender.date
+        timeChosen = true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        if(timeChosen) {
+            timeImage.image = #imageLiteral(resourceName: "iconmonstr-time-1-240-blue")       }
+    }
 
 }
