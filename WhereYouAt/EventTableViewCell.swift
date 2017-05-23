@@ -26,7 +26,9 @@ class EventTableViewCell: UITableViewCell {
         if let image = event["imageFile"] as? PFFile {
             print((event["imageFile"] as AnyObject).description)
             image.getDataInBackground(block: { (imageData, error) in
-                self.eventImage.image = UIImage(data: imageData!)
+                if let imageData = imageData {
+                    self.eventImage.image = UIImage(data: imageData)
+                }
             })
             
             

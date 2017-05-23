@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import CoreLocation
 import AFNetworking
+import CoreLocation
 import MapKit
 import Parse
 import ParseUI
@@ -135,6 +135,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         if let location = locations.first {
             let span = MKCoordinateSpanMake(0.1, 0.1)
             let region = MKCoordinateRegionMake(location.coordinate, span)
+            
+            let currentUser = PFUser.current()
+            
+            currentUser!["longitude"] = location.coordinate.longitude
+            currentUser!["latitude"] = location.coordinate.latitude
+            
+            currentUser!.saveInBackground(block: { (success:Bool, error: Error?) in
+                print("SavedCurrentLocation")
+            })
+            
             mapView.setRegion(region, animated: false)
         }
     }

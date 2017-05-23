@@ -17,6 +17,7 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
     
     
     var results: [PFObject]!
+    var friends: [PFObject]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,7 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
         searchBar.delegate = self
         
         fetchingUsers(content: "")
+        friends = fetchFriends()
         
     }
 
@@ -53,17 +55,58 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = PFUser.current()
+        var userFriends: [PFObject]!
+        var containFriend: Bool = false
         
         let addFriendAlertController = UIAlertController(title: "Add friend?", message: "", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .default)
         let addAction = UIAlertAction(title: "Add", style: .default) { (action) in
             self.results[indexPath.row].fetchInBackground { (result, error) in
-                if let result = result {
-                    print(result["username"])
-                    user?.add(result["username"], forKey: "friends")
-                    user?.saveInBackground()
+                
+                if user?["friends"] == nil {
+                    if let result = result {
+                        print(result["username"])
+                        user?.add(result["username"], forKey: "friends")
+                        user?.saveInBackground()
+                    } else {
+                        print(error?.localizedDescription)
+                    }
                 } else {
-                    print(error?.localizedDescription)
+                    // filter user here
+                    /*
+                    if let friends = user?["friends"] as? [PFObject] {
+                        for friend in friends {
+                            if friend == result {
+                                containFriend = true
+                            }
+                        }
+                    }*/
+                    
+//                    (user?["friends"] as AnyObject).fetchInBackground(block: { (friends, error) in
+//                        if let friends = friends {
+//                            print("check")
+//                        } else {
+//                            print(error?.localizedDescription)
+//                        }
+//                    })
+                    
+                    for friend in self.friends {
+                        if friend == result {
+                            containFriend = true
+                        }
+                    }
+                    
+                    if containFriend {
+                        print("Friend already added!")
+                    } else {
+                        if let result = result {
+                            print(result["username"])
+                            user?.add(result["username"], forKey: "friends")
+                            user?.saveInBackground()
+                        } else {
+                            print(error?.localizedDescription)
+                        }
+                    }
                 }
             }
         }
@@ -122,6 +165,32 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
         
     }
     
+    func fetchFriends() -> [PFObject] {
+        let user = PFUser.current()
+        
+        return user!["friends"] as! [PFObject]
+    }
+    
+//    func filterUser(friend: PFObject) -> Bool {
+//        var friendBool: Bool = false
+//        let query = PFQuery(className: "_User")
+//        query.whereKey("friends", equalTo: friend)
+//        query.findObjectsInBackground { (result, error) in
+//            print("check")
+//            if let result = result {
+//                if result == nil {
+//                    // Do nothing
+//                    print("Added friend already")
+//                } else {
+//                    print("New friend!")
+//                    friendBool = true
+//                }
+//            } else {
+//                print(error?.localizedDescription)
+//            }
+//        }
+//        return friendBool
+//    }
     
     
 //    func tapAddFriends() {
@@ -157,7 +226,6 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
  }
  }
  */
-
  
     /*
     // MARK: - Navigation
