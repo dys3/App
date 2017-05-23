@@ -11,7 +11,7 @@ import Parse
 import ParseUI
 
 class searchUserViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,7 +21,7 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
@@ -30,7 +30,7 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
         friends = fetchFriends()
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -56,7 +56,6 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = PFUser.current()
         var userFriends: [PFObject]!
-        var containFriend: Bool = false
         
         let addFriendAlertController = UIAlertController(title: "Add friend?", message: "", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .default)
@@ -74,38 +73,29 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
                 } else {
                     // filter user here
                     /*
-                    if let friends = user?["friends"] as? [PFObject] {
-                        for friend in friends {
-                            if friend == result {
-                                containFriend = true
-                            }
-                        }
-                    }*/
+                     if let friends = user?["friends"] as? [PFObject] {
+                     for friend in friends {
+                     if friend == result {
+                     containFriend = true
+                     }
+                     }
+                     }*/
                     
-//                    (user?["friends"] as AnyObject).fetchInBackground(block: { (friends, error) in
-//                        if let friends = friends {
-//                            print("check")
-//                        } else {
-//                            print(error?.localizedDescription)
-//                        }
-//                    })
+                    //                    (user?["friends"] as AnyObject).fetchInBackground(block: { (friends, error) in
+                    //                        if let friends = friends {
+                    //                            print("check")
+                    //                        } else {
+                    //                            print(error?.localizedDescription)
+                    //                        }
+                    //                    })
                     
-                    for friend in self.friends {
-                        if friend == result {
-                            containFriend = true
-                        }
-                    }
                     
-                    if containFriend {
-                        print("Friend already added!")
+                    if let result = result {
+                        print(result["username"])
+                        user?.add(result["username"], forKey: "friends")
+                        user?.saveInBackground()
                     } else {
-                        if let result = result {
-                            print(result["username"])
-                            user?.add(result["username"], forKey: "friends")
-                            user?.saveInBackground()
-                        } else {
-                            print(error?.localizedDescription)
-                        }
+                        print(error?.localizedDescription)
                     }
                 }
             }
@@ -116,18 +106,18 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
         self.present(addFriendAlertController, animated: true)
     }
     
-//    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-//        
-//        if searchBar.text == "" {
-//            fetchingUsers(content: "")
-//        }
-//        else {
-//        let newText = NSString(string: searchBar.text!).replacingCharacters(in: range, with: text)
-//        searchBar.showsCancelButton = true
-//        fetchingUsers(content: newText)
-//        }
-//        return true
-//    }
+    //    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    //
+    //        if searchBar.text == "" {
+    //            fetchingUsers(content: "")
+    //        }
+    //        else {
+    //        let newText = NSString(string: searchBar.text!).replacingCharacters(in: range, with: text)
+    //        searchBar.showsCancelButton = true
+    //        fetchingUsers(content: newText)
+    //        }
+    //        return true
+    //    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchBar.showsCancelButton = true
@@ -171,70 +161,70 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
         return user!["friends"] as! [PFObject]
     }
     
-//    func filterUser(friend: PFObject) -> Bool {
-//        var friendBool: Bool = false
-//        let query = PFQuery(className: "_User")
-//        query.whereKey("friends", equalTo: friend)
-//        query.findObjectsInBackground { (result, error) in
-//            print("check")
-//            if let result = result {
-//                if result == nil {
-//                    // Do nothing
-//                    print("Added friend already")
-//                } else {
-//                    print("New friend!")
-//                    friendBool = true
-//                }
-//            } else {
-//                print(error?.localizedDescription)
-//            }
-//        }
-//        return friendBool
-//    }
+    //    func filterUser(friend: PFObject) -> Bool {
+    //        var friendBool: Bool = false
+    //        let query = PFQuery(className: "_User")
+    //        query.whereKey("friends", equalTo: friend)
+    //        query.findObjectsInBackground { (result, error) in
+    //            print("check")
+    //            if let result = result {
+    //                if result == nil {
+    //                    // Do nothing
+    //                    print("Added friend already")
+    //                } else {
+    //                    print("New friend!")
+    //                    friendBool = true
+    //                }
+    //            } else {
+    //                print(error?.localizedDescription)
+    //            }
+    //        }
+    //        return friendBool
+    //    }
     
     
-//    func tapAddFriends() {
-//        print("Add friend?")
-//        let user = PFUser.current()
-//        let addFriendAlertController = UIAlertController(title: "Add friend?", message: "", preferredStyle: .alert)
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
-//        let addFriendAction = UIAlertAction(title: "Add", style: .default) { (action) in
-//            
-//            user?.add("CodePath Student", forKey: "friends")
-//            
-//            user?.saveInBackground()
-//        }
-//        addFriendAlertController.addAction(cancelAction)
-//        addFriendAlertController.addAction(addFriendAction)
-//        self.present(addFriendAlertController, animated: true) {
-//        }
-//        
-//        for result in results {
-//            print(result)
-//        }
-//    }
+    //    func tapAddFriends() {
+    //        print("Add friend?")
+    //        let user = PFUser.current()
+    //        let addFriendAlertController = UIAlertController(title: "Add friend?", message: "", preferredStyle: .alert)
+    //        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+    //        let addFriendAction = UIAlertAction(title: "Add", style: .default) { (action) in
+    //
+    //            user?.add("CodePath Student", forKey: "friends")
+    //
+    //            user?.saveInBackground()
+    //        }
+    //        addFriendAlertController.addAction(cancelAction)
+    //        addFriendAlertController.addAction(addFriendAction)
+    //        self.present(addFriendAlertController, animated: true) {
+    //        }
+    //
+    //        for result in results {
+    //            print(result)
+    //        }
+    //    }
     
     /*
- event.saveInBackground { (success, error) in
- if success {
- print("saved")
- self.delegate.afterPost(controller: self)
- self.dismiss(animated: true, completion: nil)
- }
- else {
- print(error?.localizedDescription)
- }
- }
- */
- 
+     event.saveInBackground { (success, error) in
+     if success {
+     print("saved")
+     self.delegate.afterPost(controller: self)
+     self.dismiss(animated: true, completion: nil)
+     }
+     else {
+     print(error?.localizedDescription)
+     }
+     }
+     */
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
