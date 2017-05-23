@@ -89,7 +89,28 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             //l
         }
         isPassedInFromEventDetailedViewController = false
-
+        
+        let query = PFQuery(className: "_User")
+        query.findObjectsInBackground { (results:[PFObject]?, error:Error?) in
+            if let error = error{
+                print(error.localizedDescription)
+            }
+            else {
+                print(results)
+                for user in results! {
+                    if let lat = user["latitude"] {
+                    let userAnnotation = MKPointAnnotation()
+                    let userLat = user["latitude"] as! CLLocationDegrees
+                    let userLong = user["longitude"] as! CLLocationDegrees
+                    let userCoord = CLLocationCoordinate2D(latitude: userLat,  longitude: userLong)
+                    
+                    userAnnotation.coordinate = userCoord
+                    self.mapView.addAnnotation(userAnnotation)
+                    userAnnotation.title = user["screen_name"] as! String
+                    }
+                }
+            }
+        }
     }
     
     func addAnnotation(_ sender:UIGestureRecognizer){
@@ -100,6 +121,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             
             //annotation = MKPointAnnotation()
             annotation.coordinate = newCoordinates
+            
             
             CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: newCoordinates.latitude, longitude: newCoordinates.longitude), completionHandler: {(placemarks, error) -> Void in
                 if error != nil {
@@ -138,18 +160,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("didupdatelocations")
         if let location = locations.first {
             let span = MKCoordinateSpanMake(0.1, 0.1)
             let region = MKCoordinateRegionMake(location.coordinate, span)
             
             let currentUser = PFUser.current()
+            if currentUser != nil {
+                currentUser!["longitude"] = location.coordinate.longitude
+                currentUser!["latitude"] = location.coordinate.latitude
             
-            currentUser!["longitude"] = location.coordinate.longitude
-            currentUser!["latitude"] = location.coordinate.latitude
-            
-            currentUser!.saveInBackground(block: { (success:Bool, error: Error?) in
-                print("SavedCurrentLocation")
-            })
+                currentUser!.saveInBackground(block: { (success:Bool, error: Error?) in
+                    print("SavedCurrentLocation")
+                })
+            }
             
             mapView.setRegion(region, animated: false)
         }
@@ -194,7 +218,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     
     func locationTapedMap(controller: EventDetailsViewController, lat: NSNumber, lng: NSNumber, event: PFObject) {
         self.events?.append(event)
-        self.coordinate = CLLocationCoordinate2D(latitude: lat as! CLLocationDegrees, longitude: lng as! CLLocationDegrees)
+        self.coordinate = CLLocationCoordinate2D(latitude: lat as CLLocationDegrees, longitude: lng as CLLocationDegrees)
         
         self.isPassedInFromEventDetailedViewController = true
     }
