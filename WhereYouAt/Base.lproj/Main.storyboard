@@ -9,6 +9,52 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Launch Animation Controller-->
+        <scene sceneID="n7R-9Z-yzJ">
+            <objects>
+                <viewController storyboardIdentifier="LaunchAnimationController" id="WZf-uE-qgP" customClass="LaunchAnimationController" customModule="WhereYouAt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6pJ-H7-Ldv"/>
+                        <viewControllerLayoutGuide type="bottom" id="qOe-ji-lSl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RIb-4p-tGg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XUh-qY-Idl">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eha-J3-7Fj">
+                                <rect key="frame" x="139" y="255.5" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="labyrinth" translatesAutoresizingMaskIntoConstraints="NO" id="Sac-6J-uPI">
+                                <rect key="frame" x="-215" y="-91" width="750" height="750"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="750" id="qpi-pL-0dR"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Sac-6J-uPI" firstAttribute="leading" secondItem="RIb-4p-tGg" secondAttribute="leading" constant="-215" id="Ng2-Fg-TOU"/>
+                            <constraint firstAttribute="trailing" secondItem="Sac-6J-uPI" secondAttribute="trailing" constant="-215" id="SXl-im-3Vl"/>
+                            <constraint firstItem="Sac-6J-uPI" firstAttribute="top" secondItem="RIb-4p-tGg" secondAttribute="top" constant="-91" id="dJg-Gx-WUn"/>
+                            <constraint firstAttribute="bottom" secondItem="Sac-6J-uPI" secondAttribute="bottom" constant="-91" id="gVz-5J-bGe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImage" destination="Sac-6J-uPI" id="BHS-ez-6p0"/>
+                        <outlet property="backgroundLight" destination="Eha-J3-7Fj" id="o4H-6t-nn2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aLe-Y5-6TR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="180" y="117.25352112676056"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="6EG-19-DSE">
             <objects>
@@ -446,5 +492,6 @@
     </scenes>
     <resources>
         <image name="home-map-photo" width="3992" height="2992"/>
+        <image name="labyrinth" width="750" height="750"/>
     </resources>
 </document>
