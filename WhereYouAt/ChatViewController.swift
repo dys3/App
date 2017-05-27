@@ -36,7 +36,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         //fetching()
         
         Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(ChatViewController.onTimer), userInfo: nil, repeats: true)
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -45,20 +45,22 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
     @IBAction func onClickSend(_ sender: Any) {
-        let messageToSend = Message(message: messageTextField.text!)
-        var parseMessage = PFObject(className: "ChatMessage")
-        parseMessage["Text"] = messageToSend.content
-        parseMessage["sender_user_id"] = PFUser.current()?.objectId
-        parseMessage["sender_username"] = PFUser.current()?.username
-        parseMessage["profilePic"] = PFUser.current()?["profilePic"]
-        //parseMessage["receiver_user_id"] = userID
-        parseMessage.saveInBackground { (success: Bool, error: Error?) in
-            if(success) {
-                print("saved")
-                self.messageTextField.text = ""
-                
-            } else {
-                
+        if messageTextField.text != "" {
+            let messageToSend = Message(message: messageTextField.text!)
+            var parseMessage = PFObject(className: "ChatMessage")
+            parseMessage["Text"] = messageToSend.content
+            parseMessage["sender_user_id"] = PFUser.current()?.objectId
+            parseMessage["sender_username"] = PFUser.current()?.username
+            parseMessage["profilePic"] = PFUser.current()?["profilePic"]
+            parseMessage["receiver_user_id"] = userID
+            parseMessage.saveInBackground { (success: Bool, error: Error?) in
+                if(success) {
+                    print("saved")
+                    self.messageTextField.text = ""
+                    
+                } else {
+                    
+                }
             }
         }
     }
@@ -90,8 +92,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.timeLabel.text = self.timeSinceString(time: timeDiff)
         }
         
-        if let userPic = messages[indexPath.row]["profilePic"] as? PFFile {
-            //print("Getting image")
+        if let userPic = self.messages[indexPath.row]["profilePic"] as? PFFile {
             userPic.getDataInBackground(block: { (imageData, error) in
                 if let imageData = imageData {
                     cell.profileImage.image = UIImage(data: imageData)
@@ -127,42 +128,42 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             })
             
-//            // getting messages that sent to the current user
-//            query = PFQuery(className: "ChatMessage")
-//            //query.whereKey("receiver_user_id", equalTo: PFUser.current()?["userId"] as! String)
-//            
-//            query.findObjectsInBackground(block: { (results:[PFObject]?, error:Error?) in
-//                
-//                if let error = error {
-//                    print(error.localizedDescription)
-//                }
-//                else {
-//                    for result in results! {
-//                        self.messages.append(result)
-//                    }
-//                }
-//            })
+            //            // getting messages that sent to the current user
+            //            query = PFQuery(className: "ChatMessage")
+            //            //query.whereKey("receiver_user_id", equalTo: PFUser.current()?["userId"] as! String)
+            //
+            //            query.findObjectsInBackground(block: { (results:[PFObject]?, error:Error?) in
+            //
+            //                if let error = error {
+            //                    print(error.localizedDescription)
+            //                }
+            //                else {
+            //                    for result in results! {
+            //                        self.messages.append(result)
+            //                    }
+            //                }
+            //            })
             
             //            messages?.sort { (message0, message1) -> Bool in
             //                message1["updateAt"].compare(message0["updateAt"])
             //            }
             
-//            let userQuery = PFQuery(className: "_User")
-//            userQuery.limit = 1000
-//            // fetch data asynchronously
-//            userQuery.findObjectsInBackground { (users: [PFObject]?, error: Error?) -> Void in
-//                if let users = users {
-//                    // do something with the data fetched
-//                    self.users = users
-//                    //print("USERS")
-//                    //print(users)
-//                    self.tableView.reloadData()
-//                    
-//                } else {
-//                    // handle error
-//                    print(error?.localizedDescription)
-//                }
-//            }
+            //            let userQuery = PFQuery(className: "_User")
+            //            userQuery.limit = 1000
+            //            // fetch data asynchronously
+            //            userQuery.findObjectsInBackground { (users: [PFObject]?, error: Error?) -> Void in
+            //                if let users = users {
+            //                    // do something with the data fetched
+            //                    self.users = users
+            //                    //print("USERS")
+            //                    //print(users)
+            //                    self.tableView.reloadData()
+            //
+            //                } else {
+            //                    // handle error
+            //                    print(error?.localizedDescription)
+            //                }
+            //            }
         }
     }
     
