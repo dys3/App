@@ -13,6 +13,10 @@ import MapKit
 import Parse
 import ParseUI
 
+class CustomPointAnnotation: MKPointAnnotation {
+    var pinType: String!
+}
+
 class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate, MKMapViewDelegate, EventDetailViewControllerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
@@ -105,14 +109,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                         
                         if PFUser.current()!.objectId != user.objectId {
                             
-                            let userAnnotation = MKPointAnnotation()
+                            let userAnnotation = CustomPointAnnotation()
                             let userLat = user["latitude"] as! CLLocationDegrees
                             let userLong = user["longitude"] as! CLLocationDegrees
                             let userCoord = CLLocationCoordinate2D(latitude: userLat,  longitude: userLong)
                     
                             userAnnotation.coordinate = userCoord
-                            self.mapView.addAnnotation(userAnnotation)
+                            userAnnotation.pinType = "user"
                             userAnnotation.title = user["screen_name"] as! String
+                            
+                            
+                            self.mapView.addAnnotation(userAnnotation)
+                            
                         }
                     }
                 }
@@ -209,21 +217,29 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             //return nil so map view draws "blue dot" for standard user location
             return nil
         }
-        print(annotation.description.description.description)
+        print(annotation)
+                //print(pointAnnotation.value?(forKey: "type"))
+        //pointAnnotation.key
         let reuseId = "pin"
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
         if pinView == nil {
             pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = true
-            //pinView!.animatesDrop = false
-            pinView!.image = #imageLiteral(resourceName: "iconmonstr-location-3-240")
             
         }
         else {
             pinView!.annotation = annotation
         }
         
+        var pointAnnotation = annotation as! CustomPointAnnotation
+        
 
+        if pointAnnotation.pinType == "event" {
+            pinView!.image = #imageLiteral(resourceName: "iconmonstr-location-3-240")
+        }
+        else if pointAnnotation.pinType == "user" {
+            pinView!.image = #imageLiteral(resourceName: "iconmonstr-user-20-32")
+        }
         return pinView
         
         //return annotationView
@@ -251,6 +267,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         self.events?.append(event)
         self.coordinate = CLLocationCoordinate2D(latitude: lat as CLLocationDegrees, longitude: lng as CLLocationDegrees)
         print("here at the bottom")
+        let eventAnnotation = CustomPointAnnotation()
+        eventAnnotation.pinType = "event"
+        eventAnnotation.coordinate = self.coordinate!
+        eventAnnotation.title = event["name"] as! String
+        
+        self.mapView.addAnnotation(eventAnnotation)
         self.isPassedInFromEventDetailedViewController = true
     }
     
