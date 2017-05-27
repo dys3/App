@@ -24,19 +24,25 @@ class ProfileViewController: UIViewController {
         
         //let user = PFObject(className: "User")
         let user = PFUser.current()
-        tableView.delegate = self
+        /*tableView.delegate = self
         tableView.dataSource = self
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
-        
-        if let profileImageFile = user?["profileImage"] as? PFFile {
+        */
+        if let profileImageFile = user?["profilePic"] as? PFFile {
+            
             profileImageFile.getDataInBackground {
                 (imageData: Data?, error: Error?) -> Void in
-                if error != nil {
+                if error == nil {
                     self.profilePic.image = UIImage(data:imageData!)
                 }
             }
+            let radius = profilePic.frame.width / 2
+            profilePic.layer.cornerRadius = radius
+            profilePic.layer.masksToBounds = true
+            
+            print("set")
         } else {
             profilePic.image = UIImage(named: "dummy_user")
             
@@ -54,7 +60,7 @@ class ProfileViewController: UIViewController {
             self.lastName.text = lastName
         }
         
-        fetchData()
+        //fetchData()
     }
     
     override func viewDidLoad() {
