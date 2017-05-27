@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="q0l-qk-fea">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="q0l-qk-fea">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,9 +25,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fjK-lg-8ix">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fjK-lg-8ix">
                                 <rect key="frame" x="139" y="255.5" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="labyrinth" translatesAutoresizingMaskIntoConstraints="NO" id="r1m-CP-14t">
@@ -38,11 +37,15 @@
                         <constraints>
                             <constraint firstItem="r1m-CP-14t" firstAttribute="top" secondItem="NNv-GT-rbS" secondAttribute="top" constant="-91" id="7Wx-0a-ksm"/>
                             <constraint firstItem="FMe-jg-2yL" firstAttribute="top" secondItem="NNv-GT-rbS" secondAttribute="top" id="9N6-QW-pP0"/>
+                            <constraint firstItem="IvQ-YR-WhE" firstAttribute="top" secondItem="fjK-lg-8ix" secondAttribute="bottom" constant="262.5" id="BH5-Dl-nLY"/>
                             <constraint firstAttribute="bottom" secondItem="r1m-CP-14t" secondAttribute="bottom" constant="-91" id="CUQ-2o-SCE"/>
+                            <constraint firstItem="fjK-lg-8ix" firstAttribute="leading" secondItem="NNv-GT-rbS" secondAttribute="leading" constant="139" id="Ggg-UO-DXE"/>
                             <constraint firstItem="r1m-CP-14t" firstAttribute="leading" secondItem="NNv-GT-rbS" secondAttribute="leading" constant="-215" id="Sl2-fD-mMq"/>
                             <constraint firstAttribute="trailing" secondItem="FMe-jg-2yL" secondAttribute="trailing" id="XAX-Fe-skJ"/>
                             <constraint firstItem="FMe-jg-2yL" firstAttribute="leading" secondItem="NNv-GT-rbS" secondAttribute="leading" id="meR-Vc-lLS"/>
                             <constraint firstItem="IvQ-YR-WhE" firstAttribute="top" secondItem="FMe-jg-2yL" secondAttribute="bottom" id="q5u-K2-RzC"/>
+                            <constraint firstItem="fjK-lg-8ix" firstAttribute="top" secondItem="Z9r-F5-aTb" secondAttribute="bottom" constant="235.5" id="u0G-fe-cXc"/>
+                            <constraint firstAttribute="trailing" secondItem="fjK-lg-8ix" secondAttribute="trailing" constant="131" id="uGK-ve-HbP"/>
                             <constraint firstAttribute="trailing" secondItem="r1m-CP-14t" secondAttribute="trailing" constant="-215" id="yrw-aT-ipY"/>
                         </constraints>
                     </view>
@@ -57,7 +60,7 @@
         <!--Login View Controller-->
         <scene sceneID="6EG-19-DSE">
             <objects>
-                <viewController id="q0l-qk-fea" customClass="LoginViewController" customModule="WhereYouAt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInController" id="q0l-qk-fea" customClass="LoginViewController" customModule="WhereYouAt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dDe-dm-R3G"/>
                         <viewControllerLayoutGuide type="bottom" id="eCy-3q-2g5"/>
@@ -111,14 +114,18 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0G-g7-RRG">
                                                 <rect key="frame" x="188" y="332" width="38" height="30"/>
-                                                <state key="normal" title="Login"/>
+                                                <state key="normal" title="Login">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="onLogin:" destination="q0l-qk-fea" eventType="touchUpInside" id="K0V-RQ-qkh"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbt-2x-RnB">
                                                 <rect key="frame" x="95" y="332" width="55" height="30"/>
-                                                <state key="normal" title="Sign Up"/>
+                                                <state key="normal" title="Sign Up">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <segue destination="vOg-vd-yRu" kind="presentation" id="CwD-jm-Xwo"/>
                                                 </connections>
