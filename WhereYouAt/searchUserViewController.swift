@@ -27,7 +27,9 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
         searchBar.delegate = self
         
         fetchingUsers(content: "")
-        friends = fetchFriends()
+        if let friendsList = fetchFriends() {
+            friends = friendsList
+        }
         
     }
     
@@ -155,10 +157,10 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
         
     }
     
-    func fetchFriends() -> [PFObject] {
+    func fetchFriends() -> [PFObject]? {
         let user = PFUser.current()
         let friends = user!["friends"] as? [PFObject]
-        return friends!
+        return friends
         
     }
     
