@@ -25,7 +25,11 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var eventMap: MKMapView!
     @IBOutlet weak var addressLabel: UILabel!
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     
+    @IBOutlet weak var creatorImage: UIImageView!
+    
+    @IBOutlet weak var creatorNameLable: UILabel!
     // event is passed from segue
     var event : PFObject!
     var address: String?
@@ -83,6 +87,8 @@ class EventDetailsViewController: UIViewController {
             self.eventMap.addAnnotation(annotation)
         }
             
+        
+            
         else if let address = address {
             // also center the map at the address
             let geocoder = CLGeocoder()
@@ -123,6 +129,50 @@ class EventDetailsViewController: UIViewController {
         if let overview = event["description"] as? String {
             overViewLabel.text = overview
         }
+        
+        if let attendees = event["attendees"] as? [String] {
+            let userId = attendees[attendees.count-1]
+            print(userId)
+            var user : PFObject?
+            let query = PFQuery(className: "_User")
+            query.whereKey("objectId", equalTo: userId)
+            
+            query.findObjectsInBackground { (results, error) in
+                if let results = results {
+                    user = results[0]
+                    print(user?.description)
+                    if let name = user?["username"] as? String {
+                        self.creatorNameLable.text = name
+                    }
+                    if let image = user?["profilePic"] as? PFFile {
+                        image.getDataInBackground(block: { (imageData, error) in
+                            if let imageData = imageData {
+                                let image = UIImage(data: imageData)
+                                self.creatorImage.image = image
+                            }
+                        })
+                    }
+                    else {
+                        let profile = #imageLiteral(resourceName: "iconmonstr-user-1-240")
+                        self.creatorImage.image = profile
+                    }
+
+                    
+                }
+            }
+
+        }
+        
+        if let image = event["imageFile"] as? PFFile {
+            image.getDataInBackground(block: { (imageData, error) in
+                if let imageData = imageData {
+                    let image = UIImage(data: imageData)
+                    self.backgroundImage.image = image
+                    self.backgroundImage.contentMode = UIViewContentMode.scaleToFill
+                }
+            })
+        }
+
 
         // Do any additional setup after loading the view.
     }

@@ -84,6 +84,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         query.order(byDescending: "createdAt")
         query.limit = 20
+        query.whereKey("attendees", contains: PFUser.current()?.objectId)
         
         // fetch data asynchronously
         query.findObjectsInBackground { (events, error) in
