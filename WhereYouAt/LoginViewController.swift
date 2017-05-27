@@ -81,12 +81,12 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
             if user != nil {
                 print("You're logged in")
                 
-                let currentUser = PFUser.current()
+                //let currentUser = PFUser.current()
                 
-                currentUser!["longitude"] = self.currentLongitude
-                currentUser!["latitude"] = self.currentLatitude
+                user!["longitude"] = self.currentLongitude
+                user!["latitude"] = self.currentLatitude
                 
-                currentUser!.saveInBackground(block: { (success:Bool, error: Error?) in
+                user!.saveInBackground(block: { (success:Bool, error: Error?) in
                     print("SavedCurrentLocation")
                 })
 
