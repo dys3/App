@@ -90,15 +90,16 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.timeLabel.text = self.timeSinceString(time: timeDiff)
         }
         
-        if let userPic = messages[indexPath.row]["profilePic"] as? Data {
-            if userPic == nil {
-                let profile = #imageLiteral(resourceName: "iconmonstr-user-6-240")
-                cell.profileImage.image = profile
-            } else {
-                let image = UIImage(data: userPic)
-                cell.profileImage.image = image
-            }
-            
+        if let userPic = messages[indexPath.row]["profilePic"] as? PFFile {
+            //print("Getting image")
+            userPic.getDataInBackground(block: { (imageData, error) in
+                if let imageData = imageData {
+                    cell.profileImage.image = UIImage(data: imageData)
+                } else {
+                    let profile = #imageLiteral(resourceName: "profile-icon")
+                    cell.profileImage.image = profile
+                }
+            })
         }
         
         //cell.userLabel.text = user["username"] as! String

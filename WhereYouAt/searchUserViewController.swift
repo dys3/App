@@ -157,8 +157,9 @@ class searchUserViewController: UIViewController,UITableViewDelegate, UITableVie
     
     func fetchFriends() -> [PFObject] {
         let user = PFUser.current()
+        let friends = user!["friends"] as? [PFObject]
+        return friends!
         
-        return user!["friends"] as! [PFObject]
     }
     
     //    func filterUser(friend: PFObject) -> Bool {
