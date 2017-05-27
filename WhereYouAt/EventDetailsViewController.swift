@@ -25,6 +25,7 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var eventMap: MKMapView!
     @IBOutlet weak var addressLabel: UILabel!
     
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     
     @IBOutlet weak var creatorImage: UIImageView!
@@ -54,8 +55,11 @@ class EventDetailsViewController: UIViewController {
         if let date = event["event_time"] as? Date {
             
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "EEE MMM d HH:mm:ss"
+            dateFormatter.dateFormat = "MMMd"
+            self.dateLabel.text = dateFormatter.string(from: date)
+             dateFormatter.dateFormat = "HH:mm"
             self.eventTimeLable.text = dateFormatter.string(from: date)
+            
         }
         
         // set up address label
