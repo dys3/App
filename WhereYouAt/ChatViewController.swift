@@ -107,6 +107,11 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
+    
     func onTimer() {
         if !isFetching {
             self.isFetching = true
