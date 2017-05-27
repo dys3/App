@@ -134,7 +134,7 @@ class EventDetailsViewController: UIViewController {
         }
         
         if let attendees = event["attendees"] as? [String] {
-            let userId = attendees[attendees.count-1]
+            let userId = attendees[0]
             print(userId)
             var user : PFObject?
             let query = PFQuery(className: "_User")
@@ -189,9 +189,9 @@ class EventDetailsViewController: UIViewController {
     
     @IBAction func onTapMap(_ sender: UITapGestureRecognizer) {
         if let lat = self.lat, let lng = self.lng {
-            let NC = tabBarController?.viewControllers?[2] as! UINavigationController
             
-            delegate = NC.topViewController as! EventDetailViewControllerDelegate
+            
+            delegate = tabBarController?.viewControllers?[2] as! EventDetailViewControllerDelegate
             delegate.locationTapedMap(controller: self, lat: lat, lng: lng, event: self.event)
             tabBarController?.selectedIndex = 2
         }
