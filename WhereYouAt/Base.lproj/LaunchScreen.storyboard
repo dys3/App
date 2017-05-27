@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,22 +18,20 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="labyrinth" translatesAutoresizingMaskIntoConstraints="NO" id="lIl-O5-kuk">
-                                <rect key="frame" x="-188" y="-42" width="750" height="750"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="750" id="ehY-jg-82L"/>
-                                </constraints>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where You At?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvJ-hj-ueL">
+                                <rect key="frame" x="71" y="267" width="178" height="34"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.8389583853" blue="0.28973070890000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="lIl-O5-kuk" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-188" id="6wW-FT-MDW"/>
-                            <constraint firstItem="lIl-O5-kuk" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="-42" id="TTD-RM-VAT"/>
-                            <constraint firstAttribute="trailing" secondItem="lIl-O5-kuk" secondAttribute="trailing" constant="-187" id="dvt-bU-xjp"/>
-                            <constraint firstAttribute="bottom" secondItem="lIl-O5-kuk" secondAttribute="bottom" constant="-41" id="ot3-4N-HqU"/>
+                            <constraint firstItem="WvJ-hj-ueL" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="AaN-Ij-cAk"/>
+                            <constraint firstItem="WvJ-hj-ueL" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="JFh-9C-UHg"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -42,7 +40,4 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="labyrinth" width="750" height="750"/>
-    </resources>
 </document>
