@@ -45,9 +45,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             print("event annotation is nil1")
         }
         if isPassedInFromEventDetailedViewController {
-            let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            let mapSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
             let region = MKCoordinateRegion(center: self.coordinate!, span: mapSpan)
             self.mapView.setRegion(region, animated: false)
+            
             self.mapView.addAnnotation(eventAnnotation)
             print("addedEventAnnotation1")
         }
@@ -82,7 +83,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             print("event annotation is nil2")
         }
         if isPassedInFromEventDetailedViewController {
-            let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            let mapSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
             let region = MKCoordinateRegion(center: self.coordinate!, span: mapSpan)
             self.mapView.setRegion(region, animated: false)
             self.mapView.addAnnotation(eventAnnotation)
