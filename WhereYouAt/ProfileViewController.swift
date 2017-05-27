@@ -28,7 +28,7 @@ class ProfileViewController: UIViewController {
         tableView.dataSource = self
         
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 120
+        tableView.estimatedRowHeight = 100
         
         if let profileImageFile = user?["profileImage"] as? PFFile {
             profileImageFile.getDataInBackground {
