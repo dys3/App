@@ -18,7 +18,26 @@ class searchUserCell: UITableViewCell {
     var user : PFObject! {
         didSet {
             usernameLabel.text = user["username"] as? String
+            
+            if let image = user?["profilePic"] as? PFFile {
+                image.getDataInBackground(block: { (imageData, error) in
+                    if let imageData = imageData {
+                        let image = UIImage(data: imageData)
+                        self.profileImage.image = image
+                    }
+                })
+            }
+            else {
+                let profile = #imageLiteral(resourceName: "iconmonstr-user-6-240")
+                self.profileImage.image = profile
+            }
+            
+            let radius = profileImage.frame.width / 2
+            profileImage.layer.cornerRadius = radius
+            profileImage.layer.masksToBounds = true
         }
+        
+        
     }
     
     override func awakeFromNib() {
