@@ -387,7 +387,7 @@
         <!--Event Details View Controller-->
         <scene sceneID="tFS-Ac-uNH">
             <objects>
-                <viewController storyboardIdentifier="EventDetail" id="bg0-z1-g6V" customClass="EventDetailsViewController" customModule="WhereYouAt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bg0-z1-g6V" customClass="EventDetailsViewController" customModule="WhereYouAt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dFn-0k-5fp"/>
                         <viewControllerLayoutGuide type="bottom" id="JXu-ue-syJ"/>
