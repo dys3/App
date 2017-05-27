@@ -45,6 +45,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             print("event annotation is nil1")
         }
         if isPassedInFromEventDetailedViewController {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.distanceFilter = 200
+            locationManager.requestWhenInUseAuthorization()
+            
             let mapSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
             let region = MKCoordinateRegion(center: self.coordinate!, span: mapSpan)
             self.mapView.setRegion(region, animated: false)
@@ -83,6 +89,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             print("event annotation is nil2")
         }
         if isPassedInFromEventDetailedViewController {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.distanceFilter = 200
+            locationManager.requestWhenInUseAuthorization()
+            
             let mapSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
             let region = MKCoordinateRegion(center: self.coordinate!, span: mapSpan)
             self.mapView.setRegion(region, animated: false)
@@ -207,8 +219,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let reuseID = "myAnnotationView"
-        print("AGBCDEFG")
+        
         
         // Add the image you stored from the image picker
         if annotation is MKUserLocation {
