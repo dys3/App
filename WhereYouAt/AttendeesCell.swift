@@ -18,7 +18,7 @@ class AttendeesCell: UITableViewCell {
     var userId : String! {
         didSet {
             var user : PFObject?
-            let query = PFQuery(className: "User")
+            let query = PFQuery(className: "_User")
             query.whereKey("objectId", equalTo: userId)
             
             query.findObjectsInBackground { (results, error) in

@@ -29,13 +29,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = storyBoard.instantiateViewController(withIdentifier: "LaunchAnimationController")
         window?.rootViewController = vc
         
-        // check if user is logged in.
+//        // check if user is logged in.
 //        if PFUser.current() != nil {
 //            // if there is a logged in user then load the home view controller
 //            print("There is a current user")
 //            
 //            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = storyboard.instantiateViewController(withIdentifier: "LaunchAnimationController")
+//            let vc = storyboard.instantiateViewController(withIdentifier: "HomeTabBarController")
 //            
 //            window?.rootViewController = vc
 //        }

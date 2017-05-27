@@ -10,55 +10,54 @@
     </dependencies>
     <scenes>
         <!--Launch Animation Controller-->
-        <scene sceneID="n7R-9Z-yzJ">
+        <scene sceneID="JiL-2c-Qy7">
             <objects>
-                <viewController storyboardIdentifier="LaunchAnimationController" id="WZf-uE-qgP" customClass="LaunchAnimationController" customModule="WhereYouAt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LaunchAnimationController" id="Ej8-hl-1wO" customClass="LaunchAnimationController" customModule="WhereYouAt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="6pJ-H7-Ldv"/>
-                        <viewControllerLayoutGuide type="bottom" id="qOe-ji-lSl"/>
+                        <viewControllerLayoutGuide type="top" id="Z9r-F5-aTb"/>
+                        <viewControllerLayoutGuide type="bottom" id="IvQ-YR-WhE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="RIb-4p-tGg">
+                    <view key="view" contentMode="scaleToFill" id="NNv-GT-rbS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XUh-qY-Idl">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FMe-jg-2yL">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eha-J3-7Fj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fjK-lg-8ix">
                                 <rect key="frame" x="139" y="255.5" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="labyrinth" translatesAutoresizingMaskIntoConstraints="NO" id="Sac-6J-uPI">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="labyrinth" translatesAutoresizingMaskIntoConstraints="NO" id="r1m-CP-14t">
                                 <rect key="frame" x="-215" y="-91" width="750" height="750"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="750" id="qpi-pL-0dR"/>
-                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Sac-6J-uPI" firstAttribute="leading" secondItem="RIb-4p-tGg" secondAttribute="leading" constant="-215" id="Ng2-Fg-TOU"/>
-                            <constraint firstAttribute="trailing" secondItem="Sac-6J-uPI" secondAttribute="trailing" constant="-215" id="SXl-im-3Vl"/>
-                            <constraint firstItem="Sac-6J-uPI" firstAttribute="top" secondItem="RIb-4p-tGg" secondAttribute="top" constant="-91" id="dJg-Gx-WUn"/>
-                            <constraint firstAttribute="bottom" secondItem="Sac-6J-uPI" secondAttribute="bottom" constant="-91" id="gVz-5J-bGe"/>
+                            <constraint firstItem="r1m-CP-14t" firstAttribute="top" secondItem="NNv-GT-rbS" secondAttribute="top" constant="-91" id="7Wx-0a-ksm"/>
+                            <constraint firstItem="FMe-jg-2yL" firstAttribute="top" secondItem="NNv-GT-rbS" secondAttribute="top" id="9N6-QW-pP0"/>
+                            <constraint firstAttribute="bottom" secondItem="r1m-CP-14t" secondAttribute="bottom" constant="-91" id="CUQ-2o-SCE"/>
+                            <constraint firstItem="r1m-CP-14t" firstAttribute="leading" secondItem="NNv-GT-rbS" secondAttribute="leading" constant="-215" id="Sl2-fD-mMq"/>
+                            <constraint firstAttribute="trailing" secondItem="FMe-jg-2yL" secondAttribute="trailing" id="XAX-Fe-skJ"/>
+                            <constraint firstItem="FMe-jg-2yL" firstAttribute="leading" secondItem="NNv-GT-rbS" secondAttribute="leading" id="meR-Vc-lLS"/>
+                            <constraint firstItem="IvQ-YR-WhE" firstAttribute="top" secondItem="FMe-jg-2yL" secondAttribute="bottom" id="q5u-K2-RzC"/>
+                            <constraint firstAttribute="trailing" secondItem="r1m-CP-14t" secondAttribute="trailing" constant="-215" id="yrw-aT-ipY"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backgroundImage" destination="Sac-6J-uPI" id="BHS-ez-6p0"/>
-                        <outlet property="backgroundLight" destination="Eha-J3-7Fj" id="o4H-6t-nn2"/>
+                        <outlet property="backgroundLight" destination="fjK-lg-8ix" id="DDB-gd-sRh"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aLe-Y5-6TR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gh4-U1-7Pl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="180" y="117.25352112676056"/>
+            <point key="canvasLocation" x="168.75" y="117.25352112676056"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="6EG-19-DSE">
             <objects>
-                <viewController storyboardIdentifier="SignInController" id="q0l-qk-fea" customClass="LoginViewController" customModule="WhereYouAt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="q0l-qk-fea" customClass="LoginViewController" customModule="WhereYouAt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dDe-dm-R3G"/>
                         <viewControllerLayoutGuide type="bottom" id="eCy-3q-2g5"/>

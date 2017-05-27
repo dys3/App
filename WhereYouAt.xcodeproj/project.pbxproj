@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		07281F2B1EC3F81A007D36B6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07281F2A1EC3F81A007D36B6 /* Event.swift */; };
 		0761A82E1EB1173C0037DAEF /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0761A82D1EB1173C0037DAEF /* Map.storyboard */; };
+		078C8FE01ED92DD3005131A8 /* LaunchAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078C8FDF1ED92DD3005131A8 /* LaunchAnimationController.swift */; };
 		07E623651EBFC29500C74B7B /* FriendsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E623641EBFC29500C74B7B /* FriendsSearchViewController.swift */; };
 		07E623671EBFC4BD00C74B7B /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E623661EBFC4BD00C74B7B /* FriendsCell.swift */; };
-		07F7E4541ED7CA9C0078AC30 /* LaunchAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F7E4531ED7CA9C0078AC30 /* LaunchAnimationController.swift */; };
 		07FA01791EC1707E004C8923 /* UserEventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FA01781EC1707E004C8923 /* UserEventsCell.swift */; };
 		07FA017B1EC177E5004C8923 /* WYAClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FA017A1EC177E5004C8923 /* WYAClient.swift */; };
 		75163C121EADC7D8000B978A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75163C111EADC7D8000B978A /* MapViewController.swift */; };
@@ -27,7 +27,6 @@
 		751BCC161EB18A8900104576 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751BCC151EB18A8900104576 /* ProfileViewController.swift */; };
 		7598154E1EA96E81006FEDB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7598154D1EA96E81006FEDB4 /* AppDelegate.swift */; };
 		759815531EA96E82006FEDB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759815511EA96E82006FEDB4 /* Main.storyboard */; };
-		759815551EA96E82006FEDB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 759815541EA96E82006FEDB4 /* Assets.xcassets */; };
 		759815581EA96E82006FEDB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759815561EA96E82006FEDB4 /* LaunchScreen.storyboard */; };
 		8D09C6A61EC27265003F32B1 /* searchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09C6A51EC27265003F32B1 /* searchUserViewController.swift */; };
 		8D09C6A81EC27403003F32B1 /* searchUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09C6A71EC27403003F32B1 /* searchUserCell.swift */; };
@@ -42,15 +41,16 @@
 		8D221EC31EBFBA8900D80EA1 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D221EC21EBFBA8900D80EA1 /* LocationCell.swift */; };
 		8D221EC51EBFBB4500D80EA1 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D221EC41EBFBB4500D80EA1 /* LocationsViewController.swift */; };
 		8D221EC71EC0066500D80EA1 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D221EC61EC0066500D80EA1 /* EventDetailsViewController.swift */; };
+		8DD29F1A1ED90F1300075551 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DD29F191ED90F1300075551 /* Assets.xcassets */; };
 		FD608D1CA6C1A0FEA32F60A5 /* Pods_WhereYouAt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BEA18248847E92E7873E672 /* Pods_WhereYouAt.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		07281F2A1EC3F81A007D36B6 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0761A82D1EB1173C0037DAEF /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		078C8FDF1ED92DD3005131A8 /* LaunchAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchAnimationController.swift; sourceTree = "<group>"; };
 		07E623641EBFC29500C74B7B /* FriendsSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsSearchViewController.swift; sourceTree = "<group>"; };
 		07E623661EBFC4BD00C74B7B /* FriendsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
-		07F7E4531ED7CA9C0078AC30 /* LaunchAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchAnimationController.swift; sourceTree = "<group>"; };
 		07FA01781EC1707E004C8923 /* UserEventsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventsCell.swift; sourceTree = "<group>"; };
 		07FA017A1EC177E5004C8923 /* WYAClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WYAClient.swift; sourceTree = "<group>"; };
 		10A09855D599242B550464D0 /* Pods-WhereYouAt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereYouAt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhereYouAt/Pods-WhereYouAt.debug.xcconfig"; sourceTree = "<group>"; };
@@ -68,7 +68,6 @@
 		7598154A1EA96E81006FEDB4 /* WhereYouAt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereYouAt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7598154D1EA96E81006FEDB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		759815521EA96E82006FEDB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		759815541EA96E82006FEDB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		759815571EA96E82006FEDB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		759815591EA96E82006FEDB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77902B74B5A39979C1C6E618 /* Pods-WhereYouAt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereYouAt.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhereYouAt/Pods-WhereYouAt.release.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +84,7 @@
 		8D221EC21EBFBA8900D80EA1 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		8D221EC41EBFBB4500D80EA1 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		8D221EC61EC0066500D80EA1 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
+		8DD29F191ED90F1300075551 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		9BEA18248847E92E7873E672 /* Pods_WhereYouAt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhereYouAt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -180,7 +180,7 @@
 				7598154D1EA96E81006FEDB4 /* AppDelegate.swift */,
 				751BCC111EB1879200104576 /* LoginViewController.swift */,
 				751BCC131EB187A700104576 /* NewUserViewController.swift */,
-				07F7E4531ED7CA9C0078AC30 /* LaunchAnimationController.swift */,
+				078C8FDF1ED92DD3005131A8 /* LaunchAnimationController.swift */,
 				759815511EA96E82006FEDB4 /* Main.storyboard */,
 				751BCC1B1EB6A1BA00104576 /* Event */,
 				751BCC191EB6A18A00104576 /* Chat */,
@@ -276,7 +276,7 @@
 				75163C181EADCA80000B978A /* Profile.storyboard in Resources */,
 				759815581EA96E82006FEDB4 /* LaunchScreen.storyboard in Resources */,
 				75163C141EADC9BE000B978A /* Events.storyboard in Resources */,
-				759815551EA96E82006FEDB4 /* Assets.xcassets in Resources */,
+				8DD29F1A1ED90F1300075551 /* Assets.xcassets in Resources */,
 				0761A82E1EB1173C0037DAEF /* Map.storyboard in Resources */,
 				759815531EA96E82006FEDB4 /* Main.storyboard in Resources */,
 			);
@@ -354,7 +354,7 @@
 				8D221E901EAF0F2A00D80EA1 /* EventsViewController.swift in Sources */,
 				8D221EBB1EBFA89400D80EA1 /* AttendeesViewController.swift in Sources */,
 				8D221EC51EBFBB4500D80EA1 /* LocationsViewController.swift in Sources */,
-				07F7E4541ED7CA9C0078AC30 /* LaunchAnimationController.swift in Sources */,
+				078C8FE01ED92DD3005131A8 /* LaunchAnimationController.swift in Sources */,
 				07281F2B1EC3F81A007D36B6 /* Event.swift in Sources */,
 				751BCC141EB187A700104576 /* NewUserViewController.swift in Sources */,
 				07FA017B1EC177E5004C8923 /* WYAClient.swift in Sources */,

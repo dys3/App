@@ -15,10 +15,13 @@ protocol NewEventViewControllerDelegate: class {
 }
 
 class NewEventViewController: UIViewController, LocationsViewControllerDelegate, addAttendeesViewControllerDelegate,
-    UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate{
     
     weak var delegate : NewEventViewControllerDelegate!
 
+    @IBOutlet weak var attendeesScrollView: UIScrollView!
+    
+    @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var eventImage: UIImageView!
     
@@ -38,6 +41,11 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
     var addedAttendees : [PFObject]? = []
     var pickedImage : UIImage!
     var date: Date!
+    var keyboardHeight: CGFloat!
+    var viewChangeOffset: CGFloat!
+    
+    var langitude: NSNumber!
+    var longitude: NSNumber!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,12 +57,59 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
         datePicker.addTarget(self , action: #selector(NewEventViewController.datePickerValueChanged(sender:)), for: UIControlEvents.valueChanged)
         
         datePickTextField.inputView = datePicker
+        descriptionTextField.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+
 
         // Do any additional setup after loading the view.
     }
     
-    var langitude: NSNumber!
-    var longitude: NSNumber!
+    override func viewDidAppear(_ animated: Bool) {
+        var images : [UIImage] = []
+        for attendee in addedAttendees! {
+            if let image = attendee["profilePic"] as? PFFile {
+                image.getDataInBackground(block: { (imageData, error) in
+                    if let imageData = imageData {
+                        let image = UIImage(data: imageData)
+                        images.append(image!)
+                    }
+                })
+            }
+            else {
+                let profile = #imageLiteral(resourceName: "iconmonstr-user-1-240")
+                images.append(profile)
+            }
+        }
+        
+        let imageWidth : CGFloat = 30
+        let imageHeight : CGFloat = 30
+        var xPosition: CGFloat = 8
+        var scrollViewContentSize: CGFloat = 0;
+        
+        
+        for image in images {
+            let imageView = UIImageView()
+            imageView.image = image
+            imageView.contentMode = UIViewContentMode.scaleAspectFit
+            
+            let radius = imageView.frame.width / 2
+            imageView.layer.cornerRadius = radius
+            imageView.layer.masksToBounds = true
+            
+            
+            imageView.frame.size.width = imageWidth
+            imageView.frame.size.height = imageHeight
+            imageView.frame.origin.y = 5
+            imageView.frame.origin.x = xPosition
+            self.attendeesScrollView.addSubview(imageView)
+            xPosition += 38
+            scrollViewContentSize += (imageHeight + 8)
+            attendeesScrollView.contentSize = CGSize(width: scrollViewContentSize, height: imageHeight)
+        
+        }
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -233,6 +288,28 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
         view.endEditing(true)
         if(timeChosen) {
             timeImage.image = #imageLiteral(resourceName: "iconmonstr-time-1-240-blue")       }
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            let keyboardHeight = keyboardSize.height
+            self.keyboardHeight = keyboardHeight
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        UIView.animate(withDuration: 0.2) {
+            
+            self.viewChangeOffset =
+            self.keyboardHeight - (self.view.frame.height - self.descriptionView.frame.origin.y - self.descriptionView.frame.height) + 20
+            self.view.frame.origin.y -= self.viewChangeOffset
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        UIView.animate(withDuration: 0.2) {
+            self.view.frame.origin.y += self.viewChangeOffset
+        }
     }
 
 }
