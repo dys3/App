@@ -9,7 +9,7 @@ import UIKit
 import Parse
 import MBProgressHUD
 
-class NewUserViewController: UIViewController {
+class NewUserViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -20,7 +20,11 @@ class NewUserViewController: UIViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var screenNameTextField: UITextField!
     
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    var profileImage : UIImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -126,6 +130,11 @@ class NewUserViewController: UIViewController {
                     newUser["screen_name"] = self.screenNameTextField.text
                     newUser["first_name"] = self.firstNameTextField.text
                     newUser["last_name"] = self.lastNameTextField.text
+                    
+                    if let image = self.profileImageView.image {
+                        newUser["profilePic"] = self.getPFFileFromImage(image: image)
+                    }
+                    
                     newUser.saveInBackground(block: { (success:Bool, error: Error?) in
                         self.present(signupAlertController, animated: true) {
                             // optional code for what happens after the alert controller has finished presenting
@@ -147,7 +156,62 @@ class NewUserViewController: UIViewController {
         }
     }
     
+    @IBAction func onTapImage(_ sender: UITapGestureRecognizer) {
+        let vc = UIImagePickerController()
+        
+        vc.delegate = self
+        vc.allowsEditing = true
+        let chooseActionSheet = UIAlertController(title:"Choose image from",message: "choose", preferredStyle: .actionSheet)
+        let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: {action in
+            print("here")
+            vc.sourceType = .camera
+            self.present(vc, animated: true, completion: nil)
+            
+        })
+        let photoRollAction = UIAlertAction(title: "Photo Library", style: .default, handler: {action in
+            vc.sourceType = .photoLibrary
+            self.present(vc, animated: true, completion: nil)
+            
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {action in
+        })
+        
+        chooseActionSheet.addAction(cameraAction)
+        chooseActionSheet.addAction(photoRollAction)
+        chooseActionSheet.addAction(cancelAction)
+        
+        self.present(chooseActionSheet, animated: true, completion: nil)
+        
+    }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        print("back")
+        
+        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        
+        self.profileImage = editedImage
+        profileImageView.image = self.profileImage
+        
+        let radius = profileImageView.frame.width / 2
+        profileImageView.layer.cornerRadius = radius
+        profileImageView.layer.masksToBounds = true
+        
+        dismiss(animated: true, completion: nil)
+    }
+
+    func getPFFileFromImage(image: UIImage?) -> PFFile? {
+        // check if image is not nil
+        if let image = image {
+            // get image data and check if that is not nil
+            if let imageData = UIImagePNGRepresentation(image) {
+                print("return image")
+                return PFFile(name: "image.png", data: imageData)
+            }
+        }
+        return nil
+    }
     /*
      // MARK: - Navigation
      // In a storyboard-based application, you will often want to do a little preparation before navigation
