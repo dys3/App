@@ -58,7 +58,7 @@
         <!--Login View Controller-->
         <scene sceneID="6EG-19-DSE">
             <objects>
-                <viewController id="q0l-qk-fea" customClass="LoginViewController" customModule="WhereYouAt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInController" id="q0l-qk-fea" customClass="LoginViewController" customModule="WhereYouAt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dDe-dm-R3G"/>
                         <viewControllerLayoutGuide type="bottom" id="eCy-3q-2g5"/>
