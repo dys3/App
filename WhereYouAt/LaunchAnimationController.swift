@@ -18,7 +18,8 @@ class LaunchAnimationController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        backgroundLight.center = CGPoint(x: 164, y: 280.5)
+        //backgroundLight.center = CGPoint(x: 164, y: 280.5)
+        
         backgroundLight.layer.borderWidth = 1
         backgroundLight.layer.masksToBounds = false
         backgroundLight.layer.borderColor = UIColor.white.cgColor
@@ -31,7 +32,7 @@ class LaunchAnimationController: UIViewController {
         }
         
         UIView.animate(withDuration: 1.5, animations: {() in
-            self.backgroundLight.transform = CGAffineTransform(scaleX: 14.0, y: 14.0)
+            self.backgroundLight.transform = CGAffineTransform(scaleX: 20.0, y: 20.0)
         }, completion:{(Bool) in
             if PFUser.current() != nil {
                 print("There's a user!")

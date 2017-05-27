@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="q0l-qk-fea">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="q0l-qk-fea">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,9 +25,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fjK-lg-8ix">
-                                <rect key="frame" x="139" y="255.5" width="105" height="149"/>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fjK-lg-8ix">
+                                <rect key="frame" x="164" y="302" width="55" height="55"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="SEi-bO-QYd"/>
+                                    <constraint firstAttribute="height" constant="55" id="V8X-6F-oPV"/>
+                                </constraints>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="labyrinth" translatesAutoresizingMaskIntoConstraints="NO" id="r1m-CP-14t">
                                 <rect key="frame" x="-215" y="-91" width="805" height="849"/>
@@ -37,15 +41,15 @@
                         <constraints>
                             <constraint firstItem="r1m-CP-14t" firstAttribute="top" secondItem="NNv-GT-rbS" secondAttribute="top" constant="-91" id="7Wx-0a-ksm"/>
                             <constraint firstItem="FMe-jg-2yL" firstAttribute="top" secondItem="NNv-GT-rbS" secondAttribute="top" id="9N6-QW-pP0"/>
-                            <constraint firstItem="IvQ-YR-WhE" firstAttribute="top" secondItem="fjK-lg-8ix" secondAttribute="bottom" constant="262.5" id="BH5-Dl-nLY"/>
+                            <constraint firstItem="fjK-lg-8ix" firstAttribute="top" secondItem="Z9r-F5-aTb" secondAttribute="bottom" constant="282" id="AH2-Ay-VM7"/>
                             <constraint firstAttribute="bottom" secondItem="r1m-CP-14t" secondAttribute="bottom" constant="-91" id="CUQ-2o-SCE"/>
-                            <constraint firstItem="fjK-lg-8ix" firstAttribute="leading" secondItem="NNv-GT-rbS" secondAttribute="leading" constant="139" id="Ggg-UO-DXE"/>
                             <constraint firstItem="r1m-CP-14t" firstAttribute="leading" secondItem="NNv-GT-rbS" secondAttribute="leading" constant="-215" id="Sl2-fD-mMq"/>
+                            <constraint firstItem="fjK-lg-8ix" firstAttribute="leading" secondItem="NNv-GT-rbS" secondAttribute="leading" constant="164" id="WhI-FM-CAB"/>
                             <constraint firstAttribute="trailing" secondItem="FMe-jg-2yL" secondAttribute="trailing" id="XAX-Fe-skJ"/>
                             <constraint firstItem="FMe-jg-2yL" firstAttribute="leading" secondItem="NNv-GT-rbS" secondAttribute="leading" id="meR-Vc-lLS"/>
+                            <constraint firstItem="IvQ-YR-WhE" firstAttribute="top" secondItem="fjK-lg-8ix" secondAttribute="bottom" constant="310" id="oyG-bk-SY2"/>
                             <constraint firstItem="IvQ-YR-WhE" firstAttribute="top" secondItem="FMe-jg-2yL" secondAttribute="bottom" id="q5u-K2-RzC"/>
-                            <constraint firstItem="fjK-lg-8ix" firstAttribute="top" secondItem="Z9r-F5-aTb" secondAttribute="bottom" constant="235.5" id="u0G-fe-cXc"/>
-                            <constraint firstAttribute="trailing" secondItem="fjK-lg-8ix" secondAttribute="trailing" constant="131" id="uGK-ve-HbP"/>
+                            <constraint firstAttribute="trailing" secondItem="fjK-lg-8ix" secondAttribute="trailing" constant="156" id="sNW-OY-rrI"/>
                             <constraint firstAttribute="trailing" secondItem="r1m-CP-14t" secondAttribute="trailing" constant="-215" id="yrw-aT-ipY"/>
                         </constraints>
                     </view>
@@ -112,7 +116,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0G-g7-RRG">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0G-g7-RRG">
                                                 <rect key="frame" x="188" y="332" width="38" height="30"/>
                                                 <state key="normal" title="Login">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
