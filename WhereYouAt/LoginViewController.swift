@@ -80,16 +80,19 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
 
             if user != nil {
                 print("You're logged in")
-                
+                /*
                 //let currentUser = PFUser.current()
+                urint(user!["longitude"])
+                user!.setObject(self.currentLongitude, forKey: "longitude")
+                user!.setObject(self.currentLatitude, forKey: "latitude")
                 
                 user!["longitude"] = self.currentLongitude
                 user!["latitude"] = self.currentLatitude
-                
+ 
                 user!.saveInBackground(block: { (success:Bool, error: Error?) in
                     print("SavedCurrentLocation")
                 })
-
+                */
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             } else {
                 let alertController = UIAlertController(title: "Access Denied", message: error!.localizedDescription, preferredStyle: .alert)
