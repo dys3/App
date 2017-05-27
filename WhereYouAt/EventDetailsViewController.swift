@@ -29,6 +29,7 @@ class EventDetailsViewController: UIViewController {
     
     @IBOutlet weak var creatorImage: UIImageView!
     
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var creatorNameLable: UILabel!
     // event is passed from segue
     var event : PFObject!
@@ -54,7 +55,9 @@ class EventDetailsViewController: UIViewController {
         if let date = event["event_time"] as? Date {
             
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "EEE MMM d HH:mm:ss"
+            dateFormatter.dateFormat = "MMM d"
+            self.dateLabel.text = dateFormatter.string(from: date)
+            dateFormatter.dateFormat = "HH:mm"
             self.eventTimeLable.text = dateFormatter.string(from: date)
         }
         
