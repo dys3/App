@@ -27,9 +27,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     var coordinate: CLLocationCoordinate2D?
     var addedAnnotation: [MKPointAnnotation]!
     var events: [PFObject]?
+    var attendees: [String]?
     
     var isPassedInFromEventDetailedViewController = false
     
+    var eventAnnotation: CustomPointAnnotation!
     var userPressAnnotation:MKPointAnnotation!
     
     override func viewDidLoad() {
@@ -38,10 +40,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         // Do any additional setup after loading the view.
         mapView.delegate = self
         print("load")
+        if eventAnnotation == nil {
+            eventAnnotation = CustomPointAnnotation()
+            print("event annotation is nil1")
+        }
         if isPassedInFromEventDetailedViewController {
-            let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            let mapSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
             let region = MKCoordinateRegion(center: self.coordinate!, span: mapSpan)
             self.mapView.setRegion(region, animated: false)
+            
+            self.mapView.addAnnotation(eventAnnotation)
+            print("addedEventAnnotation1")
         }
         else {
         locationManager = CLLocationManager()
@@ -69,10 +78,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         
         mapView.delegate = self
         print("appear")
+        if eventAnnotation == nil {
+            eventAnnotation = CustomPointAnnotation()
+            print("event annotation is nil2")
+        }
         if isPassedInFromEventDetailedViewController {
-            let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            let mapSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
             let region = MKCoordinateRegion(center: self.coordinate!, span: mapSpan)
             self.mapView.setRegion(region, animated: false)
+            self.mapView.addAnnotation(eventAnnotation)
+            print("addedEventAnnotation2")
         }
         else {
             locationManager = CLLocationManager()
@@ -93,7 +108,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             //l
         }
         isPassedInFromEventDetailedViewController = false
-        
+        /*
         let query = PFQuery(className: "_User")
         query.findObjectsInBackground { (results:[PFObject]?, error:Error?) in
             if let error = error{
@@ -122,7 +137,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                     }
                 }
             }
-        }
+        }*/
     }
     
     func addAnnotation(_ sender:UIGestureRecognizer){
@@ -194,26 +209,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let reuseID = "myAnnotationView"
         print("AGBCDEFG")
-        /*var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
-        if (annotationView == nil) {
-            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
-            
-        }
-         
         
-        let leftView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-        annotationView?.leftCalloutAccessoryView = leftView
-        annotationView?.canShowCallout = true
-        
-        */
         // Add the image you stored from the image picker
         if annotation is MKUserLocation {
             //return nil so map view draws "blue dot" for standard user location
             return nil
         }
-        print(annotation)
-                //print(pointAnnotation.value?(forKey: "type"))
-        //pointAnnotation.key
+        
+        
         let reuseId = "pin"
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
         if pinView == nil {
@@ -226,49 +229,69 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         }
         
 
-        var pointAnnotation = annotation as! CustomPointAnnotation
-        
+        if let pointAnnotation = annotation as? CustomPointAnnotation {
 
-        if pointAnnotation.pinType == "event" {
-            pinView!.image = #imageLiteral(resourceName: "iconmonstr-location-3-240")
-        }
-        else if pointAnnotation.pinType == "user" {
-            pinView!.image = #imageLiteral(resourceName: "iconmonstr-user-20-32")
+            if pointAnnotation.pinType == "event" {
+                pinView!.image = #imageLiteral(resourceName: "iconmonstr-location-3-240")
+            }
+            else if pointAnnotation.pinType == "user" {
+                pinView!.image = #imageLiteral(resourceName: "iconmonstr-user-20-32")
+            }
         }
 
         return pinView
-        
-        //return annotationView
     }
-    /*
-    @IBAction func tapToAddPin(_ sender: UILongPressGestureRecognizer) {
-        longPressGestureRecognizer.delegate = self
-        
-        /* Convert the tapped location in map to coordinate */
-        let location = sender.location(in: mapView)
-        let coordinate = self.mapView.convert(location, to: mapView)
-        let convertedCoordinate = CLLocationCoordinate2DMake(CLLocationDegrees(coordinate.x), CLLocationDegrees(coordinate.y))
-        
-        /* Add annotation pin to map */
-        let annotation = MKPointAnnotation()
-        annotation.title = "Bob"
-        annotation.coordinate = convertedCoordinate
-        self.mapView.addAnnotation(annotation)
-        addedAnnotation.append(annotation)
-        print("Tap area: \(coordinate)")
-    }*/
     
     func locationTapedMap(controller: EventDetailsViewController, lat: NSNumber, lng: NSNumber, event: PFObject) {
+        self.isPassedInFromEventDetailedViewController = true
         self.events?.append(event)
         self.coordinate = CLLocationCoordinate2D(latitude: lat as CLLocationDegrees, longitude: lng as CLLocationDegrees)
         print("here at the bottom")
-        let eventAnnotation = CustomPointAnnotation()
+        if eventAnnotation == nil {
+            eventAnnotation = CustomPointAnnotation()
+            print("event annotation is nil3")
+        }
         eventAnnotation.pinType = "event"
         eventAnnotation.coordinate = self.coordinate!
         eventAnnotation.title = event["name"] as! String
+        attendees = event["attendees"] as! [String]?
         
-        self.mapView.addAnnotation(eventAnnotation)
-        self.isPassedInFromEventDetailedViewController = true
+        print(eventAnnotation.coordinate)
+        let query = PFQuery(className: "_User")
+        for attendee in attendees! {
+            
+            query.whereKey("objectId", equalTo: attendee)
+            print(attendee)
+        }
+        
+        query.findObjectsInBackground { (users, error) in
+            
+            print(users)
+            for user in users! {
+            
+                if let lat = user["latitude"]{
+                
+                    if PFUser.current()!.objectId != user.objectId {
+                    
+                        let userAnnotation = CustomPointAnnotation()
+                        let userLat = user["latitude"] as! CLLocationDegrees
+                        let userLong = user["longitude"] as! CLLocationDegrees
+                        let userCoord = CLLocationCoordinate2D(latitude: userLat,  longitude: userLong)
+                    
+                        userAnnotation.coordinate = userCoord
+                        userAnnotation.pinType = "user"
+                        userAnnotation.title = user["screen_name"] as! String
+                    
+                    
+                        self.mapView.addAnnotation(userAnnotation)
+                    
+                    }
+                }
+            }
+        }
+        
+        
+        
     }
     
 }
