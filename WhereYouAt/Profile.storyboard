@@ -295,7 +295,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="k3d-gs-NJ2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
