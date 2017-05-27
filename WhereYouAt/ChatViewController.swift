@@ -92,13 +92,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if let userPic = self.messages[indexPath.row]["profilePic"] as? PFFile {
             userPic.getDataInBackground(block: { (imageData, error) in
-                print(self.messages[indexPath.row]["sender_username"])
-                print(imageData)
                 if let imageData = imageData {
-                    print("preset pic")
                     cell.profileImage.image = UIImage(data: imageData)
                 } else {
-                    print("default pic")
                     let profile = #imageLiteral(resourceName: "profile-icon")
                     cell.profileImage.image = profile
                 }
