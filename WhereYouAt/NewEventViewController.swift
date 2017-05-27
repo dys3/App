@@ -69,6 +69,7 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
         var images : [UIImage] = []
         for attendee in addedAttendees! {
             if let image = attendee["profilePic"] as? PFFile {
+                
                 image.getDataInBackground(block: { (imageData, error) in
                     if let imageData = imageData {
                         let image = UIImage(data: imageData)
@@ -168,7 +169,6 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
     
     @IBAction func onTapChooseImage(_ sender: UITapGestureRecognizer) {
         
-        var camera = true
         let vc = UIImagePickerController()
         
         vc.delegate = self
