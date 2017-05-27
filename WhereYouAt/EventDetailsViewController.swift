@@ -156,7 +156,7 @@ class EventDetailsViewController: UIViewController {
                         })
                     }
                     else {
-                        let profile = #imageLiteral(resourceName: "iconmonstr-user-1-240")
+                        let profile = #imageLiteral(resourceName: "iconmonstr-user-6-240")
                         self.creatorImage.image = profile
                     }
 
@@ -171,7 +171,6 @@ class EventDetailsViewController: UIViewController {
                 if let imageData = imageData {
                     let image = UIImage(data: imageData)
                     self.backgroundImage.image = image
-                    self.backgroundImage.contentMode = UIViewContentMode.scaleToFill
                 }
             })
         }

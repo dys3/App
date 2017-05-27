@@ -8,11 +8,10 @@
 
 import UIKit
 import Parse
-import ParseUI
 import AFNetworking
 
 class AttendeesCell: UITableViewCell {
-    @IBOutlet weak var profileImage: PFImageView!
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
 
     var userId : String! {
@@ -27,8 +26,21 @@ class AttendeesCell: UITableViewCell {
                     
                     print(user?.description)
                     
-                    self.profileImage.file = user?["profilePic"] as? PFFile
+                    //self.profileImage.file = user?["profilePic"] as? PFFile
                     self.userNameLabel.text = user?["username"] as? String
+                    
+                    if let image = user?["profilePic"] as? PFFile {
+                        image.getDataInBackground(block: { (imageData, error) in
+                            if let imageData = imageData {
+                                let image = UIImage(data: imageData)
+                                self.profileImage.image = image
+                            }
+                        })
+                    }
+                    else {
+                        let profile = #imageLiteral(resourceName: "iconmonstr-user-6-240")
+                        self.profileImage.image = profile
+                    }
                 }
             }
         }
