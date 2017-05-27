@@ -30,13 +30,19 @@ class ProfileViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
         */
-        if let profileImageFile = user?["profileImage"] as? PFFile {
+        if let profileImageFile = user?["profilePic"] as? PFFile {
+            
             profileImageFile.getDataInBackground {
                 (imageData: Data?, error: Error?) -> Void in
-                if error != nil {
+                if error == nil {
                     self.profilePic.image = UIImage(data:imageData!)
                 }
             }
+            let radius = profilePic.frame.width / 2
+            profilePic.layer.cornerRadius = radius
+            profilePic.layer.masksToBounds = true
+            
+            print("set")
         } else {
             profilePic.image = UIImage(named: "dummy_user")
             
