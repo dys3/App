@@ -186,9 +186,9 @@
 				751BCC191EB6A18A00104576 /* Chat */,
 				751BCC171EB6A17100104576 /* Map */,
 				751BCC1A1EB6A19000104576 /* Profile */,
-				759815541EA96E82006FEDB4 /* Assets.xcassets */,
 				759815561EA96E82006FEDB4 /* LaunchScreen.storyboard */,
 				759815591EA96E82006FEDB4 /* Info.plist */,
+				8DD29F191ED90F1300075551 /* Assets.xcassets */,
 			);
 			path = WhereYouAt;
 			sourceTree = "<group>";
