@@ -277,7 +277,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         
         query.findObjectsInBackground { (users, error) in
             
-            print(users)
+            if self.mapView != nil {
+                
+                for _annotation in self.mapView.annotations {
+                    if let annotation = _annotation as? MKAnnotation
+                    {
+                        self.mapView.removeAnnotation(annotation)
+                    }
+                }
+            }
             for user in users! {
             
                 if let lat = user["latitude"]{
