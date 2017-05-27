@@ -22,6 +22,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var isFetching = false
     
+    @IBOutlet weak var scrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +39,24 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(ChatViewController.onTimer), userInfo: nil, repeats: true)
         
         // Do any additional setup after loading the view.
+        scrollView.bounces = false
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillHide, object: nil, queue: OperationQueue.main) { (Notification) in
+            //print("hide keyboard")
+            
+            let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+            self.scrollView.contentInset = contentInset
+        }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: OperationQueue.main) { (Notification) in
+            //print("show keyboard")
+            var userInfo = Notification.userInfo!
+            var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+            keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+            var contentInset:UIEdgeInsets = self.scrollView.contentInset
+            contentInset.bottom = keyboardFrame.size.height
+            self.scrollView.contentInset = contentInset
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {
