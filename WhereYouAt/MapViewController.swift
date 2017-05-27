@@ -191,6 +191,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
             
         }
+         
         
         let leftView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
         annotationView?.leftCalloutAccessoryView = leftView
@@ -202,7 +203,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             //return nil so map view draws "blue dot" for standard user location
             return nil
         }
-        
+        print(annotation.description.description.description)
         let reuseId = "pin"
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
         if pinView == nil {
