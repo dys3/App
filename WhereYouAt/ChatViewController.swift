@@ -50,7 +50,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         parseMessage["Text"] = messageToSend.content
         parseMessage["sender_user_id"] = PFUser.current()?.objectId
         parseMessage["sender_username"] = PFUser.current()?.username
-        parseMessage["profilePic"] = PFUser.current()?["profilePic"]
+        //parseMessage["profilePic"] = PFUser.current()?["profilePic"]
         //parseMessage["receiver_user_id"] = userID
         parseMessage.saveInBackground { (success: Bool, error: Error?) in
             if(success) {
@@ -90,17 +90,20 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.timeLabel.text = self.timeSinceString(time: timeDiff)
         }
         
-        if let userPic = messages[indexPath.row]["profilePic"] as? PFFile {
-            //print("Getting image")
-            userPic.getDataInBackground(block: { (imageData, error) in
-                if let imageData = imageData {
-                    cell.profileImage.image = UIImage(data: imageData)
-                } else {
-                    let profile = #imageLiteral(resourceName: "profile-icon")
-                    cell.profileImage.image = profile
-                }
-            })
-        }
+//        if let userPic = self.messages[indexPath.row]["profilePic"] as? PFFile {
+//            userPic.getDataInBackground(block: { (imageData, error) in
+//                print(self.messages[indexPath.row]["sender_username"])
+//                print(imageData)
+//                if let imageData = imageData {
+//                    print("preset pic")
+//                    cell.profileImage.image = UIImage(data: imageData)
+//                } else {
+//                    print("default pic")
+//                    let profile = #imageLiteral(resourceName: "profile-icon")
+//                    cell.profileImage.image = profile
+//                }
+//            })
+//        }
         
         //cell.userLabel.text = user["username"] as! String
         return cell
