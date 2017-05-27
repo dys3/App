@@ -191,7 +191,7 @@ class NewUserViewController: UIViewController, UIImagePickerControllerDelegate, 
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
-        self.profileImage = editedImage
+        self.profileImage = resize(image: editedImage)
         profileImageView.image = self.profileImage
         
         let radius = profileImageView.frame.width / 2
@@ -211,6 +211,18 @@ class NewUserViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }
         return nil
+    }
+    
+    func resize(image: UIImage) -> UIImage {
+        let resizeImageView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 240, height: 240))
+        resizeImageView.contentMode = UIViewContentMode.scaleAspectFill
+        resizeImageView.image = image
+        
+        UIGraphicsBeginImageContext(resizeImageView.frame.size)
+        resizeImageView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
     }
     /*
      // MARK: - Navigation
