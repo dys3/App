@@ -134,7 +134,7 @@ class EventDetailsViewController: UIViewController {
         }
         
         if let attendees = event["attendees"] as? [String] {
-            let userId = attendees[attendees.count-1]
+            let userId = attendees[0]
             print(userId)
             var user : PFObject?
             let query = PFQuery(className: "_User")
