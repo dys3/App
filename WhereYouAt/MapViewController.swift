@@ -313,10 +313,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                 }
             }
         }
-        
-        
-        
-        
     }
     
 }
