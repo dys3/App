@@ -80,8 +80,13 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let username = messages[indexPath.row]["sender_username"] as? String {
             cell.userLabel.text = username
         }
-        if let time = messages[indexPath.row].createdAt as? String {
-            cell.timeLabel.text = time
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM d HH:mm"
+        
+        if let time = messages[indexPath.row].createdAt {
+            let timeDiff = (Int)(Date().timeIntervalSince(time))
+            cell.timeLabel.text = self.timeSinceString(time: timeDiff)
         }
         
         //cell.userLabel.text = user["username"] as! String
@@ -147,6 +152,21 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 //            }
         }
     }
+    
+    func timeSinceString(time: Int) -> String {
+        var timeString: String?
+        
+        if(time/60 < 60) {
+            timeString = "\(time/60) m"
+        } else if(time/3600 < 24) {
+            timeString = "\(time/3600) h"
+        } else {
+            timeString = "\(time/86400) d"
+        }
+        
+        return timeString!
+    }
+    
     /*
      // MARK: - Navigation
      // In a storyboard-based application, you will often want to do a little preparation before navigation
