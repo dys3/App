@@ -24,12 +24,12 @@ class ProfileViewController: UIViewController {
         
         //let user = PFObject(className: "User")
         let user = PFUser.current()
-        tableView.delegate = self
+        /*tableView.delegate = self
         tableView.dataSource = self
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
-        
+        */
         if let profileImageFile = user?["profileImage"] as? PFFile {
             profileImageFile.getDataInBackground {
                 (imageData: Data?, error: Error?) -> Void in
@@ -54,7 +54,7 @@ class ProfileViewController: UIViewController {
             self.lastName.text = lastName
         }
         
-        fetchData()
+        //fetchData()
     }
     
     override func viewDidLoad() {
