@@ -21,19 +21,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="labyrinth" translatesAutoresizingMaskIntoConstraints="NO" id="lIl-O5-kuk">
-                                <rect key="frame" x="-188" y="-42" width="750" height="750"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="750" id="ehY-jg-82L"/>
-                                </constraints>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Logomakr_1NRXoH" translatesAutoresizingMaskIntoConstraints="NO" id="IE1-ZP-aUp">
+                                <rect key="frame" x="37" y="194" width="300" height="279"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="lIl-O5-kuk" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-188" id="6wW-FT-MDW"/>
-                            <constraint firstItem="lIl-O5-kuk" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="-42" id="TTD-RM-VAT"/>
-                            <constraint firstAttribute="trailing" secondItem="lIl-O5-kuk" secondAttribute="trailing" constant="-187" id="dvt-bU-xjp"/>
-                            <constraint firstAttribute="bottom" secondItem="lIl-O5-kuk" secondAttribute="bottom" constant="-41" id="ot3-4N-HqU"/>
+                            <constraint firstItem="IE1-ZP-aUp" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="37" id="7P1-vf-CEo"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="IE1-ZP-aUp" secondAttribute="bottom" constant="194" id="HRw-bO-Slk"/>
+                            <constraint firstItem="IE1-ZP-aUp" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="174" id="Yo7-Ij-Ho1"/>
+                            <constraint firstAttribute="trailing" secondItem="IE1-ZP-aUp" secondAttribute="trailing" constant="38" id="gm9-GJ-Wzx"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -43,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="labyrinth" width="750" height="750"/>
+        <image name="Logomakr_1NRXoH" width="256" height="238"/>
     </resources>
 </document>
