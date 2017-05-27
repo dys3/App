@@ -51,7 +51,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         parseMessage["sender_user_id"] = PFUser.current()?.objectId
         parseMessage["sender_username"] = PFUser.current()?.username
         parseMessage["profilePic"] = PFUser.current()?["profilePic"]
-        //parseMessage["receiver_user_id"] = userID
+        parseMessage["receiver_user_id"] = userID
         parseMessage.saveInBackground { (success: Bool, error: Error?) in
             if(success) {
                 print("saved")
@@ -90,8 +90,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.timeLabel.text = self.timeSinceString(time: timeDiff)
         }
         
-        if let userPic = messages[indexPath.row]["profilePic"] as? PFFile {
-            //print("Getting image")
+        if let userPic = self.messages[indexPath.row]["profilePic"] as? PFFile {
             userPic.getDataInBackground(block: { (imageData, error) in
                 if let imageData = imageData {
                     cell.profileImage.image = UIImage(data: imageData)
