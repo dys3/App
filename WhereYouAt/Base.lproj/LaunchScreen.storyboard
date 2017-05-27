@@ -23,6 +23,7 @@
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Logomakr_1NRXoH" translatesAutoresizingMaskIntoConstraints="NO" id="IE1-ZP-aUp">
                                 <rect key="frame" x="37" y="194" width="300" height="279"/>
+
                                 <color key="tintColor" red="0.8128243088722229" green="0.12957796454429626" blue="0.36771088838577271" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                         </subviews>

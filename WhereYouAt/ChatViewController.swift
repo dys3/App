@@ -50,6 +50,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         parseMessage["Text"] = messageToSend.content
         parseMessage["sender_user_id"] = PFUser.current()?.objectId
         parseMessage["sender_username"] = PFUser.current()?.username
+        parseMessage["profilePic"] = PFUser.current()?["profilePic"]
         //parseMessage["receiver_user_id"] = userID
         parseMessage.saveInBackground { (success: Bool, error: Error?) in
             if(success) {
@@ -87,6 +88,18 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let time = messages[indexPath.row].createdAt {
             let timeDiff = (Int)(Date().timeIntervalSince(time))
             cell.timeLabel.text = self.timeSinceString(time: timeDiff)
+        }
+        
+        if let userPic = messages[indexPath.row]["profilePic"] as? PFFile {
+            //print("Getting image")
+            userPic.getDataInBackground(block: { (imageData, error) in
+                if let imageData = imageData {
+                    cell.profileImage.image = UIImage(data: imageData)
+                } else {
+                    let profile = #imageLiteral(resourceName: "profile-icon")
+                    cell.profileImage.image = profile
+                }
+            })
         }
         
         //cell.userLabel.text = user["username"] as! String
