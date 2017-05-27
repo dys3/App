@@ -161,27 +161,40 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
-        self.pickedImage = resize(image: editedImage)
-        
+        self.pickedImage = editedImage
         eventImage.image = self.pickedImage
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onTapChooseImage(_ sender: UITapGestureRecognizer) {
         
-        print("touched")
+        var camera = true
         let vc = UIImagePickerController()
-            
+        
         vc.delegate = self
         vc.allowsEditing = true
-            
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+        let chooseActionSheet = UIAlertController(title:"Choose image from",message: "choose", preferredStyle: .actionSheet)
+        let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: {action in
+            print("here")
             vc.sourceType = .camera
-        } else {
+            self.present(vc, animated: true, completion: nil)
+
+        })
+        let photoRollAction = UIAlertAction(title: "Photo Library", style: .default, handler: {action in
             vc.sourceType = .photoLibrary
-        }
-            
-        self.present(vc, animated: true, completion: nil)
+            self.present(vc, animated: true, completion: nil)
+
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {action in
+        })
+        
+        chooseActionSheet.addAction(cameraAction)
+        chooseActionSheet.addAction(photoRollAction)
+        chooseActionSheet.addAction(cancelAction)
+        
+        self.present(chooseActionSheet, animated: true, completion: nil)
+        
+        
     }
     
   

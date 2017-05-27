@@ -407,17 +407,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="518164-backgrounds" translatesAutoresizingMaskIntoConstraints="NO" id="DaN-S8-1j4">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="518164-backgrounds" translatesAutoresizingMaskIntoConstraints="NO" id="DaN-S8-1j4">
                                 <rect key="frame" x="0.0" y="64" width="375" height="164"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="164" id="gzL-TJ-u0V"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5hk-mF-m6i">
-                                <rect key="frame" x="327" y="230" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="JA8-Qk-tR5"/>
-                                    <constraint firstAttribute="width" constant="40" id="pJu-Mz-3rn"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Uc-bQ-JpM">
@@ -427,7 +420,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Fa-me-fQK">
-                                <rect key="frame" x="109" y="192" width="157.5" height="36"/>
+                                <rect key="frame" x="109" y="175" width="157.5" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -462,7 +455,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X4t-GA-0Zn">
-                                <rect key="frame" x="0.0" y="278" width="375" height="5"/>
+                                <rect key="frame" x="0.0" y="277" width="375" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
@@ -483,7 +476,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconmonstr-arrow-27-240" translatesAutoresizingMaskIntoConstraints="NO" id="APg-EB-e2M">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconmonstr-arrow-28-240" translatesAutoresizingMaskIntoConstraints="NO" id="APg-EB-e2M">
                                         <rect key="frame" x="343" y="-1" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="NQe-9D-dfU"/>
@@ -504,6 +497,13 @@
                                     <outletCollection property="gestureRecognizers" destination="IPg-8F-GyU" appends="YES" id="0Ij-8a-R5c"/>
                                 </connections>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5hk-mF-m6i">
+                                <rect key="frame" x="337" y="242" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="JA8-Qk-tR5"/>
+                                    <constraint firstAttribute="width" constant="30" id="pJu-Mz-3rn"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -521,13 +521,13 @@
                             <constraint firstAttribute="trailing" secondItem="2Sx-p5-V61" secondAttribute="trailing" constant="8" id="FcK-18-7lc"/>
                             <constraint firstItem="QNu-W0-y1o" firstAttribute="leading" secondItem="aj8-pp-1s6" secondAttribute="leading" id="GXD-xC-bxu"/>
                             <constraint firstItem="xH7-dC-xfu" firstAttribute="top" secondItem="DaN-S8-1j4" secondAttribute="bottom" constant="19" id="ISC-rS-aZq"/>
-                            <constraint firstItem="5hk-mF-m6i" firstAttribute="bottom" secondItem="3Uc-bQ-JpM" secondAttribute="bottom" constant="-2" id="Mkl-Vb-F2T"/>
+                            <constraint firstItem="5hk-mF-m6i" firstAttribute="bottom" secondItem="3Uc-bQ-JpM" secondAttribute="bottom" id="Mkl-Vb-F2T"/>
                             <constraint firstItem="QNu-W0-y1o" firstAttribute="top" secondItem="N5X-4E-CqL" secondAttribute="bottom" constant="6" id="Mma-Gn-PDF"/>
                             <constraint firstItem="xH7-dC-xfu" firstAttribute="leading" secondItem="aj8-pp-1s6" secondAttribute="leading" constant="8" id="Nec-FX-Yuy"/>
                             <constraint firstAttribute="trailing" secondItem="QNu-W0-y1o" secondAttribute="trailing" id="PTe-en-OIm"/>
                             <constraint firstItem="2Sx-p5-V61" firstAttribute="top" secondItem="re8-ya-nlr" secondAttribute="bottom" constant="8" id="WX6-Fw-jki"/>
                             <constraint firstAttribute="trailing" secondItem="zes-25-4l5" secondAttribute="trailing" id="Y6X-sb-uTY"/>
-                            <constraint firstItem="5hk-mF-m6i" firstAttribute="leading" secondItem="3Uc-bQ-JpM" secondAttribute="trailing" constant="8" id="Ydh-eq-4Fc"/>
+                            <constraint firstItem="5hk-mF-m6i" firstAttribute="leading" secondItem="3Uc-bQ-JpM" secondAttribute="trailing" constant="18" id="Ydh-eq-4Fc"/>
                             <constraint firstItem="T8F-I5-dQd" firstAttribute="top" secondItem="E4A-f6-VG5" secondAttribute="bottom" id="ao3-1o-gs2"/>
                             <constraint firstAttribute="trailing" secondItem="DaN-S8-1j4" secondAttribute="trailing" id="b28-m6-L2p"/>
                             <constraint firstItem="T8F-I5-dQd" firstAttribute="leading" secondItem="aj8-pp-1s6" secondAttribute="leading" id="ccn-Qz-H3Q"/>
@@ -538,10 +538,10 @@
                             <constraint firstItem="3Fa-me-fQK" firstAttribute="centerX" secondItem="aj8-pp-1s6" secondAttribute="centerX" id="ihv-sj-ZGn"/>
                             <constraint firstAttribute="trailing" secondItem="T8F-I5-dQd" secondAttribute="trailing" id="j7U-UH-tkC"/>
                             <constraint firstItem="E4A-f6-VG5" firstAttribute="leading" secondItem="aj8-pp-1s6" secondAttribute="leading" id="jof-vm-R6q"/>
-                            <constraint firstItem="5hk-mF-m6i" firstAttribute="top" secondItem="DaN-S8-1j4" secondAttribute="bottom" constant="2" id="mGf-lR-Xve"/>
+                            <constraint firstItem="5hk-mF-m6i" firstAttribute="top" secondItem="DaN-S8-1j4" secondAttribute="bottom" constant="14" id="mGf-lR-Xve"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3Hj-OA-hrn" secondAttribute="trailing" constant="8" id="md0-8u-lrO"/>
                             <constraint firstAttribute="trailing" secondItem="uRK-zS-TtR" secondAttribute="trailing" constant="8" id="nd6-i0-U1I"/>
-                            <constraint firstItem="3Fa-me-fQK" firstAttribute="top" secondItem="dFn-0k-5fp" secondAttribute="bottom" constant="128" id="ocL-oR-ZPg"/>
+                            <constraint firstItem="3Fa-me-fQK" firstAttribute="top" secondItem="dFn-0k-5fp" secondAttribute="bottom" constant="111" id="ocL-oR-ZPg"/>
                             <constraint firstAttribute="trailing" secondItem="5hk-mF-m6i" secondAttribute="trailing" constant="8" id="ozF-7c-mcN"/>
                             <constraint firstItem="N5X-4E-CqL" firstAttribute="top" secondItem="3Uc-bQ-JpM" secondAttribute="bottom" constant="-20" id="pu1-SQ-pqD"/>
                             <constraint firstItem="3Hj-OA-hrn" firstAttribute="leading" secondItem="aj8-pp-1s6" secondAttribute="leading" constant="8" id="uhO-NE-WVU"/>
@@ -858,7 +858,7 @@
     </scenes>
     <resources>
         <image name="518164-backgrounds" width="2560" height="1600"/>
-        <image name="iconmonstr-arrow-27-240" width="240" height="240"/>
+        <image name="iconmonstr-arrow-28-240" width="240" height="240"/>
         <image name="iconmonstr-arrow-64-24" width="24" height="24"/>
         <image name="iconmonstr-calendar-2-240" width="240" height="240"/>
         <image name="iconmonstr-location-1-240" width="240" height="240"/>

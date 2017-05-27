@@ -42,7 +42,7 @@ class EventTableViewCell: UITableViewCell {
         }
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEE MMM d HH:mm:ss"
+        dateFormatter.dateFormat = "MMM d HH:mm"
 
         if let postedTime = event.createdAt  {
             
