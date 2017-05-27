@@ -25,20 +25,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             configuration.server = "https://wya.herokuapp.com/parse"
         }))
         
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "LaunchAnimationController")
-        window?.rootViewController = vc
-        
         // check if user is logged in.
-//        if PFUser.current() != nil {
-//            // if there is a logged in user then load the home view controller
-//            print("There is a current user")
-//            
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = storyboard.instantiateViewController(withIdentifier: "LaunchAnimationController")
-//            
-//            window?.rootViewController = vc
-//        }
+        if PFUser.current() != nil {
+            // if there is a logged in user then load the home view controller
+            print("There is a current user")
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "HomeTabBarController")
+            
+            window?.rootViewController = vc
+        }
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "UserDidLogout"), object: nil, queue: OperationQueue.main) { (Notification) in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
