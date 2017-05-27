@@ -76,7 +76,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         mapView.addGestureRecognizer(uilgr)
         //l
         }
-        isPassedInFromEventDetailedViewController = false
+        //isPassedInFromEventDetailedViewController = false
        
     }
     
@@ -88,7 +88,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             eventAnnotation = CustomPointAnnotation()
             print("event annotation is nil2")
         }
+        
         if isPassedInFromEventDetailedViewController {
+            
             locationManager = CLLocationManager()
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -215,6 +217,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             }
             
             mapView.setRegion(region, animated: false)
+            if eventAnnotation != nil {
+                self.mapView.addAnnotation(eventAnnotation)
+            }
         }
     }
     
@@ -269,11 +274,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         
         print(eventAnnotation.coordinate)
         let query = PFQuery(className: "_User")
-        for attendee in attendees! {
-            
-            query.whereKey("objectId", equalTo: attendee)
-            print(attendee)
-        }
+        
+        query.whereKey("objectId", containedIn: attendees!)
         
         query.findObjectsInBackground { (users, error) in
             
@@ -287,14 +289,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                 }
             }
             for user in users! {
-            
-                if let lat = user["latitude"]{
+                print(user)
                 
+                if let lat = user["latitude"]{
+                    
                     if PFUser.current()!.objectId != user.objectId {
                     
                         let userAnnotation = CustomPointAnnotation()
                         let userLat = user["latitude"] as! CLLocationDegrees
                         let userLong = user["longitude"] as! CLLocationDegrees
+                        print("userLat:\(userLat)")
+                        print("userLong:\(userLong)")
                         let userCoord = CLLocationCoordinate2D(latitude: userLat,  longitude: userLong)
                     
                         userAnnotation.coordinate = userCoord
@@ -308,6 +313,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                 }
             }
         }
+        
         
         
         
