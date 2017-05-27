@@ -18,7 +18,8 @@ class LaunchAnimationController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        backgroundLight.center = CGPoint(x: 164, y: 280.5)
+        //backgroundLight.center = CGPoint(x: 164, y: 280.5)
+        
         backgroundLight.layer.borderWidth = 1
         backgroundLight.layer.masksToBounds = false
         backgroundLight.layer.borderColor = UIColor.white.cgColor
