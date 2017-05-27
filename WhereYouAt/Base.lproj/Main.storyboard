@@ -9,6 +9,51 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Launch Animation Controller-->
+        <scene sceneID="JiL-2c-Qy7">
+            <objects>
+                <viewController storyboardIdentifier="LaunchAnimationController" id="Ej8-hl-1wO" customClass="LaunchAnimationController" customModule="WhereYouAt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z9r-F5-aTb"/>
+                        <viewControllerLayoutGuide type="bottom" id="IvQ-YR-WhE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NNv-GT-rbS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FMe-jg-2yL">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fjK-lg-8ix">
+                                <rect key="frame" x="139" y="255.5" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="labyrinth" translatesAutoresizingMaskIntoConstraints="NO" id="r1m-CP-14t">
+                                <rect key="frame" x="-215" y="-91" width="750" height="750"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="r1m-CP-14t" firstAttribute="top" secondItem="NNv-GT-rbS" secondAttribute="top" constant="-91" id="7Wx-0a-ksm"/>
+                            <constraint firstItem="FMe-jg-2yL" firstAttribute="top" secondItem="NNv-GT-rbS" secondAttribute="top" id="9N6-QW-pP0"/>
+                            <constraint firstAttribute="bottom" secondItem="r1m-CP-14t" secondAttribute="bottom" constant="-91" id="CUQ-2o-SCE"/>
+                            <constraint firstItem="r1m-CP-14t" firstAttribute="leading" secondItem="NNv-GT-rbS" secondAttribute="leading" constant="-215" id="Sl2-fD-mMq"/>
+                            <constraint firstAttribute="trailing" secondItem="FMe-jg-2yL" secondAttribute="trailing" id="XAX-Fe-skJ"/>
+                            <constraint firstItem="FMe-jg-2yL" firstAttribute="leading" secondItem="NNv-GT-rbS" secondAttribute="leading" id="meR-Vc-lLS"/>
+                            <constraint firstItem="IvQ-YR-WhE" firstAttribute="top" secondItem="FMe-jg-2yL" secondAttribute="bottom" id="q5u-K2-RzC"/>
+                            <constraint firstAttribute="trailing" secondItem="r1m-CP-14t" secondAttribute="trailing" constant="-215" id="yrw-aT-ipY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundLight" destination="fjK-lg-8ix" id="DDB-gd-sRh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gh4-U1-7Pl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168.75" y="117.25352112676056"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="6EG-19-DSE">
             <objects>
@@ -446,5 +491,6 @@
     </scenes>
     <resources>
         <image name="home-map-photo" width="3992" height="2992"/>
+        <image name="labyrinth" width="750" height="750"/>
     </resources>
 </document>
