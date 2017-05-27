@@ -43,7 +43,13 @@ class AttendeesCell: UITableViewCell {
                     }
                 }
             }
+            
+            let radius = profileImage.frame.width / 2
+            profileImage.layer.cornerRadius = radius
+            profileImage.layer.masksToBounds = true
         }
+        
+        
     }
     
     
