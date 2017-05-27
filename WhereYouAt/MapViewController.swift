@@ -27,6 +27,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     var isPassedInFromEventDetailedViewController = false
     
     var userPressAnnotation:MKPointAnnotation!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +48,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         locationManager.requestWhenInUseAuthorization()
         
         addedAnnotation = [MKPointAnnotation]()
+
         userPressAnnotation = MKPointAnnotation()
+
         let uilgr = UILongPressGestureRecognizer(target: self, action: #selector(self.addAnnotation(_:)))
         uilgr.minimumPressDuration = 2.0
         
@@ -124,6 +127,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             //let annotation = MKPointAnnotation()
             
             //annotation = MKPointAnnotation()
+
             userPressAnnotation.coordinate = newCoordinates
             
             
@@ -136,6 +140,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                 if let placemarks = placemarks, let placemark = placemarks.first,
                     // not all places have thoroughfare & subThoroughfare so validate those values
                     let thoroughfare = placemark.thoroughfare, let subThoroughfare = placemark.subThoroughfare {
+
                         self.userPressAnnotation.title = thoroughfare + ", " + subThoroughfare
                         self.userPressAnnotation.subtitle = placemark.subLocality
                         self.mapView.addAnnotation(self.userPressAnnotation)
@@ -143,6 +148,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                     
                 }
                 else {
+
                     self.userPressAnnotation.title = "Unknown Place"
                     self.mapView.addAnnotation(self.userPressAnnotation)
                     print("Problem with the data received from geocoder")
@@ -217,10 +223,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             pinView!.annotation = annotation
         }
         
+
         return pinView
         
         //return annotationView
     }
+    
     /*
     @IBAction func tapToAddPin(_ sender: UILongPressGestureRecognizer) {
         longPressGestureRecognizer.delegate = self
