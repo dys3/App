@@ -21,18 +21,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Logomakr_1NRXoH" translatesAutoresizingMaskIntoConstraints="NO" id="IPQ-b4-8np">
-                                <rect key="frame" x="32" y="165" width="256" height="238"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="256" id="XhH-V6-iM7"/>
-                                </constraints>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where You At?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvJ-hj-ueL">
+                                <rect key="frame" x="71" y="267" width="178" height="34"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
+                        <color key="backgroundColor" red="1" green="0.8389583853" blue="0.28973070890000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="IPQ-b4-8np" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="32" id="2If-uj-OLk"/>
-                            <constraint firstItem="IPQ-b4-8np" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="145" id="6LZ-qg-hZa"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="IPQ-b4-8np" secondAttribute="bottom" constant="165" id="CfB-54-omW"/>
-                            <constraint firstAttribute="trailing" secondItem="IPQ-b4-8np" secondAttribute="trailing" constant="32" id="gCK-gO-XYV"/>
+                            <constraint firstItem="WvJ-hj-ueL" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="AaN-Ij-cAk"/>
+                            <constraint firstItem="WvJ-hj-ueL" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="JFh-9C-UHg"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -41,7 +40,4 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Logomakr_1NRXoH" width="256" height="238"/>
-    </resources>
 </document>
