@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tVk-ii-Ndk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tVk-ii-Ndk">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -29,22 +29,26 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJd-2g-MJr">
                                                 <rect key="frame" x="52" y="338" width="48" height="30"/>
-                                                <state key="normal" title="Logout"/>
+                                                <state key="normal" title="Logout">
+                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="onLogout:" destination="ass-Pb-JLV" eventType="touchUpInside" id="j9U-dA-vh2"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xl7-xL-fih">
                                                 <rect key="frame" x="223" y="338" width="57" height="30"/>
-                                                <state key="normal" title="Settings"/>
+                                                <state key="normal" title="Settings">
+                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <segue destination="hw2-Uf-WDe" kind="show" id="kMq-xx-RGV"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d2G-Id-7TC">
-                                                <rect key="frame" x="8" y="8" width="100" height="120"/>
+                                                <rect key="frame" x="8" y="8" width="100" height="100"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="120" id="7DP-al-xO4"/>
+                                                    <constraint firstAttribute="height" constant="100" id="7DP-al-xO4"/>
                                                     <constraint firstAttribute="width" constant="100" id="oRL-TD-usn"/>
                                                 </constraints>
                                             </imageView>
@@ -62,7 +66,9 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0u-OI-1W5">
                                                 <rect key="frame" x="135" y="338" width="51" height="30"/>
-                                                <state key="normal" title="Friends"/>
+                                                <state key="normal" title="Friends">
+                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GnB-ym-qqf">
                                                 <rect key="frame" x="201" y="37" width="82" height="21"/>
@@ -244,8 +250,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="k3d-gs-NJ2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -319,7 +325,7 @@
                                                         <rect key="frame" x="0.0" y="28" width="304" height="137"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J1Z-UQ-wpj" id="K9U-iD-Zj6">
-                                                            <rect key="frame" x="0.0" y="0.0" width="304" height="136"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="304" height="136.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRM-aS-Rz5">
@@ -427,4 +433,5 @@
     <resources>
         <image name="profile-icon" width="25" height="25"/>
     </resources>
+    <color key="tintColor" red="0.81282430890000001" green="0.1295779645" blue="0.36771088839999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
