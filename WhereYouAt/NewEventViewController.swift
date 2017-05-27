@@ -47,6 +47,9 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
     var langitude: NSNumber!
     var longitude: NSNumber!
     
+    var images : [UIImage] = []
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,33 +69,19 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        var images : [UIImage] = []
-        for attendee in addedAttendees! {
-            if let image = attendee["profilePic"] as? PFFile {
-                
-                image.getDataInBackground(block: { (imageData, error) in
-                    if let imageData = imageData {
-                        let image = UIImage(data: imageData)
-                        images.append(image!)
-                    }
-                })
-            }
-            else {
-                let profile = #imageLiteral(resourceName: "iconmonstr-user-1-240")
-                images.append(profile)
-            }
-        }
         
         let imageWidth : CGFloat = 30
         let imageHeight : CGFloat = 30
         var xPosition: CGFloat = 8
         var scrollViewContentSize: CGFloat = 0;
         
+        print(images)
         
         for image in images {
+            
             let imageView = UIImageView()
             imageView.image = image
-            imageView.contentMode = UIViewContentMode.scaleAspectFit
+            imageView.contentMode = UIViewContentMode.scaleToFill
             
             let radius = imageView.frame.width / 2
             imageView.layer.cornerRadius = radius
@@ -104,6 +93,9 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
             imageView.frame.origin.y = 5
             imageView.frame.origin.x = xPosition
             self.attendeesScrollView.addSubview(imageView)
+            
+            print("added")
+            
             xPosition += 38
             scrollViewContentSize += (imageHeight + 8)
             attendeesScrollView.contentSize = CGSize(width: scrollViewContentSize, height: imageHeight)
@@ -153,6 +145,26 @@ class NewEventViewController: UIViewController, LocationsViewControllerDelegate,
         for addedAttendee in addedAttendees! {
                 username?.append(addedAttendee["username"] as! String)
         }
+        
+        self.images = []
+        
+        for attendee in addedAttendees! {
+            if let image = attendee["profilePic"] as? PFFile {
+                
+                image.getDataInBackground(block: { (imageData, error) in
+                    if let imageData = imageData {
+                        let image = UIImage(data: imageData)
+                        self.images.append(image!)
+                        print("append")
+                    }
+                })
+            }
+            else {
+                let profile = #imageLiteral(resourceName: "iconmonstr-user-1-240")
+                images.append(profile)
+            }
+        }
+
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
