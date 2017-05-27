@@ -26,7 +26,6 @@
 		751BCC161EB18A8900104576 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751BCC151EB18A8900104576 /* ProfileViewController.swift */; };
 		7598154E1EA96E81006FEDB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7598154D1EA96E81006FEDB4 /* AppDelegate.swift */; };
 		759815531EA96E82006FEDB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759815511EA96E82006FEDB4 /* Main.storyboard */; };
-		759815551EA96E82006FEDB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 759815541EA96E82006FEDB4 /* Assets.xcassets */; };
 		759815581EA96E82006FEDB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759815561EA96E82006FEDB4 /* LaunchScreen.storyboard */; };
 		8D09C6A61EC27265003F32B1 /* searchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09C6A51EC27265003F32B1 /* searchUserViewController.swift */; };
 		8D09C6A81EC27403003F32B1 /* searchUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09C6A71EC27403003F32B1 /* searchUserCell.swift */; };
@@ -41,6 +40,7 @@
 		8D221EC31EBFBA8900D80EA1 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D221EC21EBFBA8900D80EA1 /* LocationCell.swift */; };
 		8D221EC51EBFBB4500D80EA1 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D221EC41EBFBB4500D80EA1 /* LocationsViewController.swift */; };
 		8D221EC71EC0066500D80EA1 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D221EC61EC0066500D80EA1 /* EventDetailsViewController.swift */; };
+		8DD29F1A1ED90F1300075551 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DD29F191ED90F1300075551 /* Assets.xcassets */; };
 		FD608D1CA6C1A0FEA32F60A5 /* Pods_WhereYouAt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BEA18248847E92E7873E672 /* Pods_WhereYouAt.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +66,6 @@
 		7598154A1EA96E81006FEDB4 /* WhereYouAt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereYouAt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7598154D1EA96E81006FEDB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		759815521EA96E82006FEDB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		759815541EA96E82006FEDB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		759815571EA96E82006FEDB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		759815591EA96E82006FEDB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77902B74B5A39979C1C6E618 /* Pods-WhereYouAt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereYouAt.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhereYouAt/Pods-WhereYouAt.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +82,7 @@
 		8D221EC21EBFBA8900D80EA1 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		8D221EC41EBFBB4500D80EA1 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		8D221EC61EC0066500D80EA1 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
+		8DD29F191ED90F1300075551 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		9BEA18248847E92E7873E672 /* Pods_WhereYouAt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhereYouAt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -183,9 +183,9 @@
 				751BCC191EB6A18A00104576 /* Chat */,
 				751BCC171EB6A17100104576 /* Map */,
 				751BCC1A1EB6A19000104576 /* Profile */,
-				759815541EA96E82006FEDB4 /* Assets.xcassets */,
 				759815561EA96E82006FEDB4 /* LaunchScreen.storyboard */,
 				759815591EA96E82006FEDB4 /* Info.plist */,
+				8DD29F191ED90F1300075551 /* Assets.xcassets */,
 			);
 			path = WhereYouAt;
 			sourceTree = "<group>";
@@ -273,7 +273,7 @@
 				75163C181EADCA80000B978A /* Profile.storyboard in Resources */,
 				759815581EA96E82006FEDB4 /* LaunchScreen.storyboard in Resources */,
 				75163C141EADC9BE000B978A /* Events.storyboard in Resources */,
-				759815551EA96E82006FEDB4 /* Assets.xcassets in Resources */,
+				8DD29F1A1ED90F1300075551 /* Assets.xcassets in Resources */,
 				0761A82E1EB1173C0037DAEF /* Map.storyboard in Resources */,
 				759815531EA96E82006FEDB4 /* Main.storyboard in Resources */,
 			);
