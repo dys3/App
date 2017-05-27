@@ -31,11 +31,11 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
         
-        messageTextField.placeholder = "Type..."
+        messageTextField.placeholder = "Message..."
         
         //fetching()
         
-        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(ChatViewController.fetching), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(ChatViewController.onTimer), userInfo: nil, repeats: true)
 
         // Do any additional setup after loading the view.
     }
@@ -49,11 +49,13 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         var parseMessage = PFObject(className: "ChatMessage")
         parseMessage["Text"] = messageToSend.content
         parseMessage["sender_user_id"] = PFUser.current()?.objectId
+        parseMessage["sender_username"] = PFUser.current()?.username
         //parseMessage["receiver_user_id"] = userID
         parseMessage.saveInBackground { (success: Bool, error: Error?) in
             if(success) {
                 print("saved")
                 self.messageTextField.text = ""
+                
             } else {
                 
             }
@@ -72,42 +74,36 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
-        cell.textLabel?.text = messages?[indexPath.row]["Text"] as? String
-        
-        var user: PFObject!
-        
-        let query = PFQuery(className: "User")
-        query.whereKey("objectID", equalTo: userID)
-        
-        query.findObjectsInBackground { (results, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            else {
-                user = results?[0] as! PFUser
-            }
+        if let message = messages[indexPath.row]["Text"] as? String {
+            cell.messageText.text = message
+        }
+        if let username = messages[indexPath.row]["sender_username"] as? String {
+            cell.userLabel.text = username
+        }
+        if let time = messages[indexPath.row].createdAt as? String {
+            cell.timeLabel.text = time
         }
         
-        cell.userLabel.text = user["username"] as! String
+        //cell.userLabel.text = user["username"] as! String
         return cell
     }
     
-    func fetching() {
+    func onTimer() {
         if !isFetching {
             self.isFetching = true
             var query = PFQuery(className: "ChatMessage")
-            
+            query.order(byDescending: "createdAt")
             // getting messages that sent from current user
             //query.whereKey("sender_user_id", equalTo: PFUser.current()?["userId"] as! String)
             
             query.findObjectsInBackground(block: { (results:[PFObject]?, error:Error?) in
-                
                 if let error = error {
                     print(error.localizedDescription)
                 }
                 else {
                     for result in results! {
                         self.messages = results
+                        self.isFetching = false
                         self.tableView.reloadData()
                     }
                 }
@@ -133,22 +129,22 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             //                message1["updateAt"].compare(message0["updateAt"])
             //            }
             
-            let userQuery = PFQuery(className: "_User")
-            userQuery.limit = 1000
-            // fetch data asynchronously
-            userQuery.findObjectsInBackground { (users: [PFObject]?, error: Error?) -> Void in
-                if let users = users {
-                    // do something with the data fetched
-                    self.users = users
-                    //print("USERS")
-                    //print(users)
-                    self.tableView.reloadData()
-                    
-                } else {
-                    // handle error
-                    print(error?.localizedDescription)
-                }
-            }
+//            let userQuery = PFQuery(className: "_User")
+//            userQuery.limit = 1000
+//            // fetch data asynchronously
+//            userQuery.findObjectsInBackground { (users: [PFObject]?, error: Error?) -> Void in
+//                if let users = users {
+//                    // do something with the data fetched
+//                    self.users = users
+//                    //print("USERS")
+//                    //print(users)
+//                    self.tableView.reloadData()
+//                    
+//                } else {
+//                    // handle error
+//                    print(error?.localizedDescription)
+//                }
+//            }
         }
     }
     /*
