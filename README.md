@@ -10,7 +10,7 @@ Core:
 - [x] Create an account using Parse
 - [x] Search other users and add them as friends
 - [x] Global chat
-- [ ] Have a map showing the destination of the events and how far other members are from the event
+- [x] Have a map showing the destination of the events and how far other members are from the event
 - [ ] Notification when getting a message
 
 Optional:
