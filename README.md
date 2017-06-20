@@ -6,10 +6,10 @@ This app helps people coordinate when trying to meet up for an event. It will al
 ## User Stories
 
 Core:
-- [ ] Have a profile for each person
-- [ ] Create an account using Parse
-- [ ] Search other users and add them as friends
-- [ ] Allow users to chat with each other
+- [x] Have a profile for each person
+- [x] Create an account using Parse
+- [x] Search other users and add them as friends
+- [x] Global chat
 - [ ] Have a map showing the destination of the events and how far other members are from the event
 - [ ] Notification when getting a message
 
